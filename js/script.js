@@ -7,6 +7,9 @@ $(window).load(function () {
 });
 
 $(document).ready(function ($) {
+
+    //<a onClick="setActiveStyleSheet('green'); return false;" title="Green" class="green"></a>
+
 	"use strict";	
 	////	Hidder Header	
 	var headerEle = function () {
@@ -608,7 +611,8 @@ function readCookie(name) {
 window.onload = function(e) {
   var cookie = readCookie("style");
   var title = cookie ? cookie : getPreferredStyleSheet();
-  setActiveStyleSheet(title);
+  //setActiveStyleSheet(title);
+  setActiveStyleSheet('jade');
 }
 
 window.onunload = function(e) {
