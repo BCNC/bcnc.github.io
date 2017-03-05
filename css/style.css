@@ -2720,10 +2720,11 @@ ul.icons-list li i {
 
 .team-member .member-info {
 	padding: 15px 6px 0px 6px;
+    text-align: center; /* center because info is now titles */
 }
 
 .team-member .member-socail {
-	//text-align: center;
+	text-align: center;
 }
 
 .team-member .member-socail a i {
