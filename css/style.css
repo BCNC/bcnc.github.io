@@ -154,6 +154,10 @@ p strong {
 	margin-bottom: 15px;
 }
 
+.member-info p {
+    margin-bottom: 10px;
+}
+
 .wite-text {
 	color: #fff;
 }
@@ -2665,6 +2669,7 @@ ul.icons-list li i {
 
 .team-member {
 	padding: 3px;
+    padding-bottom: 5vh;
 	position: relative;
 }
 
@@ -2699,6 +2704,7 @@ ul.icons-list li i {
 }
 
 .team-member .member-photo .member-name span {
+    white-space: nowrap;
 	position: absolute;
 	top: 90%;
 	right: 0;
@@ -2713,7 +2719,7 @@ ul.icons-list li i {
 }
 
 .team-member .member-info {
-	padding: 15px 6px 12px 6px;
+	padding: 15px 6px 0px 6px;
 }
 
 .team-member .member-socail {
