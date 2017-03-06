@@ -53,7 +53,8 @@
   <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
   <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
   <script type="text/javascript" src="js/jquery.parallax.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=sensor=false" type="text/javascript"></script>-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMcQ2UaK_9mopqa5gXNtg2KXuTwmbglnk&callback=initMap" type="text/javascript"></script>
   <script type="text/javascript" src="js/jquery.slicknav.js"></script>
 
 
@@ -165,7 +166,7 @@
               latitude: posLatitude,
               longitude: posLongitude
             },
-            text: '<div class="map-popup"><h4>Web Development | ZoOm-Arts</h4><p>A web development blog for all your HTML5 and WordPress needs.</p></div>',
+            text: '<div class="map-popup"><h4>BCNC</h4></div>',
             icon_url: $('#map').data('marker-img'),
             zoom: 15
           }, options);
