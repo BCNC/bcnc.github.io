@@ -70,7 +70,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
+        js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 })
@@ -522,8 +522,16 @@
             <!-- .col-md-3 -->
             <!-- End Subscribe & Social Links Widget -->
 
-            <div class="fb-page"></div>
-
+            <div class="col-md-3 col-xs-12">
+              <div class="footer-widget">
+						    <div class="fb-page" 
+                  data-tabs="timeline,events,messages"
+                  data-href="https://www.facebook.com/davisbcnc"
+                  data-width="380" 
+                  data-hide-cover="false">
+                </div>
+              </div>
+            </div>
 
             <!-- Start Flickr Widget -->
             <div class="col-md-3 col-xs-12">
