@@ -59,21 +59,31 @@
     <script type="text/javascript" src="js/jquery.slicknav.js"></script>
 
 
-    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if IE 8]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
   </head>
 
   <body>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
+      var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
         js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-})
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js"></script>
+		<script type="text/javascript">
+		    var feed = new Instafeed({
+		        get: 'user',
+            userId: '2996892988',
+            accessToken: '2996892988.1677ed0.d9ba50f469fb43cf9a1d1c91f17c6714',
+            template: '<li><a href="{{link}}" class="lightbox"><img alt="" src="{{image}}"></a></li>'
+		    });
+		    feed.run();
+		</script>
+
 
     <!-- Full Body Container -->
     <div id="container">
@@ -525,7 +535,7 @@
             <div class="col-md-3 col-xs-12">
               <div class="footer-widget">
 						    <div class="fb-page" 
-                  data-tabs="timeline,messages"
+                  data-tabs="timeline"
                   data-href="https://www.facebook.com/davisbcnc"
                   data-width="380" 
                   data-small-header="true"
@@ -535,61 +545,17 @@
               </div>
             </div>
 
-            <!-- Start Flickr Widget -->
+            <!-- Start InstaFeed Widget -->
             <div class="col-md-3 col-xs-12">
               <div class="footer-widget flickr-widget">
-                <h4>Flicker Feed<span class="head-line"></span></h4>
+                <h4>Insta Feed<span class="head-line"></span></h4>
                 <ul class="flickr-list">
-                  <li>
-                    <a href="images/flickr-01.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-01.jpg">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="images/flickr-02.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-02.jpg">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="images/flickr-03.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-03.jpg">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="images/flickr-04.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-04.jpg">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="images/flickr-05.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-05.jpg">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="images/flickr-06.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-06.jpg">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="images/flickr-07.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-07.jpg">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="images/flickr-08.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-08.jpg">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="images/flickr-09.jpg" class="lightbox">
-                      <img alt="" src="images/flickr-09.jpg">
-                    </a>
-                  </li>
+                  <div id="instafeed"></div>
                 </ul>
               </div>
             </div>
             <!-- .col-md-3 -->
-            <!-- End Flickr Widget -->
+            <!-- End InstaFeed Widget -->
 
 
             <!-- Start Contact Widget -->
