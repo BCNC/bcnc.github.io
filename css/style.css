@@ -5658,7 +5658,7 @@ ul.footer-nav li a:hover {
 .purchase {
     /*background: url(../images/parallax/bg-01.jpg) no-repeat;*/
     background: url(../images/parallax/bg_snf.png) no-repeat;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     padding: 100px 0;
 }
 
