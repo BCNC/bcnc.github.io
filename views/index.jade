@@ -1,0 +1,30 @@
+extends layout
+  
+block content
+  .wrapper
+    form.form(action='')
+        .field
+          label First name
+          |     
+          input(type='text', id='firstname', placeholder='Obama')
+        |   
+        .field
+          label Last name
+          |     
+          input(type='text', id='lastname', placeholder='Biden')
+        |   
+        .field
+          label Telephone
+          |     
+          input(type='text', id='telephone', placeholder='408 911 6969')
+        |   
+        .field
+          label Email
+          |     
+          input(type='text', id='email', placeholder='fbi@bokbok.gov')
+    button(class='button' href='google.com' onclick='submit()') Sell your soul
+
+block scripts
+  link(rel='stylesheet', href='/stylesheets/nottypeform.css')
+  script(src="javascripts/nottypeform.js" type="text/javascript")
+

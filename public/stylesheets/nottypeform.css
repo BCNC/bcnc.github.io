@@ -1,0 +1,31 @@
+* {box-sizing: border-box;}
+
+.wrapper {
+  margin: 0 auto;
+  width: 50%;
+  background-color: blue;
+  position: relative;
+  padding: 10rem;
+  height: 400px;
+  overflow-y: auto;
+}
+
+.field {
+  transform: scale(0.8);
+  margin-bottom: 3rem;
+  opacity: 0.5;
+  transition: 0.5s ease all;
+}
+
+.field label {
+  display: block;
+}
+
+.field input {
+  
+}
+
+.field.active {
+  opacity: 1;
+  transform: scale(1);
+}
