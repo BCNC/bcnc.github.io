@@ -53,6 +53,17 @@ The server will store the image in `/uploads`, and return the name used to store
   brew services restart mongo
   ```
 
+# To Start
+* Start MySQL Server
+  ```
+  mysql.server start
+  ```
+* Start node server
+  ``` 
+  node bin/www
+  ```
+* Pages can be found on localhost:3000/[page]
+
 # Relevant Links:
 * [Setting up Node.js, Express, Jade, with MongoDB](http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/)
 * [Mongodb Node.js tutorial](https://mongodb.github.io/node-mongodb-native/2.2/quick-start/)

@@ -24,11 +24,12 @@ html
                 each name in people
                     - var temp = name['_id'];
                     - var link = '/resume?filename=' + temp;
-                    - var status = name['status']
-                    - var ac = name['accept']
-                    - var re = name['reject']
+                    - var status = name['status'] // ??
+                    - var ac = name['accept'] // number of clicks on accept
+                    - var re = name['reject'] // number of clicks on reject
                     - var net = ac - re;
                     - console.log('net is ' + net);
+
                     if status == 1 && net > 0
                         tr(id='#{temp}' class='accept')
                            td=name['first']
@@ -42,6 +43,8 @@ html
                              p
                                a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
                              iframe#ifram1(src='#{link}' style="width: 100%;")
+
+                        // if we
                     else if status == 1
                         tr(id='#{temp}' class='reject')
                            td=name['first']

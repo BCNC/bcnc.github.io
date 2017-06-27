@@ -8,7 +8,6 @@ assert = require('assert');
 // Connection url
 var url = 'mongodb://localhost:27017/BlackHawk';
 
-
 // Inserts many documents
 var insertDocuments = function(info, db, callback) {
     // Get documents collection
