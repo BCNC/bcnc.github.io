@@ -1,0 +1,48 @@
+doctype html
+html
+    head
+        title= title
+        script(src="https://code.jquery.com/jquery-2.2.4.min.js")
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css')
+        link(rel='stylesheet', href='/stylesheets/dropzone.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+    body#radial-center
+        h2.center Add Events Here
+        div.row
+            form.col.s12
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix label_outline
+                        input#eventtitle.validate(type="text")
+                        label(for="eventtitle") Event Title
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix supervisor_account
+                        input#organization.validate(type="text")
+                        label(for="organization") Organization
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix today
+                        input#date.validate(type="text")
+                        label(for="date") Date
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix http
+                        input#link.validate(type="text")
+                        label(for="link") Event Link
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix comment
+                        input#description.validate(type="text")
+                        label(for="description") Event Description
+
+        <br>
+        div.center-align
+            button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="eventsubmit()") Submit
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js" type="text/javascript")
+        script(src="javascripts/nottypeform.js" type="text/javascript")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js")
+        script(src="javascripts/form.js" type="text/javascript")
+
+

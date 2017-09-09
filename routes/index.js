@@ -92,6 +92,11 @@ router.get('/nottypeform', function(req, res, next) {
   res.render('nottypeform', { title: 'Not Type Form' });
 });
 
+/* Render event form */
+router.get('/event', function(req, res, next){
+    res.render('event', { title: 'Events' });
+})
+
 /* Render table; pass mongodb results */
 router.get('/table', function(req, res, next) {
     var condition = {first: { $exists: true }};
@@ -160,6 +165,24 @@ router.post('/submit', function(req, res) {
     queries.all();
     res.end("Submit data has been entered in database");
 });
+
+/* For saving form data */
+router.post('/eventsubmit', function(req, res) {
+    console.log("Server has received event data");
+    var info = {
+        'first': req.body.title,
+        'last': req.body.org,
+        'phone': req.body.date,
+        'email': req.body.link
+    };
+
+    queries.update(info, req.body.filename);
+    console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
+    queries.all();
+    res.end("Submit data has been entered in database");
+});
+
+
 
 // Export to make this externally visible
 module.exports = router;

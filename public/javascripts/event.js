@@ -3,28 +3,29 @@
 var resp_filename;
 var filecount;
 
-// called from button on form page
-function submit() {
-    var first = $('#firstname').val().trim();
-    var last = $('#lastname').val().trim();
-    var phone = $('#phone').val().trim();
-    var email = $('#email').val().trim();
-    if (first != '' && last != '' && phone != '' && email != '' && filecount != 0) {
+// called from button on event page
+function eventsubmit() {
+    var title = $('#eventtitle').val().trim();
+    var org = $('#organization').val().trim();
+    var date = $('#date').val().trim();
+    var link = $('#link').val().trim();
+
+    // Make sure all fields are populated
+    if (title != '' && org != '' && date != '' && link != '') {
         $.ajax({
             type: "POST",
-            url: '/submit',
+            url: '/eventsubmit',
             data: {
-                'firstname': first,
-                'lastname': last,
-                'telephone': phone,
-                'email': email,
-                'filename': resp_filename
+                'title': title,
+                'org': org,
+                'date': date,
+                'link': link
             },
             success: function(resp) {
-                $('#firstname').val('');
-                $('#lastname').val('');
-                $('#phone').val('');
-                $('#email').val('');
+                $('#title').val('');
+                $('#org').val('');
+                $('#date').val('');
+                $('#link').val('');
                 window.location = '/thankyou';
             }
         });
@@ -169,20 +170,20 @@ $(document).ready(function() {
         dictFallbackMessage: "Your browser doesn't support drag n' drop uploads.",
         forceFallback: false,
         acceptedFiles: 'image/*,application/pdf',
-                               addRemoveLinks: true
-                               };
+        addRemoveLinks: true
+    };
 
-        /* Disable button until all fields are filled out */
-        $('form').keyup(function() {
-            var first = $('#firstname').val().trim();
-            var last = $('#lastname').val().trim();
-            var phone = $('#phone').val().trim();
-            var email = $('#email').val().trim();
-            if (first != '' && last != '' && phone != '' && email != '' && filecount != 0) {
-                $('#submit').removeClass('disabled');
-            }
-            else {
-                $('#submit').addClass('disabled')
-            }
-        });
+    /* Disable button until all fields are filled out */
+    $('form').keyup(function() {
+        var first = $('#firstname').val().trim();
+        var last = $('#lastname').val().trim();
+        var phone = $('#phone').val().trim();
+        var email = $('#email').val().trim();
+        if (first != '' && last != '' && phone != '' && email != '' && filecount != 0) {
+            $('#submit').removeClass('disabled');
+        }
+        else {
+            $('#submit').addClass('disabled')
+        }
+    });
 });

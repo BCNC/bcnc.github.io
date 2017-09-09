@@ -26,6 +26,11 @@ The server will store the image in `/uploads`, and return the name used to store
 * The name, as well as the general information, is then sent back to the server (post) on final submit. The user is redirected to a "thankyou" page.
 * Admins will look over results at `/table`. The table is sortable and there will be a pdfreader so resumes can be read. 
 
+# Dependencies
+   ```
+   npm install mongodb
+   ``` 
+
 # Developmental Processes
 
 * Database Back-up

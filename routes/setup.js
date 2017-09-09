@@ -19,6 +19,7 @@ var url = 'mongodb://localhost:27017/BlackHawk';
 var insertDocuments = function(db, callback) {
     // Get documents collection
     var collection = db.collection('documents');
+
     // Insert some documents
     collection.insertMany([
             //{a: 1}, {a: 2}, {a: 3}
