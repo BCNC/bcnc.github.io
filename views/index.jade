@@ -1,30 +1,506 @@
-extends layout
-  
-block content
-  .wrapper
-    form.form(action='')
-        .field
-          label First name
-          |     
-          input(type='text', id='firstname', placeholder='Obama')
-        |   
-        .field
-          label Last name
-          |     
-          input(type='text', id='lastname', placeholder='Biden')
-        |   
-        .field
-          label Telephone
-          |     
-          input(type='text', id='telephone', placeholder='408 911 6969')
-        |   
-        .field
-          label Email
-          |     
-          input(type='text', id='email', placeholder='fbi@bokbok.gov')
-    button(class='button' href='google.com' onclick='submit()') Sell your soul
-
-block scripts
-  link(rel='stylesheet', href='/stylesheets/nottypeform.css')
-  script(src="javascripts/nottypeform.js" type="text/javascript")
-
+doctype html
+//if IE 8
+  html.ie.ie8(lang='en')
+//if (gte IE 9)|!(IE)
+  html.no-js(lang='en')
+html(lang='en')
+    head
+        // Basic
+        title BCNC | Home
+        // Define Charset
+        meta(charset='utf-8')
+        // Responsive Metatag
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // Page Description and Author
+        meta(name='description', content='Business Career and Networking Club')
+        meta(name='author', content='Vincent Yang')
+        // Bootstrap CSS
+        link(rel='stylesheet', href='stylesheets/bootstrap.min.css', type='text/css', media='screen')
+        // Font Awesome CSS
+        link(rel='stylesheet', href='stylesheets/font-awesome.min.css', type='text/css', media='screen')
+        // Slicknav
+        link(rel='stylesheet', type='text/css', href='stylesheets/slicknav.css', media='screen')
+        // Margo CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/style.css', media='screen')
+        // Responsive CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/responsive.css', media='screen')
+        // Css3 Transitions Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/animate.css', media='screen')
+        // Color CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
+        // BCNC JS
+        script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
+        script(type='text/javascript', src='javascripts/jquery.migrate.js')
+        script(type='text/javascript', src='javascripts/modernizrr.js')
+        script(type='text/javascript', src='assets/js/bootstrap.min.js')
+        script(type='text/javascript', src='javascripts/jquery.fitvids.js')
+        script(type='text/javascript', src='javascripts/owl.carousel.min.js')
+        script(type='text/javascript', src='javascripts/nivo-lightbox.min.js')
+        script(type='text/javascript', src='javascripts/jquery.isotope.min.js')
+        script(type='text/javascript', src='javascripts/jquery.appear.js')
+        script(type='text/javascript', src='javascripts/count-to.js')
+        script(type='text/javascript', src='javascripts/jquery.textillate.js')
+        script(type='text/javascript', src='javascripts/jquery.lettering.js')
+        script(type='text/javascript', src='javascripts/jquery.easypiechart.min.js')
+        script(type='text/javascript', src='javascripts/jquery.nicescroll.min.js')
+        script(type='text/javascript', src='javascripts/jquery.parallax.js')
+        script(type='text/javascript', src='javascripts/mediaelement-and-player.js')
+        script(type='text/javascript', src='javascripts/jquery.slicknav.js')
+        //if IE 8
+          script(src='https://html5shiv.googlecode.com/svn/trunk/html5.js')
+        //if lt IE 9
+          script(src='https://html5shiv.googlecode.com/svn/trunk/html5.js')
+    body
+        #fb-root
+        script.
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js')
+        script(type='text/javascript').
+            var feed = new Instafeed({
+                get: 'user',
+                userId: '2996892988',
+                accessToken: '2996892988.1677ed0.d9ba50f469fb43cf9a1d1c91f17c6714',
+                template: 'li a.lightbox(href = \'{{link}}\') img(alt = \'\', src = \'{{image}}\')'
+            });
+            feed.run();
+        // Full Body Container
+        #container
+            // Start Header Section
+            .hidden-header
+            header.clearfix
+                // Start Top Bar
+                .top-bar
+                    .container
+                        .row
+                            .col-md-7
+                                // Start Contact Info
+                                ul.contact-details
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-map-marker
+                                            |  Davis, CA
+                                    li
+                                        a(href='mailto:contactbcnc@gmail.com')
+                                            i.fa.fa-envelope-o
+                                            |  contactbcnc@gmail.com
+                                // End Contact Info
+                            // .col-md-6
+                            .col-md-5
+                                // Start Social Links
+                                ul.social-list
+                                    li
+                                        a.facebook.itl-tooltip(data-placement='bottom', title='Facebook', target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin.itl-tooltip(data-placement='bottom', title='Linkedin', target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram.itl-tooltip(data-placement='bottom', title='Instagram', target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                                // End Social Links
+                            // .col-md-6
+                        // .row
+                    // .container
+                // .top-bar
+                // End Top Bar
+                // Start Header ( Logo & Naviagtion )
+                .navbar.navbar-default.navbar-top
+                    .container
+                        .navbar-header
+                            // Stat Toggle Nav Link For Mobiles
+                            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                i.fa.fa-bars
+                            // End Toggle Nav Link For Mobiles
+                            a.navbar-brand(href='index.html')
+                                img(alt='', src='images/bcnc.png')
+                        .navbar-collapse.collapse
+                            // Start Navigation List
+                            ul.nav.navbar-nav.navbar-right
+                                li
+                                    a.active(href='index.jade') Home
+                                li
+                                    a(href='about.jade') About
+                                li
+                                    a(href='our-team.jade') Our Team
+                                li
+                                    a(href='partners.jade') Partners
+                                li
+                                    a(href='faq.jade') FAQs
+                                    ul.dropdown
+                                        li
+                                            a(href='faq.jade') Students
+                                        li
+                                            a(href='faq.jade#organizations-spacing') Organizations
+                                        li
+                                            a(href='faq.jade#professionals-spacing') Professionals
+                                li
+                                    a(href='contact.html') Contact
+                            // End Navigation List
+                    // Mobile Menu Start
+                    ul.wpb-mobile-menu
+                        li
+                            a.active(href='index.jade') Home
+                        li
+                            a(href='about.jade') About
+                        li
+                            a(href='our-team.jade') Our Team
+                        li
+                            a(href='partners.jade') Partners
+                        li
+                            a(href='faq.jade') FAQs
+                        li
+                            a(href='contact.jade') Contact
+                    // Mobile Menu End
+                // End Header ( Logo & Naviagtion )
+            // End Header Section
+            // Start Home Page Slider
+            section#home
+                // Carousel
+                #main-slide.carousel.slide(data-ride='carousel')
+                    // Indicators
+                    ol.carousel-indicators
+                        li.active(data-target='#main-slide', data-slide-to='0')
+                        li(data-target='#main-slide', data-slide-to='1')
+                        li(data-target='#main-slide', data-slide-to='2')
+                    // / Indicators end
+                    // Carousel inner
+                    .carousel-inner
+                        .item.active
+                            img.img-responsive(src='images/slider/bg_broomball.png', alt='slider')
+                            .slider-content
+                                .col-md-12.text-center
+                                    h2.animated2
+                                        span(style='color: #fff')
+                                            | Join the
+                                            strong BCNC
+                                            |  Network
+                                    h3.animated3
+                                        span(style='color: #fff') Connect with us on Facebook!
+                                    p.animated4
+                                        a.slider.btn.btn-system.btn-large(target='_blank', href='https://www.facebook.com/davisbcnc') Follow
+                        // / Carousel item end
+                        .item
+                            img.img-responsive(src='images/slider/bg_newsletter.png', alt='slider')
+                            .slider-content
+                                .col-md-12.text-center
+                                    h2.animated4
+                                        span(style='color: #fff')
+                                            | Weekly
+                                            strong Newsletter
+                                            br
+                                    h3.animated5
+                                        span(style='color: #fff') Discover your next career development opportunity
+                                    p.animated6
+                                        a.slider.btn.btn-system.btn-large(target='_blank', href='https://www.facebook.com/davisbcnc/app/100265896690345/') Subscribe
+                        // / Carousel item end
+                        .item
+                            img.img-responsive(src='images/slider/banquet.png', alt='slider')
+                            .slider-content
+                                .col-md-12.text-center
+                                    h2.animated7
+                                        span(style='color: #fff')
+                                            strong Sponsorship
+                                            |  Packages
+                                    //
+                                      <h3 class="animated8 white">
+                                      <span>Why you are waiting</span>
+                                      </h3>
+                                      <div class="">
+                                      <a class="animated4 slider btn btn-system btn-large btn-min-block" href="#">Get Now</a><a class="animated4 slider btn btn-default btn-min-block" href="#">Live Demo</a>
+                                      </div>
+                        // / Carousel item end
+                    // Carousel inner end
+                    // Controls
+                    a.left.carousel-control(href='#main-slide', data-slide='prev')
+                        span
+                            i.fa.fa-angle-left
+                    a.right.carousel-control(href='#main-slide', data-slide='next')
+                        span
+                            i.fa.fa-angle-right
+                // /carousel
+            // End Home Page Slider
+            // Divider
+            .hr1(style='margin-bottom:50px;')
+            // Start Upcoming Events Section
+            div
+                .container
+                    .row
+                        .col-md-12
+                            // Start Recent Posts Carousel
+                            .latest-posts
+                                h4.classic-title
+                                    span Upcoming Events
+                                .latest-posts-classic.custom-carousel.touch-carousel(data-appeared-items='4')
+                                    // Posts 4
+                                    .post-row.item
+                                        .left-meta-post
+                                            .post-date
+                                                span.day 23
+                                                span.month May
+                                            .post-type
+                                                a(target='_blank', href='https://www.facebook.com/events/431362353903668/')
+                                                    i.fa.fa-facebook
+                                        h3.post-title
+                                            a(href='https://www.facebook.com/events/431362353903668/') Graduation Leis Fundraiser
+                                        .post-content
+                                            p
+                                                | The Economics & Business Student Association (EBSA) is selling ribbon leis for graduation. They have an assortment of colors and can customize them upon request. Interested in purchasing graduation leis? Click
+                                                a(href='https://docs.google.com/a/ucdavis.edu/forms/d/1ZwRWhTj4NsrjZSgo-oRS4jJP9r119e9kIdyMZYQm2nM/viewform?edit_requested=true', target='_blank') here
+                                                |  for the order form.
+                                    // Posts 1
+                                    .post-row.item
+                                        .left-meta-post
+                                            .post-date
+                                                span.day 23
+                                                span.month May
+                                            .post-type
+                                                a(target='_blank', href='https://www.facebook.com/events/288174401622623/?ti=icl')
+                                                    i.fa.fa-facebook
+                                        h3.post-title
+                                            a(href='https://www.facebook.com/events/288174401622623/?ti=icl') Senior Panel Night
+                                        .post-content
+                                            p
+                                                | The Economics & Business Student Association (EBSA) Economics Business Student Association - EBSA is hosting a Senior Panel Night celebrating the graduating seniors and their time at UC Davis. The seniors will be sharing their stories and giving advice from what they learned throughout their college careers. Click
+                                                a(href='https://www.facebook.com/events/288174401622623/?ti=icl', target='_blank') here
+                                                |  to RSVP!
+                                    // Posts 3
+                                    .post-row.item
+                                        .left-meta-post
+                                            .post-date
+                                                span.day 25
+                                                span.month May
+                                            .post-type
+                                                a(target='_blank', href='https://www.facebook.com/events/744120375762136/')
+                                                    i.fa.fa-facebook
+                                        h3.post-title
+                                            a(href='https://www.facebook.com/events/744120375762136/') Accounting for Your Future and Beyond
+                                        .post-content
+                                            p
+                                                | The Davis Accounting Society interns will provide you with all the information you need to start your accounting career! This will be a great opportunity to learn more about the accounting profession. The interns will discuss the different fields of accounting, lines of service, recruiting cycles, and more! For more information, click
+                                                a(href='https://www.facebook.com/events/744120375762136/', target='_blank') here
+                                                | !
+                                    // Posts 2
+                                    .post-row.item
+                                        .left-meta-post
+                                            .post-date
+                                                span.day 23
+                                                span.month May
+                                            .post-type
+                                                a(target='_blank', href='https://www.facebook.com/EconclubatUCD/')
+                                                    i.fa.fa-facebook
+                                        h3.post-title
+                                            a(href='https://www.facebook.com/EconclubatUCD/') Economics Club Applications
+                                        .post-content
+                                            p
+                                                | The Economics Club brings in professional and professor speakers to give insight into economic related career paths. They also host professional workshops to build professional skills and socials to build community for their members. Interested in joining? Click
+                                                a(href='https://docs.google.com/a/ucdavis.edu/forms/d/e/1FAIpQLScDRBKQYAVB09psqt-KNztY8msJSeNBZTDeUcQQ-K2wafgq7A/viewform', target='_blank') here
+                                                |  to apply!
+                            // End Recent Posts Carousel
+            // End Testimonials Section
+            // Start Services Section
+            .section.service
+                .container
+                    .row
+                        // Start Big Heading
+                        .big-title.text-center
+                            h1
+                                | What We
+                                strong Offer
+                            p.title-desc BCNC Services
+                        // End Big Heading
+                        // Start Service Icon 1
+                        .col-md-3.col-sm-6.service-box.service-center(data-animation='fadeIn', data-animation-delay='01')
+                            .service-icon
+                                i.fa.fa-newspaper-o.icon-large
+                            .service-content
+                                h4 Weekly Newsletter
+                                p
+                                    | Our Weekly Newsletter service is an excellent way for prospective business students to discover upcoming events and recruitment opportunities at UC Davis.
+                        // End Service Icon 1
+                        // Start Service Icon 2
+                        .col-md-3.col-sm-6.service-box.service-center(data-animation='fadeIn', data-animation-delay='02')
+                            .service-icon
+                                i.fa.fa-paper-plane-o.icon-large
+                            .service-content
+                                h4 Brand Ambassadors Program
+                                p
+                                    | We work closely with our Partner Organizations and select brand ambassadors to bring great products and services to our events and campus community.
+                        // End Service Icon 2
+                        // Start Service Icon 3
+                        .col-md-3.col-sm-6.service-box.service-center(data-animation='fadeIn', data-animation-delay='03')
+                            .service-icon
+                                i.fa.fa-database.icon-large
+                            .service-content
+                                h4 #Connect Database
+                                p
+                                    | Our #Connect Database helps us identify demographic trends and uses algorithms to connect participating students with potential jobs and internships.
+                        // End Service Icon 3
+                        // Start Service Icon 4
+                        .col-md-3.col-sm-6.service-box.service-center(data-animation='fadeIn', data-animation-delay='04')
+                            .service-icon
+                                i.fa.fa-connectdevelop.icon-large
+                            .service-content
+                                h4 Business Presidents Group
+                                p
+                                    | The objective of our Business Presidents Group is to encourage cooperation among young business professionals and to develop procedures for better communication across our organizations.
+                        // End Service Icon 4
+                    // .row
+                // .container
+            // End Services Section
+            // Start Client/Partner Section
+            .partner
+                .container
+                    .row
+                        // Start Big Heading
+                        .big-title.text-center
+                            h1
+                                | Our
+                                strong Partners
+                            p.title-desc Organizations We Work With
+                        // End Big Heading
+                        // Start Clients Carousel
+                        .our-clients
+                            .clients-carousel.custom-carousel.touch-carousel.navigation-3(data-appeared-items='5', data-navigation='true')
+                                // Client 1
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/cyc_small.png', alt='')
+                                // Client 2
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/dcg_small.png', alt='')
+                                // Client 3
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/hackdavis_small.png', alt='')
+                                // Client 4
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/dwib_small.png', alt='')
+                                // Client 5
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/netimpact_small.png', alt='')
+                                // Client 6
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/das_small.png', alt='')
+                                // Client 7
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/econclub_small.png', alt='')
+                                // Client 8
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/dsp_small.png', alt='')
+                                // Client 8
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/designaire_small.png', alt='')
+                                // Client 8
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/vita_small.png', alt='')
+                                // Client 8
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/akpsi_small.png', alt='')
+                                // Client 8
+                                .client-item.item
+                                    a(href='#')
+                                        img(src='images/ascend_small.png', alt='')
+                        // End Clients Carousel
+                    // .row
+                // .container
+            // End Client/Partner Section
+            // Start Footer Section
+            footer
+                .container
+                    .row.footer-widgets
+                        // Start Subscribe & Social Links Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.mail-subscribe-widget
+                                h4
+                                    | Subscribe to our newsletter
+                                    span.head-line
+                                p Join our mailing list to stay up to date and get notices about our new releases!
+                                form.subscribe(action='https://formspree.io/contactbcnc@gmail.com', method='POST')
+                                    input(type='text', placeholder='mail@example.com')
+                                    input.btn-system(type='submit', value='Send')
+                            .footer-widget.social-widget
+                                h4
+                                    | Follow Us
+                                    span.head-line
+                                ul.social-icons
+                                    li
+                                        a.facebook(target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin(target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram(target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                        // .col-md-3
+                        // End Subscribe & Social Links Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget
+                                .fb-page(data-tabs='timeline', data-href='https://www.facebook.com/davisbcnc', data-width='380', data-small-header='true', data-height='300', data-hide-cover='false')
+                        // Start InstaFeed Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.flickr-widget
+                                h4
+                                    | Insta Feed
+                                    span.head-line
+                                ul.flickr-list
+                                    #instafeed
+                        // .col-md-3
+                        // End InstaFeed Widget
+                        // Start Contact Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.contact-widget
+                                h4
+                                    img.img-responsive(src='images/bcnc.png', alt='Footer Logo')
+                                p
+                                    | The Business Career and Networking Club was created to bridge the gap between businesses and UC Davis students. We strive to link qualified individuals with innovative companies by working year-round to bring value to our students and their future employers.
+                                ul
+                                    li
+                                        span Email:
+                                        |  contactbcnc@gmail.com
+                                    li
+                                        span Website:
+                                        |  www.bcnclub.com
+                        // .col-md-3
+                        // End Contact Widget
+                    // .row
+                    // Start Copyright
+                    .copyright-section
+                        .row
+                            .col-md-6
+                                p
+                                    | © 2017 BCNC - All Rights Reserved
+                                    a(href='bcnclub.com') BCNC
+                            // .col-md-6
+                            .col-md-6
+                                ul.footer-nav
+                                    li
+                                        a(href='contact.html') Contact
+                            // .col-md-6
+                        // .row
+                    // End Copyright
+            // End Footer Section
+        // End Full Body Container
+        // Go To Top Link
+        a.back-to-top(href='#')
+            i.fa.fa-angle-up
+        #loader
+            .spinner
+                .dot1
+                .dot2
+        script(type='text/javascript', src='javascripts/script.js')
