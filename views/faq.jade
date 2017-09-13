@@ -1,0 +1,308 @@
+doctype html
+//if IE 8
+  html.ie.ie8(lang='en')
+//if (gte IE 9)|!(IE)
+  html.no-js(lang='en')
+html(lang='en')
+    head
+        // Basic
+        title BCNC | Contact
+        // Define Charset
+        meta(charset='utf-8')
+        // Responsive Metatag
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // Page Description and Author
+        meta(name='description', content='BCNC')
+        meta(name='author', content='iThemesLab')
+        // Bootstrap CSS
+        link(rel='stylesheet', href='assets/css/bootstrap.min.css', type='text/css', media='screen')
+        // Font Awesome CSS
+        link(rel='stylesheet', href='stylesheets/font-awesome.min.css', type='text/css', media='screen')
+        // Slicknav
+        link(rel='stylesheet', type='text/css', href='stylesheets/slicknav.css', media='screen')
+        // Margo CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/style.css', media='screen')
+        // Responsive CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/responsive.css', media='screen')
+        // Color CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
+        // Margo JS
+        script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
+        script(type='text/javascript', src='javascripts/jquery.migrate.js')
+        script(type='text/javascript', src='javascripts/modernizrr.js')
+        script(type='text/javascript', src='assets/js/bootstrap.min.js')
+        script(type='text/javascript', src='javascripts/jquery.fitvids.js')
+        script(type='text/javascript', src='javascripts/owl.carousel.min.js')
+        script(type='text/javascript', src='javascripts/nivo-lightbox.min.js')
+        script(type='text/javascript', src='javascripts/jquery.isotope.min.js')
+        script(type='text/javascript', src='javascripts/jquery.appear.js')
+        script(type='text/javascript', src='javascripts/count-to.js')
+        script(type='text/javascript', src='javascripts/jquery.textillate.js')
+        script(type='text/javascript', src='javascripts/jquery.lettering.js')
+        script(type='text/javascript', src='javascripts/jquery.easypiechart.min.js')
+        script(type='text/javascript', src='javascripts/jquery.nicescroll.min.js')
+        script(type='text/javascript', src='javascripts/jquery.parallax.js')
+        script(type='text/javascript', src='javascripts/jquery.slicknav.js')
+        //if IE 8
+          script(src='https://html5shiv.googlecode.com/svn/trunk/html5.js')
+        //if lt IE 9
+          script(src='https://html5shiv.googlecode.com/svn/trunk/html5.js')
+    body
+        #fb-root
+        script.
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js')
+        script(type='text/javascript').
+            var feed = new Instafeed({
+                get: 'user',
+                userId: '2996892988',
+                accessToken: '2996892988.1677ed0.d9ba50f469fb43cf9a1d1c91f17c6714',
+                template: 'li a.lightbox(href = \'{{link}}\') img(alt = \'\', src = \'{{image}}\')'
+            });
+            feed.run();
+        // Container
+        #container
+            // Start Header
+            .hidden-header
+            header.clearfix
+                // Start Top Bar
+                .top-bar
+                    .container
+                        .row
+                            .col-md-6
+                                // Start Contact Info
+                                ul.contact-details
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-map-marker
+                                            |  Davis, CA
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-envelope-o
+                                            |  contactbcnc@gmail.com
+                                // End Contact Info
+                            .col-md-6
+                                // Start Social Links
+                                ul.social-list
+                                    li
+                                        a.facebook.itl-tooltip(data-placement='bottom', title='Facebook', target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin.itl-tooltip(data-placement='bottom', title='Linkedin', target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram.itl-tooltip(data-placement='bottom', title='Instagram', target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                                // End Social Links
+                // End Top Bar
+                // Start Header ( Logo & Naviagtion )
+                .navbar.navbar-default.navbar-top
+                    .container
+                        .navbar-header
+                            // Stat Toggle Nav Link For Mobiles
+                            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                i.fa.fa-bars
+                            // End Toggle Nav Link For Mobiles
+                            a.navbar-brand(href='/')
+                                img(alt='', src='images/bcnc.png')
+                        .navbar-collapse.collapse
+                            // Start Navigation List
+                            ul.nav.navbar-nav.navbar-right
+                                li
+                                    a(href='/') Home
+                                li
+                                    a(href='about') About
+                                li
+                                    a(href='our-team') Our Team
+                                li
+                                    a(href='partners') Partners
+                                li
+                                    a.active(href='faq') FAQs
+                                    ul.dropdown
+                                        li
+                                            a.active(onclick="$('#students').animatescroll({padding:70});") Students
+                                        li
+                                            a.active(onclick="$('#organizations').animatescroll({padding:70});") Organizations
+                                        li
+                                            a.active(onclick="$('#professionals').animatescroll({padding:70});") Professionals
+                                li
+                                    a(href='contact') Contact
+                            // End Navigation List
+                    // Mobile Menu Start
+                    ul.wpb-mobile-menu
+                        li
+                            a(href='/') Home
+                        li
+                            a(href='about') About
+                        li
+                            a(href='our-team') Our Team
+                        li
+                            a(href='partners') Partners
+                        li
+                            a.active(href='faq') FAQs
+                        li
+                            a(href='contact') Contact
+                    // Mobile Menu End
+                // End Header ( Logo & Naviagtion )
+            // End Header
+            // Start Content
+            #content
+                .container
+                    .row
+                        #students.col-sm-12(style='margin-bottom: 50px;')
+                            // Classic Heading
+                            h2.classic-title
+                                span
+                                    b FAQ for Students
+                            .col-sm-12
+                                // Classic Heading
+                                h4
+                                    span How do I become a general member of the Business Career & Networking Club?
+                                // Some Info
+                                p
+                                    | Unlike most student organizations, the Business Career & Networking Club does not offer general membership and consists solely of an Executive Board. However, all of our events and services are completely free and available to all students at UC Davis!
+                                // Divider
+                                .hr1(style='margin-bottom:10px;')
+                                // Divider
+                                .hr1(style='margin-bottom:15px;')
+                            .col-sm-12
+                                // Classic Heading
+                                h4
+                                    span When can I apply to become a member of the Executive Board?
+                                // Some Info
+                                p
+                                    | The Business Career & Networking Club is unique in that we operate like a small startup company. Our recruitment needs are determined by the number of open board positions and our demand for specific job functions. Although most of our recruitment takes place in the Fall and Spring quarters, BCNC does not follow a fixed onboarding schedule.
+                                // Divider
+                                #organizations-spacing.hr1(style='margin-bottom:10px;')
+                                // Divider
+                                .hr1(style='margin-bottom:15px;')
+                        #organizations.col-sm-12(style='margin-bottom: 50px;')
+                            // Classic Heading
+                            h2.classic-title
+                                span
+                                    b FAQ for Undergraduate Business Organizations
+                            .col-sm-12
+                                // Classic Heading
+                                h4
+                                    span
+                                        | We are a new student business group at UC Davis and would like to become a BCNC Partner Organization! How do we get started?
+                                // Some Info
+                                p
+                                    | Thank you for your interest in becoming a BCNC Partner! We would love to learn more about your organization before discussing potential partnership. To get started, please reach out to our email at contactbcnc@gmail.com with “Partner Organization Request” as your subject line.
+                                // Divider
+                                .hr1(style='margin-bottom:10px;')
+                                // Divider
+                                .hr1(style='margin-bottom:15px;')
+                            .col-sm-12
+                                // Classic Heading
+                                h4
+                                    span What are the benefits of becoming a BCNC Partner Organization?
+                                // Some Info
+                                p
+                                    | Great question! As a BCNC Partner Organization, you will be able to advertise your upcoming events on our Weekly Newsletter, participate in our Brand Ambassadors Program and student networking events, and much more!
+                                // Divider
+                                #professionals-spacing.hr1(style='margin-bottom:10px;')
+                                // Divider
+                                .hr1(style='margin-bottom:15px;')
+                        #professionals.col-sm-12(style='margin-bottom: 50px;')
+                            // Classic Heading
+                            h2.classic-title
+                                span
+                                    b FAQ for Professionals
+                            .col-sm-12
+                                // Classic Heading
+                                h4
+                                    span How do we get involved with the Business Career & Networking Club?
+                                // Some Info
+                                p
+                                    | Our team provides marketing services to our professional organizations through career fairs, information sessions, and social media posts. For specific requests or inquiries, please reach out to our email at contactbcnc@gmail.com.
+                                // Divider
+                                .hr1(style='margin-bottom:10px;')
+                                // Divider
+                                .hr1(style='margin-bottom:15px;')
+                // End content
+                // Start Footer
+                footer
+                    .container
+                        .row.footer-widgets
+                            // Start Subscribe & Social Links Widget
+                            .col-md-3
+                                .footer-widget.mail-subscribe-widget
+                                    h4
+                                        | Subscribe to our newsletter
+                                        span.head-line
+                                    p Join our mailing list to stay up to date and get notices about our new releases!
+                                    form.subscribe(action='https://formspree.io/contactbcnc@gmail.com', method='POST')
+                                        input(type='text', placeholder='mail@example.com')
+                                        input.btn-system(type='submit', value='Send')
+                                .footer-widget.social-widget
+                                    h4
+                                        | Follow Us
+                                        span.head-line
+                                    ul.social-icons
+                                        li
+                                            a.facebook(target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                                i.fa.fa-facebook
+                                        li
+                                            a.linkdin(target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                                i.fa.fa-linkedin
+                                        li
+                                            a.instgram(target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                                i.fa.fa-instagram
+                            // .col-md-3
+                            // End Subscribe & Social Links Widget
+                            .col-md-3.col-xs-12
+                                .footer-widget
+                                    .fb-page(data-tabs='timeline', data-href='https://www.facebook.com/davisbcnc', data-width='380', data-small-header='true', data-height='300', data-hide-cover='false')
+                            // Start InstaFeed Widget
+                            .col-md-3.col-xs-12
+                                .footer-widget.flickr-widget
+                                    h4
+                                        | Insta Feed
+                                        span.head-line
+                                    ul.flickr-list
+                                        #instafeed
+                            // .col-md-3
+                            // End InstaFeed Widget
+                            // Start Contact Widget
+                            .col-md-3
+                                .footer-widget.contact-widget
+                                    h4
+                                        img.img-responsive(src='images/bcnc.png', alt='Footer Logo')
+                                    p
+                                        | The Business Career and Networking Club was created to bridge the gap between businesses and UC Davis students. We strive to link qualified individuals with innovative companies by working year-round to bring value to our students and their future employers.
+                                    ul
+                                        li
+                                            span Email:
+                                            |  contactbcnc@gmail.com
+                                        li
+                                            span Website:
+                                            |  www.bcnclub.com
+                            // .col-md-3
+                            // End Contact Widget
+                        // .row
+                        // Start Copyright
+                        .copyright-section
+                            .row
+                                .col-md-6
+                                    p © 2017 BCNC - All Rights Reserved
+                                .col-md-6
+                                    ul.footer-nav
+                                        li
+                                            a(href='#') Contact
+                        // End Copyright
+                // End Footer
+            // End Container
+            // Go To Top Link
+            a.back-to-top(href='#')
+                i.fa.fa-angle-up
+            script(type='text/javascript', src='javascripts/script.js')
+            // Scroll
+            script(type='text/javascript', src='javascripts/animatescroll.js')
+

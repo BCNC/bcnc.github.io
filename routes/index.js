@@ -18,6 +18,31 @@ router.get('/thankyou', function(req, res, next) {
   res.render('thankyou', { title: 'Thank you!' });
 });
 
+/* GET BCNC about page */
+router.get('/about', function(req, res, next) {
+    res.render('about', { title: 'About' });
+});
+
+/* GET BCNC contact page */
+router.get('/contact', function(req, res, next) {
+    res.render('contact', { title: 'Contact' });
+});
+
+/* GET BCNC FAQ page */
+router.get('/faq', function(req, res, next) {
+    res.render('faq', { title: 'FAQ' });
+});
+
+/* GET BCNC our-team page */
+router.get('/our-team', function(req, res, next) {
+    res.render('our-team', { title: 'Our Team' });
+});
+
+/* GET BCNC partners page */
+router.get('/partners', function(req, res, next) {
+    res.render('partners', { title: 'Partners' });
+});
+
 router.get('/resume', function(req, res, next) {
     queries.sendFile(req['query']['filename'], function(pdfData) {
         res.writeHead(200, {
