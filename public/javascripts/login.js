@@ -5,6 +5,15 @@ function onSignIn(googleUser) {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
+
+    var userEntity = {};
+    userEntity.Id = profile.getId();
+    userEntity.Name = profile.getName();
+    userEntity.email = profile.getEmail();
+
+    sessionStorage.setItem('userEntity', JSON.stringify(userEntity));
+
+
 };
 
 function onSignOut() {
@@ -14,4 +23,7 @@ function onSignOut() {
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+
+    sessionStorage.clear();
+
 };

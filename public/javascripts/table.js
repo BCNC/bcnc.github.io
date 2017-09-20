@@ -28,7 +28,9 @@ var accept = function(id) {
             'accept': 1},
             success: function(result) {
                 // change the color of the row
-                if (result > 0) {
+
+                console.log('Result: ' + result)
+                if (result >= 5) {
                     document.getElementById(id).setAttribute('class', 'accept');
                 }
                 else {
@@ -48,7 +50,7 @@ var reject = function(id) {
         },
         success: function(result) {
             // change the color of the row
-            if (result > 0) {
+            if (result >= 5) {
                 document.getElementById(id).setAttribute('class', 'accept');
             }
             else {
@@ -68,5 +70,18 @@ $(document).ready(function() {
             preload: false
         }
     });
+
+    if(sessionStorage.getItem('userEntity') === null) {
+        window.location.href = 'login';
+    } else {
+
+        var user = {};
+        user = JSON.parse(sessionStorage.getItem('userEntity'));
+
+        console.log(user.Name + " is logged in!");
+    }
+
+
+
 });
 

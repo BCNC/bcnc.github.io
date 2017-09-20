@@ -1,6 +1,6 @@
 html
     head
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/stylesheets/table.css')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css')
@@ -22,15 +22,24 @@ html
                 - var index=0;
                 //- var resume_list[];
                 each name in people
+
                     - var temp = name['_id'];
                     - var link = '/resume?filename=' + temp;
-                    - var status = name['status'] // ??
+
+                    // to indicate if new entry
+                    - var status = name['status']
+
+                    // number of clicks on accept
                     - var ac = name['accept'] // number of clicks on accept
+
+                    // number of click on reject
                     - var re = name['reject'] // number of clicks on reject
+
                     - var net = ac - re;
                     - console.log('net is ' + net);
+                    - console.log('temp is ' + temp);
 
-                    if status == 1 && net > 0
+                    if status == 1 && net >= 5
                         tr(id='#{temp}' class='accept')
                            td=name['first']
                            td=name['last']

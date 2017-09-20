@@ -1,0 +1,50 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+button {
+  width: 150px;
+}
+
+#d1:hover {
+  background-color: rgba(255, 255, 255, .7);
+}
+#d1 {
+  background-color: rgba(255, 255, 255, .2);
+  transition: all 0.3s ease 0s;
+}
+
+#radial-center {
+  /* fallback */
+  background-color: #2F2727;
+  background-image: url(images/radial_bg.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  /* Safari 4-5, Chrome 1-9 */
+  /* Can't specify a percentage size? Laaaaaame. */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
+
+  /* Firefox 3.6+ */
+  background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
+
+  /* IE 10 */
+  background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
+
+  /* Opera couldn't do radial gradients, then at some point they started supporting the -webkit- syntax, how it kinda does but it's kinda broken (doesn't do sizing) */
+}
+
+.accept {
+    background-color: #98FB98;
+}
+.reject {
+    background-color: #ffcccb;
+}
