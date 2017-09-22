@@ -624,6 +624,13 @@ var cookie = readCookie("style");
 var title = cookie ? cookie : getPreferredStyleSheet();
 setActiveStyleSheet(title);
 
+function getUserName() {
+
+    var user = {};
+    user = JSON.parse(sessionStorage.getItem('userEntity'));
+
+	return user.Name;
+}
 
 
 $(document).ready(function(){
