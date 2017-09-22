@@ -9,6 +9,7 @@ function submit() {
     var last = $('#lastname').val().trim();
     var phone = $('#phone').val().trim();
     var email = $('#email').val().trim();
+
     if (first != '' && last != '' && phone != '' && email != '' && filecount != 0) {
         $.ajax({
             type: "POST",

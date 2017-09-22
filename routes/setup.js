@@ -23,8 +23,8 @@ var insertDocuments = function(db, callback) {
     // Insert some documents
     collection.insertMany([
             //{a: 1}, {a: 2}, {a: 3}
-            { 'first': 'John', 'last': 'Smith', 'phone': '40891191111', 'email': 'email@email.com' },
-            { 'first': 'John2', 'last': 'Smith2', 'phone': '00091191111', 'email': 'email2@email.com' }
+            { 'first': 'John', 'last': 'Smith', 'phone': '40891191111', 'email': 'email@email.com', 'status': 0, 'accept': 0, 'reject': 0},
+            { 'first': 'John2', 'last': 'Smith2', 'phone': '00091191111', 'email': 'email2@email.com', 'status': 0, 'accept': 0, 'reject': 0 }
     ], function(err, result) {
         assert.equal(err, null);
         assert.equal(2, result.result.n);
@@ -32,7 +32,29 @@ var insertDocuments = function(db, callback) {
         console.log("Inserted 2 documents into the collection");
         callback(result);
     });
-}
+};
+
+// Set up officers
+var insertAdmins = function(db, callback) {
+    // get the officers collection
+    var collection = db.collection('officers');
+
+    // Insert some officers
+    collection.insertMany([
+        {'first': 'Bryan', 'last': 'Ngo', 'email': 'bngo@ucdavis.edu'},
+        {'first': 'Vincent', 'last': 'Yang', 'email': 'vinyang@ucdavis.edu'},
+        {'first': 'Justin', 'last': 'lee', 'email': 'jcdlee@@ucdavis.edu'},
+        {'first': 'Annie', 'last': 'Tu', 'email': 'anntu@ucdavis.edu'},
+        {'first': 'Jia', 'last': 'Yi', 'email': 'jiasitu@ucdavis.edu'}
+        ], function(err, result) {
+
+        assert.equal(5, result.result.n);
+        assert.equal(5, result.ops.length);
+        console.log("Inserted 2 officers into the colleciton");
+        }
+    )
+
+};
 
 var findDocuments = function(db, callback) {
     // Get the documents collection
@@ -44,6 +66,17 @@ var findDocuments = function(db, callback) {
         console.log(docs);
         callback(docs);
     });
+};
+
+var findOfficers = function(db, callback) {
+    // get the officers collection
+    var collection = db.collection('officers');
+
+    collection.find({}).toArray(function(err, docs) {
+        console.log("Found the following officers");
+        console.log(docs);
+        callback(docs);
+    })
 }
 
 var filterDocuments = function(db, callback) {
@@ -93,6 +126,17 @@ var clearDocument = function(db, callback) {
     });
 };
 
+var clearAdmins = function(db, callback) {
+    // get the officers collection
+    var collection = db.collection('officers');
+
+    // delete the officers
+    collection.remove({}, function(err, result) {
+        assert.equal(err, null);
+        callback(result)
+    });
+};
+
 var indexCollection = function(db, callback) {
     db.collection('documents').createIndex(
             { "first": 'john' },
@@ -105,11 +149,16 @@ var indexCollection = function(db, callback) {
 
 // insert
 MongoClient.connect(url, function(err, db) {
+
    clearDocument(db, function() {
-       insertDocuments(db, function() {
-           findDocuments(db, function() {
-               assert.equal(null, err);
-               db.close();
+       clearAdmins(db, function() {
+           insertDocuments(db, function() {
+               findDocuments(db, function() {
+                   insertAdmins(db, function() {
+                       assert.equal(null, err);
+                       db.close();
+                   });
+               });
            });
        });
    });
