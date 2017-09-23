@@ -27,28 +27,63 @@ var insertDocuments = function(info, db, callback) {
 
 /* Select all rows */
 var findDocuments = function(db, callback) {
+
     // Get the documents collection
     var collection = db.collection('documents');
-    // Find some documents
+    // Find all documents
     collection.find({}).toArray(function(err, docs) {
         assert.equal(err, null);
         console.log("Found the following records");
         console.log(docs);
         callback(docs);
     });
-}
+};
+
+/* Select all officers */
+var findOfficers = function(db, callback) {
+
+    // Get the officers collection
+    var collection = db.collection('officers');
+
+    // Find all officers
+    collection.find({}).toArray(function(err, officers) {
+       assert.equal(err, null);
+       console.log("Found the following officers");
+       console.log(officers);
+       callback(officers);
+    });
+};
 
 /* Select specific rows */
 var filterDocuments = function(condition, db, callback) {
+
     // Get the documents collection
     var collection = db.collection('documents');
+
     // Find some documents
     collection.find(condition).toArray(function(err, docs) {
         assert.equal(err, null);
+        console.log("Found specific record(s) with condition " + condition);
         console.log(docs);
         callback(docs);
     });
-}
+};
+
+/* Select specific officer */
+var filterOfficers = function(condition, db, callback) {
+
+    // Get the officers collection
+    var collection = db.collection('officers');
+
+    // find some officers
+    collection.find(condition).toArray(function(err, officers) {
+        assert.equal(err, null);
+        console.log("Found specific officer(s) with condition" + condition);
+        console.log(officers)
+    });
+};
+
+
 
 /* Update a row with some new data */
 var updateDocument = function(info, key, db, callback) {
@@ -221,3 +256,4 @@ exports.filter = filter;
 exports.update = update;
 exports.removeOne = removeOne;
 exports.sendFile = sendFile;
+exports.filterOfficers = filterOfficers;

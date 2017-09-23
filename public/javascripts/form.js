@@ -19,7 +19,7 @@ function submit() {
                 'lastname': last,
                 'telephone': phone,
                 'email': email,
-                'filename': resp_filename
+                'filename': resp_filename,
             },
             success: function(resp) {
                 $('#firstname').val('');

@@ -15,7 +15,7 @@ assert = require('assert');
 var url = 'mongodb://localhost:27017/BlackHawk';
 
 
-// Inserts many documents
+// Set up documents
 var insertDocuments = function(db, callback) {
     // Get documents collection
     var collection = db.collection('documents');
@@ -23,8 +23,8 @@ var insertDocuments = function(db, callback) {
     // Insert some documents
     collection.insertMany([
             //{a: 1}, {a: 2}, {a: 3}
-            { 'first': 'John', 'last': 'Smith', 'phone': '40891191111', 'email': 'email@email.com', 'status': 0, 'accept': 0, 'reject': 0},
-            { 'first': 'John2', 'last': 'Smith2', 'phone': '00091191111', 'email': 'email2@email.com', 'status': 0, 'accept': 0, 'reject': 0 }
+            { 'first': 'John', 'last': 'Smith', 'phone': '40891191111', 'email': 'email@email.com', 'status': 0, 'accept': 0, 'reject': 0, 'voters': ['test1@gmail.com', 'test2@gmail.com']},
+            { 'first': 'John2', 'last': 'Smith2', 'phone': '00091191111', 'email': 'email2@email.com', 'status': 0, 'accept': 0, 'reject': 0, 'voters': ['test1@gmail.com', 'test2@gmail.com'] }
     ], function(err, result) {
         assert.equal(err, null);
         assert.equal(2, result.result.n);
@@ -35,7 +35,7 @@ var insertDocuments = function(db, callback) {
 };
 
 // Set up officers
-var insertAdmins = function(db, callback) {
+var insertOfficers = function(db, callback) {
     // get the officers collection
     var collection = db.collection('officers');
 
@@ -43,7 +43,7 @@ var insertAdmins = function(db, callback) {
     collection.insertMany([
         {'first': 'Bryan', 'last': 'Ngo', 'email': 'bngo@ucdavis.edu'},
         {'first': 'Vincent', 'last': 'Yang', 'email': 'vinyang@ucdavis.edu'},
-        {'first': 'Justin', 'last': 'lee', 'email': 'jcdlee@@ucdavis.edu'},
+        {'first': 'Justin', 'last': 'lee', 'email': 'jcdlee@ucdavis.edu'},
         {'first': 'Annie', 'last': 'Tu', 'email': 'anntu@ucdavis.edu'},
         {'first': 'Jia', 'last': 'Yi', 'email': 'jiasitu@ucdavis.edu'}
         ], function(err, result) {
@@ -51,14 +51,19 @@ var insertAdmins = function(db, callback) {
         assert.equal(5, result.result.n);
         assert.equal(5, result.ops.length);
         console.log("Inserted 2 officers into the colleciton");
+        callback(result);
         }
     )
 
 };
 
+
+/* Selects all the documents */
 var findDocuments = function(db, callback) {
+
     // Get the documents collection
     var collection = db.collection('documents');
+
     // Find some documents
     collection.find({}).toArray(function(err, docs) {
         assert.equal(err, null);
@@ -68,28 +73,52 @@ var findDocuments = function(db, callback) {
     });
 };
 
+
+/* Selects all the officers */
 var findOfficers = function(db, callback) {
+
     // get the officers collection
     var collection = db.collection('officers');
 
-    collection.find({}).toArray(function(err, docs) {
+    // get all the officers
+    collection.find({}).toArray(function(err, officers) {
+        assert.equal(err, null);
         console.log("Found the following officers");
-        console.log(docs);
-        callback(docs);
+        console.log(officers);
+        callback(officers);
     })
-}
+};
 
-var filterDocuments = function(db, callback) {
+
+/* Finds specific document */
+var filterDocuments = function(condition, db, callback) {
+
     // Get the documents collection
     var collection = db.collection('documents');
+
     // Find some documents
-    collection.find({'a': 3}).toArray(function(err, docs) {
+    collection.find(condition).toArray(function(err, docs) {
         assert.equal(err, null);
-        console.log("Found the following records with query 'a':3");
+        console.log("Found the following record with query: " + condition);
         console.log(docs);
         callback(docs);
     });
-}
+};
+
+/* Finds specific officer */
+var filterOfficers = function(condition, db, callback) {
+    // get the officers collection
+    var collection = db.collection('officers');
+
+    // find the officer
+    collection.find(condition).toArray(function(err, officer) {
+        assert.equal(err, null);
+        console.log("Found the following officer with the query: " + condition);
+        console.log(officer);
+        callback(officer);
+    })
+
+};
 
 var updateDocument = function(db, callback) {
     // Get the documents collection
@@ -154,9 +183,13 @@ MongoClient.connect(url, function(err, db) {
        clearAdmins(db, function() {
            insertDocuments(db, function() {
                findDocuments(db, function() {
-                   insertAdmins(db, function() {
-                       assert.equal(null, err);
-                       db.close();
+                   insertOfficers(db, function() {
+                       findOfficers(db, function() {
+                          filterOfficers({"first": "Vincent"}, db, function() {
+                              assert.equal(null, err);
+                              db.close();
+                          });
+                       });
                    });
                });
            });

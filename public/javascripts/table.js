@@ -20,6 +20,7 @@
 });
 };*/
 var accept = function(id) {
+
     // deliberate with yes
     $.ajax({
         url: '/deliberate',
@@ -28,7 +29,6 @@ var accept = function(id) {
             'accept': 1},
             success: function(result) {
                 // change the color of the row
-
                 console.log('Result: ' + result)
                 if (result >= 5) {
                     document.getElementById(id).setAttribute('class', 'accept');

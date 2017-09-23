@@ -182,13 +182,22 @@ router.post('/submit', function(req, res) {
         'email': req.body.email,
         'status': 0,
         'accept': 0,
-        'reject': 0
+        'reject': 0,
+        'voters': []
     };
 
     queries.update(info, req.body.filename);
     console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
     queries.all();
     res.end("Submit data has been entered in database");
+});
+
+/* For adding to voters list */
+router.post('/appendvoter', function(req, res) {
+   console.log("Adding voter to list");
+
+   var info = queries.filterOfficers();
+
 });
 
 /* For saving form data */
