@@ -86,16 +86,36 @@ var filterOfficers = function(condition, db, callback) {
 
 
 /* Update a row with some new data */
-var updateDocument = function(info, key, db, callback) {
+var updateDocument = function(info, vote, key, db, callback) {
     // Get the documents collection
     var collection = db.collection('documents');
+
+    console.log("Updating doc...");
+    console.log(vote['voter'] + " voted " + vote['decision']);
+
     // Update document where id is filename
-    collection.updateOne( { _id : key},
-            { $set: info }, function(err, result) {
-                assert.equal(err, null);
-                assert.equal(1, result.result.n);
-                callback(result)
-            });
+    collection.updateOne(
+        { _id : key},
+        { $set: info },
+
+        function(err, result) {
+            assert.equal(err, null);
+            assert.equal(1, result.result.n);
+            callback(result)
+        });
+
+    collection.updateOne(
+        { _id: key},
+        { $addToSet : { votes: vote}},
+
+        function(err, result) {
+            assert.equal(err, null);
+            assert.equal(1, result.result.n);
+            callback(result);
+        });
+
+    console.log("Done updating...");
+
 };
 
 /* Delete one thing */
@@ -103,7 +123,8 @@ var removeDocument = function(item, db, callback) {
     // Get the documents collection
     var collection = db.collection('documents');
     // Delete some documents
-    collection.deleteOne({ _id : item  }, function(err, result) {
+    collection.deleteOne(
+        { _id : item  }, function(err, result) {
         assert.equal(err, null);
         assert.equal(1, result.result.n);
         console.log("Removed the document with the field _id equal to " + item);
@@ -149,10 +170,12 @@ var insert = function(first, last, phone, email) {
 };
 
 /* Wrapper function to update data externally */
-var update = function(info, key) {
+var update = function(info, vote, key) {
+
+
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
-        updateDocument(info, key, db, function() {
+        updateDocument(info, vote, key, db, function() {
             db.close();
         });
     });
@@ -184,6 +207,7 @@ var all = function(callback) {
     });
 };
 
+/* returns a single document */
 var filter = function(condition, callback) {
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);

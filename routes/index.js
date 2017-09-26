@@ -61,29 +61,49 @@ router.get('/resume', function(req, res, next) {
 });
 
 router.post('/deliberate', function(req, res, next) {
+
+    console.log("Deliberating...");
+    var condition = {_id: req.body['id']};
+
     if (req.body['accept'] == 1) {
-        var condition = {_id: req.body['id']};
+
         queries.filter(condition, function(results) {
             var currentAccept = results[0]['accept'];
+            var email = req.body['userEmail'];
 
             var info = {
                 'accept': currentAccept+1,
                 'status': 1
-            }
-            queries.update(info, req.body['id']);
+            };
+
+            // voter information
+            var vote = {
+                'voter': email,
+                'decision': 1
+            };
+
+
+            queries.update(info, vote, req.body['id']);
             var net = parseInt(results[0]['accept']) - parseInt(results[0]['reject']) + 1;
             res.end(net.toString());
         });
     }
     else if (req.body['accept'] == 2){
-        var condition = {_id: req.body['id']};
         queries.filter(condition, function(results) {
             var currentReject = results[0]['reject'];
+            var email = req.body['userEmail'];
+
             var info = {
                 'reject': currentReject+1,
                 'status': 1
-            }
-            queries.update(info, req.body['id']);
+            };
+
+            var vote = {
+                'voter': email,
+                'decision': 2
+            };
+
+            queries.update(info, vote, req.body['id']);
             var net = parseInt(results[0]['accept']) - parseInt(results[0]['reject']) - 1;
             res.end(net.toString());
         });
@@ -183,22 +203,15 @@ router.post('/submit', function(req, res) {
         'status': 0,
         'accept': 0,
         'reject': 0,
-        'voters': []
+        'votes': []
     };
 
-    queries.update(info, req.body.filename);
+    queries.update(info, "", req.body.filename);
     console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
     queries.all();
     res.end("Submit data has been entered in database");
 });
 
-/* For adding to voters list */
-router.post('/appendvoter', function(req, res) {
-   console.log("Adding voter to list");
-
-   var info = queries.filterOfficers();
-
-});
 
 /* For saving form data */
 router.post('/eventsubmit', function(req, res) {

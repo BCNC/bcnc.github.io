@@ -21,12 +21,19 @@
 };*/
 var accept = function(id) {
 
+    var user = {};
+    user = JSON.parse(sessionStorage.getItem('userEntity'));
+
     // deliberate with yes
     $.ajax({
         url: '/deliberate',
         type: 'POST',
         data: {'id': id,
-            'accept': 1},
+
+            // 1 means accept
+            'accept': 1,
+            'userEmail': user.email
+        },
             success: function(result) {
                 // change the color of the row
                 console.log('Result: ' + result)
@@ -38,15 +45,24 @@ var accept = function(id) {
                 }
             }
     });
-}
+
+};
 var reject = function(id) {
+
+    var user = {};
+    user = JSON.parse(sessionStorage.getItem('userEntity'));
+
     // deliberate with no
     $.ajax({
         url: '/deliberate',
         type: 'POST',
         data: {
             'id': id,
-            'accept': 2
+
+            // 2 means reject
+            'accept': 2,
+            'userEmail': user.email
+
         },
         success: function(result) {
             // change the color of the row
@@ -58,6 +74,7 @@ var reject = function(id) {
             }
         }
     });
+
 };
 
 $(document).ready(function() {
