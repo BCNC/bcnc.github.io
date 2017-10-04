@@ -69,6 +69,7 @@ var filterDocuments = function(condition, db, callback) {
     });
 };
 
+
 /* Select specific officer */
 var filterOfficers = function(condition, db, callback) {
 
@@ -79,7 +80,8 @@ var filterOfficers = function(condition, db, callback) {
     collection.find(condition).toArray(function(err, officers) {
         assert.equal(err, null);
         console.log("Found specific officer(s) with condition" + condition);
-        console.log(officers)
+        console.log(officers);
+        callback(officers);
     });
 };
 
@@ -103,7 +105,7 @@ var updateDocument = function(info, vote, key, db, callback) {
             assert.equal(1, result.result.n);
             callback(result)
         });
-
+/*
     collection.updateOne(
         { _id: key},
         { $addToSet : { votes: vote}},
@@ -112,7 +114,12 @@ var updateDocument = function(info, vote, key, db, callback) {
             assert.equal(err, null);
             assert.equal(1, result.result.n);
             callback(result);
-        });
+        });*/
+
+    collection.updateOne(
+        {_id: key, 'votes.voter': {$ne: vote['voter']}},
+        {$push: {votes: vote}
+    });
 
     console.log("Done updating...");
 
@@ -182,6 +189,7 @@ var update = function(info, vote, key) {
 } 
 
 
+/* Removes a single document */
 var removeOne = function(filename, callback) {
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
@@ -219,6 +227,56 @@ var filter = function(condition, callback) {
         });
     });
 };
+
+/* used to check if user already voted for document */
+var filterVoter = function(condition, email, callback) {
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        getVoter(condition, email, db, function(result) {
+            db.close();
+            if(callback) {
+                callback(result);
+            }
+        })
+
+    });
+};
+
+/* returns is voter already voted for doc */
+var getVoter = function(condition, email, db, callback) {
+
+    // Get the documents collection
+    var collection = db.collection('documents');
+
+    var voteAccept = {
+        'voter': email,
+        'decision': 1
+    };
+
+    var voteReject = {
+        'voter': email,
+        'decision': 2
+    };
+
+    // Find some documents
+    collection.find({$or: [{votes: voteAccept}, {votes: voteReject}]}).toArray(function(err, docs) {
+        assert.equal(err, null);
+        console.log("Found records with condition " + condition + " and voter " + email);
+        console.log(docs);
+        callback(docs);
+    });
+};
+
+/* Returns the number of voters who voted `decision` */
+var getVoteCount = function(condition, decision, db, callback) {
+
+    // get the documents collection
+    var collection = db.collection('documents');
+
+    // find the number of `decision` occurrences
+    collection.find({})
+};
+
 
 var insertBinary = function(buffer, filename, callback) {
     var invoice = {};
@@ -280,4 +338,5 @@ exports.filter = filter;
 exports.update = update;
 exports.removeOne = removeOne;
 exports.sendFile = sendFile;
-exports.filterOfficers = filterOfficers;
+exports.filterVoter = filterVoter;
+

@@ -64,57 +64,78 @@ router.post('/deliberate', function(req, res, next) {
 
     console.log("Deliberating...");
     var condition = {_id: req.body['id']};
-
-    if (req.body['accept'] == 1) {
-
-        queries.filter(condition, function(results) {
-            var currentAccept = results[0]['accept'];
-            var email = req.body['userEmail'];
-
-            var info = {
-                'accept': currentAccept+1,
-                'status': 1
-            };
-
-            // voter information
-            var vote = {
-                'voter': email,
-                'decision': 1
-            };
+    var email = req.body['userEmail'];
 
 
-            queries.update(info, vote, req.body['id']);
-            var net = parseInt(results[0]['accept']) - parseInt(results[0]['reject']) + 1;
+    /* if the user already voted
+    queries.filterVoter(condition, email, function(results) {
+        console.log("Checking if user already voted...");
+       if(results.length > 0) {
+           console.log("user already voted!");
+           var net = parseInt(results[0]['accept']) - parseInt(results[0]['reject']) + 1;
+           res.end(net.toString());
+       }
+    });*/
+
+    queries.filterVoter(condition, email, function(callback) {
+
+        if(!(callback.length > 0)) {
+            console.log("Adding voter's decision...");
+
+            if (req.body['accept'] == 1) {
+
+                queries.filter(condition, function (results) {
+                    var currentAccept = results[0]['accept'];
+
+                    var info = {
+                        'accept': currentAccept + 1,
+                        'status': 1
+                    };
+
+                    // voter information
+                    var vote = {
+                        'voter': email,
+                        'decision': 1
+                    };
+
+                    queries.update(info, vote, req.body['id']);
+                    var net = parseInt(results[0]['accept']) - parseInt(results[0]['reject']) + 1;
+                    res.end(net.toString());
+                });
+            }
+            else if (req.body['accept'] == 2) {
+                queries.filter(condition, function (results) {
+                    var currentReject = results[0]['reject'];
+
+                    var info = {
+                        'reject': currentReject + 1,
+                        'status': 1
+                    };
+
+                    var vote = {
+                        'voter': email,
+                        'decision': 2
+                    };
+
+                    queries.update(info, vote, req.body['id']);
+                    var net = parseInt(results[0]['accept']) - parseInt(results[0]['reject']) - 1;
+                    res.end(net.toString());
+                });
+            }
+            else {
+                var info = {
+                    'status': 0
+                }
+                queries.update(info, req.body['id']);
+                res.end('Reset');
+            }
+        } else {
+            console.log("user already voted!");
+            var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 1;
             res.end(net.toString());
-        });
-    }
-    else if (req.body['accept'] == 2){
-        queries.filter(condition, function(results) {
-            var currentReject = results[0]['reject'];
-            var email = req.body['userEmail'];
-
-            var info = {
-                'reject': currentReject+1,
-                'status': 1
-            };
-
-            var vote = {
-                'voter': email,
-                'decision': 2
-            };
-
-            queries.update(info, vote, req.body['id']);
-            var net = parseInt(results[0]['accept']) - parseInt(results[0]['reject']) - 1;
-            res.end(net.toString());
-        });
-    }
-    else {
-        var info = {
-            'status': 0
         }
-        queries.update(info, req.body['id']);
-        res.end('Reset');
-    }
+    });
+
     // status: 0 = haven't looked
     // status: 1 = accept
     // status: 2 = reject

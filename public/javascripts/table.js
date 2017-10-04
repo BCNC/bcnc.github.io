@@ -66,6 +66,7 @@ var reject = function(id) {
         },
         success: function(result) {
             // change the color of the row
+            console.log('Result: ' + result)
             if (result >= 5) {
                 document.getElementById(id).setAttribute('class', 'accept');
             }
