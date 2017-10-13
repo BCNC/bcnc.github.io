@@ -28,6 +28,11 @@ router.get('/contact', function(req, res, next) {
     res.render('contact', { title: 'Contact' });
 });
 
+/* GET BCNC 404 error page */
+router.get('/404', function(req, res, next) {
+   res.render('404', {title: '404 Error'});
+});
+
 /* GET BCNC FAQ page */
 router.get('/faq', function(req, res, next) {
     res.render('faq', { title: 'FAQ' });
