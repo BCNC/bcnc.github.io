@@ -221,11 +221,14 @@ router.post('/remove', function(req, res) {
 /* For saving form data */
 router.post('/submit', function(req, res) {
     console.log("Server has received submit data");
+
     var info = {
         'first': req.body.firstname,
         'last': req.body.lastname,
         'phone': req.body.telephone,
         'email': req.body.email,
+        'position': req.body.position,
+        'school': req.body.school,
         'status': 0,
         'accept': 0,
         'reject': 0,
@@ -233,7 +236,7 @@ router.post('/submit', function(req, res) {
     };
 
     queries.update(info, "", req.body.filename);
-    console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
+    console.log('Insert file with filename: ' + req.body.position + ' into mongodb from /uploads');
     queries.all();
     res.end("Submit data has been entered in database");
 });

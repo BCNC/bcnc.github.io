@@ -11,12 +11,14 @@ html
         meta(name='description', content='Business Career and Networking Club')
         meta(name='author', content='Vincent Yang')
         // font
-        //link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
-        //link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
         script(src="https://code.jquery.com/jquery-2.2.4.min.js")
         // Bootstrap CSS
         link(rel='stylesheet', href='assets/css/bootstrap.min.css', type='text/css', media='screen')
         // Font Awesome CSS
+
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css')
+
         link(rel='stylesheet', href='stylesheets/font-awesome.min.css', type='text/css', media='screen')
         // Slicknav
         link(rel='stylesheet', type='text/css', href='stylesheets/slicknav.css', media='screen')
@@ -29,8 +31,6 @@ html
         // Color CSS Styles
         link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
         link(rel='stylesheet', href='/stylesheets/dropzone.css')
-        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
-
         // Margo JS
         script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
         script(type='text/javascript', src='javascripts/jquery.migrate.js')
@@ -59,12 +59,12 @@ html
             #fb-root
             script.
                 (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
-                  fjs.parentNode.insertBefore(js, fjs);
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
+                    fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));
             script(src='https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js')
             script(type='text/javascript').
@@ -183,149 +183,156 @@ html
                     // End Section Content
                 // .container
             // End Purchase Section
+        br
+        div.container
+            h2.center Application
+            hr
+        div.row
+            form.col.s12
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix account_circle
+                        input#firstname.validate(type="text")
+                        label(for="firstname") First Name
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix account_circle
+                        input#lastname.validate(type="text")
+                        label(for="lastname") Last Name
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix phone
+                        input#phone.validate(type="text")
+                        label(for="phone") Phone Number
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix email
+                        input#email.validate(type="text")
+                        label(for="email") Email
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix info_outline
+                        select
+                            option(value="" disabled selected) Choose your option
+                            option(value="1") Freshman
+                            option(value="2") Sophomore
+                            option(value="3") Junior
+                            option(value="4") Senior+
+                        label Year
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix language
+                        input#school.autocomplete(type="text")
+                        label(for="school") School
+                    //div.input-field.col.s12.m6
+                    //  i.material-icons.prefix today
+                    //  input#date.datepicker(type="date" style="padding-left: 40px;")
+                    //  label(for="date") Date
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix business
+                        select#position
+                            option(value="" disabled selected) Choose your option
+                            option(value="Professional Relations") Professional Relations
+                            option(value="Campus Engagement") Campus Engagement
+                            option(value="Technology") Technology (requires coding experience)
+                            option(value="Treasury") Treasury
+                            option(value="Event Planning") Event Planning
+                        label Position
+        div.row
+            // uses multipart encrypted file submission; name must be 'file'
+            form.dropzone#d1(action="/upload").col.s12.m6.push-m3
+                div.fallback
+                    div.file-field.input-field#d2
+                        div.btn#display
+                            span File
+                            input#upload2(type="file" name="file" accept="image/*,application/pdf")
+                        div.file-path-wrapper
+                            input.file-path.validate(type="text")
 
-        h2.center Sign Up
-    div.container
-        form.form-horizontal
-            // first name
-            div.form-group
-              label.col-sm-2.control-label
-              div.col-sm-10
-                i.material-icons.prefix account_circle
-                input#firstname.form-control(type="text")
-                label(for="firstname") First Name
-            // last name
-            div.form-group
-                label.col-sm-2.control-label
-                div.col-sm-10
-                    i.material-icons.prefix account_circle
-                    input#lastname.form-control(type="text")
-                    label(for="lastname") Last Name
-            // Phone Number
-            div.form-group
-                label.col-sm-2.control-label
-                div.col-sm-10
-                    i.material-icons.prefix phone
-                    input#phone.form-control(type="text")
-                    label(for="phone") Phone Number
-            div.form-group
-                label.col-sm-2.control-label
-                div.col-sm-10
-                    i.material-icons.prefix email
-                    input#email.form-control(type="text")
-                    label(for="email") Email
-            div.form-group
-                label.col-sm-2.control-label
-                div.col-sm-10
-                    i.material-icons.prefix language
-                    input#school.form-control(type="text")
-                    label(for="school") School
-            div.form-group
-                label(for='exampleFormControlSelect1') Example select
-                select#exampleFormControlSelect1.form-control
-                      option 1
-                      option 2
-                      option 3
-                      option 4
-                      option 5
-            div.row
-                // uses multipart encrypted file submission; name must be 'file'
-                form.dropzone#d1(action="/upload").col.s12.m6.push-m3
-                    div.fallback
-                        div.file-field.input-field#d2
-                            div.btn#display
-                                span File
-                                input#upload2(type="file" name="file" accept="image/*,application/pdf")
-                            div.file-path-wrapper
-                                input.file-path.validate(type="text")
-
-            <br>
-            div.center-align
-                button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="submit()") Submit
-
-                footer
-                    .container
-                        .row.footer-widgets
-                            // Start Subscribe & Social Links Widget
-                            .col-md-3
-                                .footer-widget.mail-subscribe-widget
-                                    h4
-                                        | Subscribe to our Newsletter
-                                        span.head-line
-                                    p Join our mailing list to stay up to date and get notices about upcoming events!
-                                    form.subscribe(action='https://formspree.io/contactbcnc@gmail.com', method='POST')
-                                        input(type='text', placeholder='mail@example.com')
-                                        input.btn-system(type='submit', value='Send')
-                                .footer-widget.social-widget
-                                    h4
-                                        | Follow Us
-                                        span.head-line
-                                    ul.social-icons
-                                        li
-                                            a.facebook(target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
-                                                i.fa.fa-facebook
-                                        li
-                                            a.linkdin(target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
-                                                i.fa.fa-linkedin
-                                        li
-                                            a.instgram(target='_blank', href='https://www.instagram.com/ucd.bcnc/')
-                                                i.fa.fa-instagram
-                            // .col-md-3
-                            // End Subscribe & Social Links Widget
-                            .col-md-3.col-xs-12
-                                .footer-widget
-                                    .fb-page(data-tabs='timeline', data-href='https://www.facebook.com/davisbcnc', data-width='380', data-small-header='true', data-height='300', data-hide-cover='false')
-                            // Start InstaFeed Widget
-                            .col-md-3.col-xs-12
-                                .footer-widget.flickr-widget
-                                    h4
-                                        | Insta Feed
-                                        span.head-line
-                                    ul.flickr-list
-                                        #instafeed
-                            // .col-md-3
-                            // End InstaFeed Widget
-                            // Start Contact Widget
-                            .col-md-3.col-xs-12
-                                .footer-widget.contact-widget
-                                    h4
-                                        img.img-responsive(src='images/bcnc.png', alt='Footer Logo')
-                                    p
-                                        | The Business Career and Networking Club was created to bridge the gap between businesses and UC Davis students. We strive to link qualified individuals with innovative companies by working year-round to bring value to our students and their future employers.
-                                    ul
-                                        li
-                                            span Email:
-                                            |  contactbcnc@gmail.com
-                                        li
-                                            span Website:
-                                            |  www.bcnclub.com
-                            // .col-md-3
-                            // End Contact Widget
-                        // .row
-                        // Start Copyright
-                        .copyright-section
-                            .row
-                                .col-md-6
-                                    p
-                                        | © 2017 BCNC - All Rights Reserved
-                                        a(href='bcnclub.com') BCNC
-                                // .col-md-6
-                                .col-md-6
-                                    ul.footer-nav
-                                        li
-                                            a(href='contact') Contact
-                                // //.col-md-6
-                        // End Copyright
-                // End Footer
-                // End Container
-                // Go To Top Link
-                a.back-to-top(href='#')
-                    i.fa.fa-angle-up
-                #loader
-                    .spinner
-                        .dot1
-                        .dot2
-                script(type='text/javascript', src='javascripts/script.js')
+        <br>
+        div.center-align
+            button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="submit()") Submit
+            footer
+                .container
+                    .row.footer-widgets
+                        // Start Subscribe & Social Links Widget
+                        .col-md-3
+                            .footer-widget.mail-subscribe-widget
+                                h4
+                                    | Subscribe to our Newsletter
+                                    span.head-line
+                                p Join our mailing list to stay up to date and get notices about upcoming events!
+                                form.subscribe(action='https://formspree.io/contactbcnc@gmail.com', method='POST')
+                                    input(type='text', placeholder='mail@example.com')
+                                    input.btn-system(type='submit', value='Send')
+                            .footer-widget.social-widget
+                                h4
+                                    | Follow Us
+                                    span.head-line
+                                ul.social-icons
+                                    li
+                                        a.facebook(target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin(target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram(target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                        // .col-md-3
+                        // End Subscribe & Social Links Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget
+                                .fb-page(data-tabs='timeline', data-href='https://www.facebook.com/davisbcnc', data-width='380', data-small-header='true', data-height='300', data-hide-cover='false')
+                        // Start InstaFeed Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.flickr-widget
+                                h4
+                                    | Insta Feed
+                                    span.head-line
+                                ul.flickr-list
+                                    #instafeed
+                        // .col-md-3
+                        // End InstaFeed Widget
+                        // Start Contact Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.contact-widget
+                                h4
+                                    img.img-responsive(src='images/bcnc.png', alt='Footer Logo')
+                                p
+                                    | The Business Career and Networking Club was created to bridge the gap between businesses and UC Davis students. We strive to link qualified individuals with innovative companies by working year-round to bring value to our students and their future employers.
+                                ul
+                                    li
+                                        span Email:
+                                        |  contactbcnc@gmail.com
+                                    li
+                                        span Website:
+                                        |  www.bcnclub.com
+                        // .col-md-3
+                        // End Contact Widget
+                    // .row
+                    // Start Copyright
+                    .copyright-section
+                        .row
+                            .col-md-6
+                                p
+                                    | © 2017 BCNC - All Rights Reserved
+                                    a(href='bcnclub.com') BCNC
+                            // .col-md-6
+                            .col-md-6
+                                ul.footer-nav
+                                    li
+                                        a(href='contact') Contact
+                            // //.col-md-6
+                    // End Copyright
+            // End Footer
+            // End Container
+            // Go To Top Link
+            a.back-to-top(href='#')
+                i.fa.fa-angle-up
+            #loader
+                .spinner
+                    .dot1
+                    .dot2
+            script(type='text/javascript', src='javascripts/script.js')
 
         script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js" type="text/javascript")
         script(src="javascripts/nottypeform.js" type="text/javascript")

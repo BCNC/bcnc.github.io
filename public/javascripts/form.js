@@ -5,12 +5,21 @@ var filecount;
 
 // called from button on form page
 function submit() {
+
+    console.log("Submitting...");
     var first = $('#firstname').val().trim();
     var last = $('#lastname').val().trim();
     var phone = $('#phone').val().trim();
     var email = $('#email').val().trim();
+    var position = $('#position').val().trim();
+    var school = $('#school').val().trim();
 
-    if (first != '' && last != '' && phone != '' && email != '' && filecount != 0) {
+
+
+    if (first != '' && last != '' && phone != '' && email != '' && filecount != 0 && position != '') {
+
+        console.log("All fields are good! Uploading to database");
+        console.log("Position: " + position);
         $.ajax({
             type: "POST",
             url: '/submit',
@@ -20,12 +29,16 @@ function submit() {
                 'telephone': phone,
                 'email': email,
                 'filename': resp_filename,
+                'position': position,
+                'school': school
             },
             success: function(resp) {
                 $('#firstname').val('');
                 $('#lastname').val('');
                 $('#phone').val('');
                 $('#email').val('');
+                $('#position').val('');
+                $('#school').val('');
                 window.location = '/thankyou';
             }
         });
@@ -101,10 +114,10 @@ $(document).ready(function() {
             "Stanford": null,
             "Princeton": null,
             "Massachusetts Institute of Technology (MIT)": null,
-            "California Institute of Technology (CalTech)": null
+            "California Institute of Technology (CalTech)": null,
+            "Other": null
         }
     });
-
 
     Dropzone.options.d1 = {
         init: function() {

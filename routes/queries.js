@@ -92,8 +92,7 @@ var updateDocument = function(info, vote, key, db, callback) {
     // Get the documents collection
     var collection = db.collection('documents');
 
-    console.log("Updating doc...");
-    console.log(vote['voter'] + " voted " + vote['decision']);
+    console.log("Updating doc for new position: " + info['position']);
 
     // Update document where id is filename
     collection.updateOne(
@@ -178,7 +177,6 @@ var insert = function(first, last, phone, email) {
 
 /* Wrapper function to update data externally */
 var update = function(info, vote, key) {
-
 
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
