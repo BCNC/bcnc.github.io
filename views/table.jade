@@ -26,6 +26,7 @@ html
 
                     - var temp = name['_id'];
                     - var link = '/resume?filename=' + temp;
+                    - var positions = JSON.stringify(name['position'])
 
                     // to indicate if new entry
                     - var status = name['status']
@@ -44,7 +45,7 @@ html
                            td=name['first']
                            td=name['last']
                            td=name['email']
-                           td=name['position'][0]
+                           td=positions
                            td
                              button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
                              <br><br>
@@ -60,7 +61,7 @@ html
                            td=name['first']
                            td=name['last']
                            td=name['email']
-                           td=name['position'][0]
+                           td=positions
                            td
                              button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
                              <br><br>
@@ -74,7 +75,7 @@ html
                            td=name['first']
                            td=name['last']
                            td=name['email']
-                           td=name['position'][0]
+                           td=positions
                            td
                              button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
                              <br><br>

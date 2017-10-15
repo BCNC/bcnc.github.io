@@ -22,6 +22,7 @@ function submit() {
         pos.push($(this).val());
     });
 
+    pos.sort();
 
     var position = JSON.stringify(pos);
 
