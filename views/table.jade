@@ -15,6 +15,7 @@ html
                     th(data-field='first', data-sortable='true') First
                     th(data-field='last', data-sortable='true') Last
                     th(data-field='email', data-sortable='true') Email
+                    th(data-field='position', data-sortable='true') Position
                     th(data-field='deliberate', data-sortable='true') Accept/Reject
                     //th(data-field='button', data-sortable='false') Button
                     th(data-field='pdf', data-sortable='false') PDF
@@ -34,7 +35,6 @@ html
 
                     // number of click on reject
                     - var re = name['reject'] // number of clicks on reject
-
                     - var net = ac - re;
                     - console.log('net is ' + net);
                     - console.log('temp is ' + temp);
@@ -44,6 +44,7 @@ html
                            td=name['first']
                            td=name['last']
                            td=name['email']
+                           td=name['position'][0]
                            td
                              button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
                              <br><br>
@@ -59,6 +60,7 @@ html
                            td=name['first']
                            td=name['last']
                            td=name['email']
+                           td=name['position'][0]
                            td
                              button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
                              <br><br>
@@ -72,6 +74,7 @@ html
                            td=name['first']
                            td=name['last']
                            td=name['email']
+                           td=name['position'][0]
                            td
                              button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
                              <br><br>

@@ -12,7 +12,6 @@ html
         meta(name='author', content='Vincent Yang')
         // font
         link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
-        script(src="https://code.jquery.com/jquery-2.2.4.min.js")
         // Bootstrap CSS
         link(rel='stylesheet', href='assets/css/bootstrap.min.css', type='text/css', media='screen')
         // Font Awesome CSS
@@ -206,36 +205,52 @@ html
                     div.input-field.col.s12.m6
                         i.material-icons.prefix email
                         input#email.validate(type="text")
-                        label(for="email") Email
+                        label(for="email") UC Davis Email
                 div.row
                     div.input-field.col.s12.m6
                         i.material-icons.prefix info_outline
-                        select
-                            option(value="" disabled selected) Choose your option
+                        select#year
+                            option(value="" disabled selected) Select your year
                             option(value="1") Freshman
                             option(value="2") Sophomore
                             option(value="3") Junior
                             option(value="4") Senior+
-                        label Year
+                        label(for="year") Year
                     div.input-field.col.s12.m6
+                        i.material-icons.prefix lightbulb_outline
+                        select#major
+                            option(value="" disabled selected) Select your major
+                            option(value="Managerial Economics / Economics") Managerial Economics / Economics
+                            option(value="Statistics / Applied Mathematics") Statistics / Applied Mathematics
+                            option(value="Computer Science / Engineering") Computer Science / Engineering
+                            option(value="Biology / Pre-med / Pharmaceutical Chemistry") Biology / Pre-med / Pharmaceutical Chemistry
+                            option(value="Communications / Sociology / Political Science") Communications / Sociology / Political Science
+                            option(value="Other") Other
+                        label(for="major") Major
+                    //div.input-field.col.s12.m6
                         i.material-icons.prefix language
                         input#school.autocomplete(type="text")
                         label(for="school") School
-                    //div.input-field.col.s12.m6
-                    //  i.material-icons.prefix today
-                    //  input#date.datepicker(type="date" style="padding-left: 40px;")
-                    //  label(for="date") Date
                 div.row
-                    div.input-field.col.s12.m6
+                    div.input-field.col.s12
                         i.material-icons.prefix business
-                        select#position
-                            option(value="" disabled selected) Choose your option
+                        select#position(multiple)
+                            option(value="" disabled) Select your position(s)
                             option(value="Professional Relations") Professional Relations
                             option(value="Campus Engagement") Campus Engagement
                             option(value="Technology") Technology (requires coding experience)
                             option(value="Treasury") Treasury
                             option(value="Event Planning") Event Planning
-                        label Position
+                        label(for="position") Please select one or more areas of interest.
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix question_answer
+                        textarea#q1.materialize-textarea
+                        label(for="q1") Why do you want to be a part of BCNC and what do you believe you can contribute?
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix question_answer
+                        textarea#q2.materialize-textarea
+                        label(for="q2") What might your resume not tell us about you? What do you do for fun?
         div.row
             // uses multipart encrypted file submission; name must be 'file'
             form.dropzone#d1(action="/upload").col.s12.m6.push-m3

@@ -92,8 +92,9 @@ var updateDocument = function(info, vote, key, db, callback) {
     // Get the documents collection
     var collection = db.collection('documents');
 
-    console.log("Updating doc for new position: " + info['position']);
+    console.log("Updating a single document...");
 
+    console.log(info.toString());
     // Update document where id is filename
     collection.updateOne(
         { _id : key},

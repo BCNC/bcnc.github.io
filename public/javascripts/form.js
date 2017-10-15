@@ -11,15 +11,25 @@ function submit() {
     var last = $('#lastname').val().trim();
     var phone = $('#phone').val().trim();
     var email = $('#email').val().trim();
-    var position = $('#position').val().trim();
-    var school = $('#school').val().trim();
+    var pos = [];
+    var school = "University of California, Davis (UCD)";
+    var year = $('#year').val().trim();
+    var major = $('#major').val().trim();
+    var q1 = $('#q1').val().trim();
+    var q2 = $('#q2').val().trim();
+
+    $.each($('#position option:selected'), function(){
+        pos.push($(this).val());
+    });
 
 
+    var position = JSON.stringify(pos);
 
-    if (first != '' && last != '' && phone != '' && email != '' && filecount != 0 && position != '') {
+    // make sure all the fields are fields are filled out
+    if (first != '' && last != '' && phone != '' && email != '' && year != '' && major != '' && q1 != '' && q1 != '' && filecount != 0) {
 
         console.log("All fields are good! Uploading to database");
-        console.log("Position: " + position);
+
         $.ajax({
             type: "POST",
             url: '/submit',
@@ -28,9 +38,14 @@ function submit() {
                 'lastname': last,
                 'telephone': phone,
                 'email': email,
-                'filename': resp_filename,
+                'year': year,
+                'major': major,
                 'position': position,
-                'school': school
+                'q1': q1,
+                'q2': q2,
+                'school': school,
+                'filename': resp_filename
+
             },
             success: function(resp) {
                 $('#firstname').val('');
@@ -39,6 +54,7 @@ function submit() {
                 $('#email').val('');
                 $('#position').val('');
                 $('#school').val('');
+                $('#year').val('');
                 window.location = '/thankyou';
             }
         });

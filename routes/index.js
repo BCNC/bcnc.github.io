@@ -222,12 +222,18 @@ router.post('/remove', function(req, res) {
 router.post('/submit', function(req, res) {
     console.log("Server has received submit data");
 
+    var position = JSON.parse(req.body.position);
+
     var info = {
         'first': req.body.firstname,
         'last': req.body.lastname,
         'phone': req.body.telephone,
         'email': req.body.email,
-        'position': req.body.position,
+        'year': req.body.year,
+        'major': req.body.major,
+        'position': position,
+        'q1': req.body.q1,
+        'q2': req.body.q2,
         'school': req.body.school,
         'status': 0,
         'accept': 0,
@@ -235,8 +241,10 @@ router.post('/submit', function(req, res) {
         'votes': []
     };
 
+    console.log("Here!");
+
     queries.update(info, "", req.body.filename);
-    console.log('Insert file with filename: ' + req.body.position + ' into mongodb from /uploads');
+    console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
     queries.all();
     res.end("Submit data has been entered in database");
 });
