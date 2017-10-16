@@ -153,6 +153,7 @@ router.post('/deliberate', function(req, res, next) {
             // if we are going from deny to accept
             if(currentVotes[i]['decision'] == 2 && req.body['accept'] == 1) {
 
+                console.log("Switching vote from reject to approve");
                 var currentReject = callback[0]['reject'];
                 var currentAccept = callback[0]['accept'];
                 currentVotes[i]['decision'] = 1;
@@ -164,11 +165,13 @@ router.post('/deliberate', function(req, res, next) {
 
                 queries.update(info, "", req.body['id']);
 
-                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 2;
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 1;
                 res.end(net.toString());
 
                 // if we are going from accept to deny
             } else if (currentVotes[i]['decision'] == 1 && req.body['accept'] == 2) {
+
+                console.log("Switching vote from accept to reject");
                 var currentReject = callback[0]['reject'];
                 var currentAccept = callback[0]['accept'];
                 currentVotes[i]['decision'] = 2;
@@ -178,12 +181,12 @@ router.post('/deliberate', function(req, res, next) {
                     'votes': currentVotes
                 };
                 queries.update(info, "", req.body['id']);
-                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']);
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) - 1;
                 res.end(net.toString());
 
             } else { // officer has voted for the same thing, do nothing!
-                console.log("user already voted!");
-                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 1;
+                console.log("Looks like you're voting for the same thing!");
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']);
                 res.end(net.toString());
             }
 
