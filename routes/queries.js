@@ -118,7 +118,12 @@ var updateDocument = function(info, vote, key, db, callback) {
 
     collection.updateOne(
         {_id: key, 'votes.voter': {$ne: vote['voter']}},
-        {$push: {votes: vote}
+        {$push: {votes: vote}},
+
+        function(err, result) {
+            assert.equal(err,null);
+            assert.equal(1, result.result.n);
+            callback(result)
     });
 
   //  console.log("Done updating...");

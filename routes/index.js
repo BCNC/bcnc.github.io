@@ -82,8 +82,10 @@ router.post('/deliberate', function(req, res, next) {
        }
     });*/
 
+
     queries.filterVoter(condition, email, function(callback) {
 
+        // if the current officer did not vote already
         if(!(callback.length > 0)) {
             console.log("Adding voter's decision...");
 
@@ -223,8 +225,10 @@ router.post('/submit', function(req, res) {
     //console.log("Server has received submit data");
 
     var position = JSON.parse(req.body.position);
+    var applicant = req.body.email;
+    var condition = {email: applicant};
 
-    console.log("Referred by: " + req.body.refer);
+    //console.log("Referred by: " + req.body.refer);
 
     var info = {
         'first': req.body.firstname,
@@ -245,8 +249,19 @@ router.post('/submit', function(req, res) {
     };
 
    // console.log("Here!");
+    queries.filter(condition, function(callback) {
 
-    queries.update(info, "", req.body.filename);
+        // if the applicant applied already, update their application
+        if ((callback.length > 0)) {
+            console.log("Updating applicant information..");
+            queries.removeOne(callback[0]['_id']);
+            queries.update(info, "", req.body.filename);
+        } else {
+            console.log("Adding new applicant..");
+            queries.update(info, "", req.body.filename);
+        }
+    });
+
    // console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
     queries.all();
     res.end("Submit data has been entered in database");
