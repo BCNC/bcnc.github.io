@@ -284,7 +284,5 @@ router.post('/eventsubmit', function(req, res) {
     res.end("Submit data has been entered in database");
 });
 
-
-
 // Export to make this externally visible
 module.exports = router;

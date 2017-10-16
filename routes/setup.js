@@ -45,12 +45,22 @@ var insertOfficers = function(db, callback) {
         {'first': 'Vincent', 'last': 'Yang', 'email': 'vinyang@ucdavis.edu'},
         {'first': 'Justin', 'last': 'lee', 'email': 'jcdlee@ucdavis.edu'},
         {'first': 'Annie', 'last': 'Tu', 'email': 'anntu@ucdavis.edu'},
-        {'first': 'Jia', 'last': 'Yi', 'email': 'jiasitu@ucdavis.edu'}
+        {'first': 'Jia', 'last': 'Yi',   'email': 'jiasitu@ucdavis.edu'},
+        {'first': 'Benjamin', 'last': 'Wang', 'email': 'bnwang@ucdavis.edu'},
+        {'first': 'Brandan', 'last': 'Nhan', 'email': 'bmnhan@ucdavis.edu'},
+        {'first': 'Esther', 'last': 'Kwak', 'email': 'ejkwak@ucdavis.edu'},
+        {'first': 'Jacob', 'last': 'Shepherd', 'email': 'jtshepherd@ucdavis.edu'},
+        {'first': 'Jamie', 'last': 'Kuang', 'email': 'jamkuang@ucdavis.edu'},
+        {'first': 'Jordan', 'last': 'Lim', 'email': 'jolim@ucdavis.edu'},
+        {'first': 'Julia', 'last': 'Tien', 'email': 'jsktien@ucdavis.edu'},
+        {'first': 'Kelly', 'last': 'Hatamiya', 'email': 'kmhatamiya@ucdavis.edu'},
+        {'first': 'Shubhangi', 'last': 'Gulati', 'email': 'sgulati@ucdavis.edu'},
+        {'first': 'Yifan', 'last': 'Xu', 'email': 'yifxu@ucdavis.edu'}
         ], function(err, result) {
 
-        assert.equal(5, result.result.n);
-        assert.equal(5, result.ops.length);
-        console.log("Inserted 2 officers into the colleciton");
+        assert.equal(15, result.result.n);
+        assert.equal(15, result.ops.length);
+        console.log("Inserted 15 officers into the colleciton");
         callback(result);
         }
     )
@@ -179,20 +189,9 @@ var indexCollection = function(db, callback) {
 // insert
 MongoClient.connect(url, function(err, db) {
 
-   clearDocument(db, function() {
-       clearAdmins(db, function() {
-           insertDocuments(db, function() {
-               findDocuments(db, function() {
-                   insertOfficers(db, function() {
-                       findOfficers(db, function() {
-                          filterOfficers({"first": "Vincent"}, db, function() {
-                              assert.equal(null, err);
-                              db.close();
-                          });
-                       });
-                   });
-               });
-           });
+   clearAdmins(db, function() {
+       insertOfficers(db, function() {
+
        });
    });
 });

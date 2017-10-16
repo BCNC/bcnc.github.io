@@ -9,6 +9,8 @@ html
         script(src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js")
         
     body
+        h3 Question 1: Why do you want to be a part of BCNC and what do you believe you can contribute?
+        h3 Question 2: What might your resume not tell us about you? What do you do for fun?
         table(data-toggle='table', data-sort-name='first', id='table', data-classes='table')
             thead
                 tr
@@ -16,6 +18,8 @@ html
                     th(data-field='last', data-sortable='true') Last
                     th(data-field='email', data-sortable='true') Email
                     th(data-field='position', data-sortable='true') Position
+                    th(data-field='q1', data-sortable='true') Question 1
+                    th(data-field='q2', data-sortable='true') Question 2
                     th(data-field='deliberate', data-sortable='true') Accept/Reject
                     //th(data-field='button', data-sortable='false') Button
                     th(data-field='pdf', data-sortable='false') PDF
@@ -27,6 +31,8 @@ html
                     - var temp = name['_id'];
                     - var link = '/resume?filename=' + temp;
                     - var positions = JSON.stringify(name['position'])
+                    - var q1 = name['q1'];
+                    - var q2 = name['q2'];
 
                     // to indicate if new entry
                     - var status = name['status']
@@ -42,48 +48,54 @@ html
 
                     if status == 1 && net >= 5
                         tr(id='#{temp}' class='accept')
-                           td=name['first']
-                           td=name['last']
-                           td=name['email']
-                           td=positions
-                           td
-                             button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
-                             <br><br>
-                             button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
-                           td
-                             p
-                               a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
-                             iframe#ifram1(src='#{link}' style="width: 100%;")
+                            td=name['first']
+                            td=name['last']
+                            td=name['email']
+                            td=positions
+                            td=q1
+                            td=q2
+                            td
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept
+                                <br><br>
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
+                            td
+                                p
+                                    a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
+                                iframe#ifram1(src='#{link}' style="width: 100%;")
 
                         // if we
                     else if status == 1
                         tr(id='#{temp}' class='reject')
-                           td=name['first']
-                           td=name['last']
-                           td=name['email']
-                           td=positions
-                           td
-                             button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
-                             <br><br>
-                             button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
-                           td
-                             p
-                               a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
-                             iframe#ifram1(src='#{link}' style="width: 100%;")
+                            td=name['first']
+                            td=name['last']
+                            td=name['email']
+                            td=positions
+                            td=q1
+                            td=q2
+                            td
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept
+                                <br><br>
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
+                            td
+                                p
+                                    a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
+                                iframe#ifram1(src='#{link}' style="width: 100%;")
                     else if status == 0
                         tr(id='#{temp}' class='new')
-                           td=name['first']
-                           td=name['last']
-                           td=name['email']
-                           td=positions
-                           td
-                             button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept 
-                             <br><br>
-                             button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
-                           td
-                             p 
-                               a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
-                             iframe#ifram1(src='#{link}' style="width: 100%;")
+                            td=name['first']
+                            td=name['last']
+                            td=name['email']
+                            td=positions
+                            td=q1
+                            td=q2
+                            td
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept
+                                <br><br>
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
+                            td
+                                p
+                                    a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
+                                iframe#ifram1(src='#{link}' style="width: 100%;")
                     else
                         h1 Something has gone very wrong. It is time to panic. Status: #{JSON.stringify(name)}
                     
