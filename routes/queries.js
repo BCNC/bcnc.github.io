@@ -92,7 +92,7 @@ var updateDocument = function(info, vote, key, db, callback) {
     // Get the documents collection
     var collection = db.collection('documents');
 
-    console.log("Updating a single document...");
+   // console.log("Updating a single document...");
 
     console.log(info.toString());
     // Update document where id is filename
@@ -121,7 +121,7 @@ var updateDocument = function(info, vote, key, db, callback) {
         {$push: {votes: vote}
     });
 
-    console.log("Done updating...");
+  //  console.log("Done updating...");
 
 };
 

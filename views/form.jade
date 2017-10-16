@@ -2,7 +2,7 @@ doctype html
 html
     head
         // Basic
-        title BCNC | Form
+        title BCNC | Apply
         // Define Charset
         meta(charset='utf-8')
         // Responsive etatag
@@ -185,6 +185,7 @@ html
         br
         div.container
             h2.center Application
+            h3.center Deadline: Wednesday 10/24/17 by 11:59 PM
             hr
         div.row
             form.col.s12
@@ -246,12 +247,17 @@ html
                 div.row
                     div.input-field.col.s12.m6
                         i.material-icons.prefix question_answer
-                        textarea#q1.materialize-textarea
+                        textarea#q1.materialize-textarea(placeholder="Limit answer to 100 - 150 words.")
                         label(for="q1") Why do you want to be a part of BCNC and what do you believe you can contribute?
                     div.input-field.col.s12.m6
                         i.material-icons.prefix question_answer
-                        textarea#q2.materialize-textarea
+                        textarea#q2.materialize-textarea(placeholder="Limit answer to 100 - 150 words.")
                         label(for="q2") What might your resume not tell us about you? What do you do for fun?
+                div.row
+                    div.input-field.col.s12.m12
+                        i.material-icons.prefix people
+                        input#refer.validate(type="text")
+                        label(for="refer") Board Member Referral (if applicable)
         div.row
             // uses multipart encrypted file submission; name must be 'file'
             form.dropzone#d1(action="/upload").col.s12.m6.push-m3
@@ -262,8 +268,7 @@ html
                             input#upload2(type="file" name="file" accept="image/*,application/pdf")
                         div.file-path-wrapper
                             input.file-path.validate(type="text")
-
-        <br>
+        br
         div.center-align
             button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="submit()") Submit
             footer

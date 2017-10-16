@@ -17,6 +17,9 @@ function submit() {
     var major = $('#major').val().trim();
     var q1 = $('#q1').val().trim();
     var q2 = $('#q2').val().trim();
+    var refer = $('#refer').val().trim();
+
+    console.log("Referred by: " + refer);
 
     $.each($('#position option:selected'), function(){
         pos.push($(this).val());
@@ -44,6 +47,7 @@ function submit() {
                 'position': position,
                 'q1': q1,
                 'q2': q2,
+                'refer': refer,
                 'school': school,
                 'filename': resp_filename
 
@@ -56,6 +60,7 @@ function submit() {
                 $('#position').val('');
                 $('#school').val('');
                 $('#year').val('');
+                $('#refer').val('');
                 window.location = '/thankyou';
             }
         });

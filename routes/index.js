@@ -212,7 +212,7 @@ router.post('/upload', function(req, res) {
 
 /* For removing uploaded files */
 router.post('/remove', function(req, res) {
-    console.log("Server has received remove file data");
+   // console.log("Server has received remove file data");
     queries.removeOne(req.body['filename'], function(result) {
         res.end(result);
     });
@@ -220,9 +220,11 @@ router.post('/remove', function(req, res) {
 
 /* For saving form data */
 router.post('/submit', function(req, res) {
-    console.log("Server has received submit data");
+    //console.log("Server has received submit data");
 
     var position = JSON.parse(req.body.position);
+
+    console.log("Referred by: " + req.body.refer);
 
     var info = {
         'first': req.body.firstname,
@@ -234,6 +236,7 @@ router.post('/submit', function(req, res) {
         'position': position,
         'q1': req.body.q1,
         'q2': req.body.q2,
+        'refer': req.body.refer,
         'school': req.body.school,
         'status': 0,
         'accept': 0,
@@ -241,10 +244,10 @@ router.post('/submit', function(req, res) {
         'votes': []
     };
 
-    console.log("Here!");
+   // console.log("Here!");
 
     queries.update(info, "", req.body.filename);
-    console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
+   // console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
     queries.all();
     res.end("Submit data has been entered in database");
 });
