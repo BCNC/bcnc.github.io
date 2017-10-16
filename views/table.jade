@@ -18,11 +18,11 @@ html
                     th(data-field='last', data-sortable='true') Last
                     th(data-field='email', data-sortable='true') Email
                     th(data-field='position', data-sortable='true') Position
-                    th(data-field='q1', data-sortable='true') Question 1
-                    th(data-field='q2', data-sortable='true') Question 2
+                    th(data-field='q1', data-sortable='false') Question 1
+                    th(data-field='q2', data-sortable='false') Question 2
                     th(data-field='deliberate', data-sortable='true') Accept/Reject
                     //th(data-field='button', data-sortable='false') Button
-                    th(data-field='pdf', data-sortable='false') PDF
+                    th(data-field='pdf', data-sortable='false') Resume
             tbody
                 - var index=0;
                 //- var resume_list[];
@@ -53,11 +53,11 @@ html
                             td=name['email']
                             td=positions
                             td=q1
-                            td=q2
+                            td=q1
                             td
-                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept: #{ac}
                                 <br><br>
-                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject: #{re}
                             td
                                 p
                                     a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
@@ -73,9 +73,9 @@ html
                             td=q1
                             td=q2
                             td
-                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept: #{ac}
                                 <br><br>
-                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject: #{re}
                             td
                                 p
                                     a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
@@ -89,9 +89,9 @@ html
                             td=q1
                             td=q2
                             td
-                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept: #{ac}
                                 <br><br>
-                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject: #{re}
                             td
                                 p
                                     a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full

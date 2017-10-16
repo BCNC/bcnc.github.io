@@ -132,14 +132,62 @@ router.post('/deliberate', function(req, res, next) {
             else {
                 var info = {
                     'status': 0
-                }
-                queries.update(info, req.body['id']);
+                };
+                queries.update(info, "", req.body['id']);
                 res.end('Reset');
             }
-        } else {
-            console.log("user already voted!");
-            var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 1;
-            res.end(net.toString());
+        } else { // else this person already voted, so update their vote
+
+            var currentVotes = callback[0]['votes'];
+
+            // find the index for the voter we need to update
+            var i = 0;
+            for(; i < currentVotes.length; i++) {
+                if(currentVotes[i] && currentVotes[i]['voter'] == email) {
+                    break;
+                }
+            }
+
+            console.log("Updating vote for: " + currentVotes[i]['voter'] + " who voted " + currentVotes[i]['decision']);
+
+            // if we are going from deny to accept
+            if(currentVotes[i]['decision'] == 2 && req.body['accept'] == 1) {
+
+                var currentReject = callback[0]['reject'];
+                var currentAccept = callback[0]['accept'];
+                currentVotes[i]['decision'] = 1;
+                var info = {
+                    'reject': currentReject - 1,
+                    'accept': currentAccept + 1,
+                    'votes': currentVotes
+                };
+
+                queries.update(info, "", req.body['id']);
+
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 2;
+                res.end(net.toString());
+
+                // if we are going from accept to deny
+            } else if (currentVotes[i]['decision'] == 1 && req.body['accept'] == 2) {
+                var currentReject = callback[0]['reject'];
+                var currentAccept = callback[0]['accept'];
+                currentVotes[i]['decision'] = 2;
+                var info = {
+                    'reject': currentReject + 1,
+                    'accept': currentAccept - 1,
+                    'votes': currentVotes
+                };
+                queries.update(info, "", req.body['id']);
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']);
+                res.end(net.toString());
+
+            } else { // officer has voted for the same thing, do nothing!
+                console.log("user already voted!");
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 1;
+                res.end(net.toString());
+            }
+
+
         }
     });
 
@@ -256,6 +304,8 @@ router.post('/submit', function(req, res) {
             console.log("Updating applicant information..");
             queries.removeOne(callback[0]['_id']);
             queries.update(info, "", req.body.filename);
+
+        // else, we have never seen this applicant before
         } else {
             console.log("Adding new applicant..");
             queries.update(info, "", req.body.filename);

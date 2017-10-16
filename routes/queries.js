@@ -92,9 +92,9 @@ var updateDocument = function(info, vote, key, db, callback) {
     // Get the documents collection
     var collection = db.collection('documents');
 
-   // console.log("Updating a single document...");
+    console.log("Updating a single document...");
 
-    console.log(info.toString());
+    console.log(JSON.stringify(info));
     // Update document where id is filename
     collection.updateOne(
         { _id : key},
@@ -116,15 +116,17 @@ var updateDocument = function(info, vote, key, db, callback) {
             callback(result);
         });*/
 
-    collection.updateOne(
-        {_id: key, 'votes.voter': {$ne: vote['voter']}},
-        {$push: {votes: vote}},
+    if(vote != "") {
+        collection.updateOne(
+            {_id: key, 'votes.voter': {$ne: vote['voter']}},
+            {$push: {votes: vote}},
 
-        function(err, result) {
-            assert.equal(err,null);
-            assert.equal(1, result.result.n);
-            callback(result)
-    });
+            function (err, result) {
+                assert.equal(err, null);
+                assert.equal(1, result.result.n);
+                callback(result)
+            });
+    }
 
   //  console.log("Done updating...");
 
