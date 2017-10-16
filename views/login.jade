@@ -1,0 +1,13 @@
+html
+    head
+        script(src="https://apis.google.com/js/platform.js")
+        meta(name='google-signin-client_id', content='942651187422-m7pgtpf61q3sobhjfg4esajrfbsa3g8l.apps.googleusercontent.com')
+        script(src='javascripts/login.js')
+    body
+        | button start
+        p
+            .g-signin2(data-onsuccess='onSignIn')
+        p
+            button(data-onsuccess='onSignOut' onClick='onSignOut()') Log Out
+        | button end
+        p.

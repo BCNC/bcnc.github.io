@@ -1,0 +1,105 @@
+html
+    head
+        link(rel='stylesheet', href='/stylesheets/table.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css')
+        script(src="https://code.jquery.com/jquery-2.2.4.min.js")
+        script(src="/javascripts/table.js" type="text/javascript")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js")
+        
+    body
+        h3 Question 1: Why do you want to be a part of BCNC and what do you believe you can contribute?
+        h3 Question 2: What might your resume not tell us about you? What do you do for fun?
+        table(data-toggle='table', data-sort-name='first', id='table', data-classes='table')
+            thead
+                tr
+                    th(data-field='first', data-sortable='true') First
+                    th(data-field='last', data-sortable='true') Last
+                    th(data-field='email', data-sortable='true') Email
+                    th(data-field='position', data-sortable='true') Position
+                    th(data-field='q1', data-sortable='false') Question 1
+                    th(data-field='q2', data-sortable='false') Question 2
+                    th(data-field='deliberate', data-sortable='true') Accept/Reject
+                    //th(data-field='button', data-sortable='false') Button
+                    th(data-field='pdf', data-sortable='false') Resume
+            tbody
+                - var index=0;
+                //- var resume_list[];
+                each name in people
+
+                    - var temp = name['_id'];
+                    - var link = '/resume?filename=' + temp;
+                    - var positions = JSON.stringify(name['position'])
+                    - var q1 = name['q1'];
+                    - var q2 = name['q2'];
+
+                    // to indicate if new entry
+                    - var status = name['status']
+
+                    // number of clicks on accept
+                    - var ac = name['accept'] // number of clicks on accept
+
+                    // number of click on reject
+                    - var re = name['reject'] // number of clicks on reject
+                    - var net = ac - re;
+                    - console.log('net is ' + net);
+                    - console.log('temp is ' + temp);
+
+                    if status == 1 && net >= 5
+                        tr(id='#{temp}' class='accept')
+                            td=name['first']
+                            td=name['last']
+                            td=name['email']
+                            td=positions
+                            td=q1
+                            td=q1
+                            td
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept: #{ac}
+                                <br><br>
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject: #{re}
+                            td
+                                p
+                                    a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
+                                iframe#ifram1(src='#{link}' style="width: 100%;")
+
+                        // if we
+                    else if status == 1
+                        tr(id='#{temp}' class='reject')
+                            td=name['first']
+                            td=name['last']
+                            td=name['email']
+                            td=positions
+                            td=q1
+                            td=q2
+                            td
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept: #{ac}
+                                <br><br>
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject: #{re}
+                            td
+                                p
+                                    a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
+                                iframe#ifram1(src='#{link}' style="width: 100%;")
+                    else if status == 0
+                        tr(id='#{temp}' class='new')
+                            td=name['first']
+                            td=name['last']
+                            td=name['email']
+                            td=positions
+                            td=q1
+                            td=q2
+                            td
+                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept: #{ac}
+                                <br><br>
+                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject: #{re}
+                            td
+                                p
+                                    a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
+                                iframe#ifram1(src='#{link}' style="width: 100%;")
+                    else
+                        h1 Something has gone very wrong. It is time to panic. Status: #{JSON.stringify(name)}
+                    
+
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js")
+

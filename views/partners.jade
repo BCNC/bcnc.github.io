@@ -1,0 +1,487 @@
+doctype html
+//if IE 8
+  html.ie.ie8(lang='en')
+//if (gte IE 9)|!(IE)
+  html.no-js(lang='en')
+html(lang='en')
+    head
+        // Basic
+        title BCNC | Partners
+        // Define Charset
+        meta(charset='utf-8')
+        // Responsive Metatag
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // Page Description and Author
+        meta(name='description', content='Business Career and Networking Club')
+        meta(name='author', content='Vincent Yang')
+        // Bootstrap CSS
+        link(rel='stylesheet', href='assets/css/bootstrap.min.css', type='text/css', media='screen')
+        // Font Awesome CSS
+        link(rel='stylesheet', href='stylesheets/font-awesome.min.css', type='text/css', media='screen')
+        // Slicknav
+        link(rel='stylesheet', type='text/css', href='stylesheets/slicknav.css', media='screen')
+        // Margo CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/style.css', media='screen')
+        // Responsive CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/responsive.css', media='screen')
+        // Css3 Transitions Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/animate.css', media='screen')
+        // Color CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
+        // Margo JS
+        script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
+        script(type='text/javascript', src='javascripts/jquery.migrate.js')
+        script(type='text/javascript', src='javascripts/modernizrr.js')
+        script(type='text/javascript', src='assets/js/bootstrap.min.js')
+        script(type='text/javascript', src='javascripts/jquery.fitvids.js')
+        script(type='text/javascript', src='javascripts/owl.carousel.min.js')
+        script(type='text/javascript', src='javascripts/nivo-lightbox.min.js')
+        script(type='text/javascript', src='javascripts/jquery.isotope.min.js')
+        script(type='text/javascript', src='javascripts/jquery.appear.js')
+        script(type='text/javascript', src='javascripts/count-to.js')
+        script(type='text/javascript', src='javascripts/jquery.textillate.js')
+        script(type='text/javascript', src='javascripts/jquery.lettering.js')
+        script(type='text/javascript', src='javascripts/jquery.easypiechart.min.js')
+        script(type='text/javascript', src='javascripts/jquery.nicescroll.min.js')
+        script(type='text/javascript', src='javascripts/jquery.parallax.js')
+        script(type='text/javascript', src='javascripts/mediaelement-and-player.js')
+        script(type='text/javascript', src='javascripts/jquery.slicknav.js')
+        //if IE 8
+          script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+        //if lt IE 9
+          script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+    body
+        #fb-root
+        script.
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js')
+        script(type='text/javascript').
+            var feed = new Instafeed({
+                get: 'user',
+                userId: '2996892988',
+                accessToken: '2996892988.1677ed0.d9ba50f469fb43cf9a1d1c91f17c6714',
+                template: 'li a.lightbox(href = \'{{link}}\') img(alt = \'\', src = \'{{image}}\')'
+            });
+            feed.run();
+        // Full Body Container
+        #container
+            // Start Header Section
+            .hidden-header
+            header.clearfix
+                // Start Top Bar
+                .top-bar
+                    .container
+                        .row
+                            .col-md-7
+                                // Start Contact Info
+                                ul.contact-details
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-map-marker
+                                            |  Davis, CA
+                                    li
+                                        a(href='mailto:contactbcnc@gmail.com')
+                                            i.fa.fa-envelope-o
+                                            |  contactbcnc@gmail.com
+                                // End Contact Info
+                            // .col-md-6
+                            .col-md-5
+                                // Start Social Links
+                                ul.social-list
+                                    li
+                                        a.facebook.itl-tooltip(data-placement='bottom', title='Facebook', target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin.itl-tooltip(data-placement='bottom', title='Linkedin', target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram.itl-tooltip(data-placement='bottom', title='Instagram', target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                                // End Social Links
+                            // .col-md-6
+                        // .row
+                    // .container
+                // .top-bar
+                // End Top Bar
+                // Start Header ( Logo & Naviagtion )
+                .navbar.navbar-default.navbar-top
+                    .container
+                        .navbar-header
+                            // Stat Toggle Nav Link For Mobiles
+                            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                i.fa.fa-bars
+                            // End Toggle Nav Link For Mobiles
+                            a.navbar-brand(href='/')
+                                img(alt='', src='images/bcnc.png')
+                        .navbar-collapse.collapse
+                            // Start Navigation List
+                            ul.nav.navbar-nav.navbar-right
+                                li
+                                    a(href='/') Home
+                                li
+                                    a(href='about') About
+                                li
+                                    a(href='our-team') Our Team
+                                li
+                                    a.active(href='partners') Partners
+                                li
+                                    a(href='faq') FAQs
+                                    ul.dropdown
+                                        li
+                                            a(href='faq') Students
+                                        li
+                                            a(href='faq#organizations-spacing') Organizations
+                                        li
+                                            a(href='faq#professionals-spacing') Professionals
+                                li
+                                    a(href='contact') Contact
+                                li
+                                    a(href='form') Apply
+                            // End Navigation List
+                    // Mobile Menu Start
+                    ul.wpb-mobile-menu
+                        li
+                            a(href='/') Home
+                        li
+                            a(href='about') About
+                        li
+                            a(href='our-team') Our Team
+                        li
+                            a.active(href='partners') Partners
+                        li
+                            a(href='faq') FAQs
+                        li
+                            a(href='contact') Contact
+                        li
+                            a(href='form') Apply
+                    // Mobile Menu End
+                // End Header ( Logo & Naviagtion )
+            // End Header Section
+            // Start Portfolio Section
+            .section.full-width-portfolio(style='border-top:0; border-bottom:0; background:#fff;')
+                // Start Big Heading
+                .big-title.text-center(data-animation='fadeInDown', data-animation-delay='01')
+                    h1
+                        | Meet our
+                        strong  Partners
+                // End Big Heading
+                p.text-center
+                    | We are deeply committed to serving our student community and helping other young professionals navigate their career development.
+                    br
+                    | As an umbrella organization for 16 other undergraduate business groups,
+                    br
+                    | we work year-round to link students with opportunities to explore different career paths and grow as future business  leaders.
+                // Start Recent Projects Carousel
+                ul#portfolio-list(data-animated='fadeIn')
+                    li
+                        img(src='images/asa.png', alt='')
+                        .portfolio-item-content
+                            span.header Actuarial Sciences Association
+                            // <p class="body">web develpment, design</p>
+                        a(href='#')
+                            i.more +
+                    li
+                        img(src='images/akpsi.png', alt='')
+                        .portfolio-item-content
+                            span.header Alpha Kappa Psi
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://davisakpsi.com/')
+                            i.more +
+                    li
+                        img(src='images/ascend.png', alt='')
+                        .portfolio-item-content
+                            span.header Ascend
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://ascenducd.org/', target='_blank')
+                            i.more +
+                    li
+                        img(src='images/cyc.png', alt='')
+                        .portfolio-item-content
+                            span.header Consult Your Community
+                        a(href='http://www.cycdavis.com/')
+                            i.more +
+                    li
+                        img(src='images/das.png', alt='')
+                        .portfolio-item-content
+                            span.header Davis Accounting Society
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://davisaccountingsociety.org/')
+                            i.more +
+                    li
+                        img(src='images/dcg.png', alt='')
+                        .portfolio-item-content
+                            span.header Davis Consulting Group
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://davisconsultinggroup.org/')
+                            i.more +
+                    li
+                        img(src='images/dwib.png', alt='')
+                        .portfolio-item-content
+                            span.header Davis Women in Business
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://www.daviswomeninbusiness.com')
+                            i.more +
+                    li
+                        img(src='images/dsp.png', alt='')
+                        .portfolio-item-content
+                            span.header Delta Sigma Pi
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://dsp-nurho.com/')
+                            i.more +
+                    li
+                        img(src='images/ebsa.png', alt='')
+                        .portfolio-item-content
+                            span.header Economics & Business Student Association
+                            // <p class="body">web develpment, design</p>
+                        a(href='https://ebsaucd.com/', target='_blank')
+                            i.more +
+                    li
+                        img(src='images/econclub.png', alt='')
+                        .portfolio-item-content
+                            span.header Economics Club
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://economicsclubatucd.weebly.com/')
+                            i.more +
+                    //
+                      <li>
+                      <img src="images/portfolio-1/12.png" alt="" />
+                      <div class="portfolio-item-content">
+                      <span class="header">Finance &amp; Investments Club</span>
+                      </div>
+                      <a href="#"><i class="more">+</i></a>
+                      </li>
+                    //
+                      <li>
+                      <img src="images/portfolio-1/12.png" alt="" />
+                      <div class="portfolio-item-content">
+                      <span class="header">Global Monetary Research Society</span>
+                      </div>
+                      <a href="#"><i class="more">+</i></a>
+                      </li>
+                    li
+                        img(src='images/hd.png', alt='')
+                        .portfolio-item-content
+                            span.header HackDavis
+                            // <p class="body">web develpment, design</p>
+                        a(href='https://hackdavis.io/')
+                            i.more +
+                    li
+                        img(src='images/msftp.png', alt='')
+                        .portfolio-item-content
+                            span.header MS Financial Training Program
+                            // <p class="body">web develpment, design</p>
+                        a(href='https://msftp.wordpress.com')
+                            i.more +
+                    li
+                        img(src='images/netimpact.png', alt='')
+                        .portfolio-item-content
+                            span.header Net Impact
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://netimpactdavis.com')
+                            i.more +
+                    li
+                        img(src='images/vita.png', alt='')
+                        .portfolio-item-content
+                            span.header Students in VITA
+                            // <p class="body">web develpment, design</p>
+                        a(href='http://www.sivdavis.org/')
+                            i.more +
+                // End Recent Projects Carousel
+            // End Portfolio Section
+            // Start Footer Section
+            footer
+                .container
+                    .row.footer-widgets
+                        // Start Subscribe & Social Links Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.mail-subscribe-widget
+                                h4
+                                    | Subscribe to our newsletter
+                                    span.head-line
+                                p Join our mailing list to stay up to date and get notices about our new releases!
+                                form.subscribe(action='https://formspree.io/contactbcnc@gmail.com', method='POST')
+                                    input(type='text', placeholder='mail@example.com')
+                                    input.btn-system(type='submit', value='Send')
+                            .footer-widget.social-widget
+                                h4
+                                    | Follow Us
+                                    span.head-line
+                                ul.social-icons
+                                    li
+                                        a.facebook(target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin(target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram(target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                        // .col-md-3
+                        // End Subscribe & Social Links Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget
+                                .fb-page(data-tabs='timeline', data-href='https://www.facebook.com/davisbcnc', data-width='380', data-small-header='true', data-height='300', data-hide-cover='false')
+                        // Start InstaFeed Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.flickr-widget
+                                h4
+                                    | Insta Feed
+                                    span.head-line
+                                ul.flickr-list
+                                    #instafeed
+                        // .col-md-3
+                        // End InstaFeed Widget
+                        // Start Contact Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.contact-widget
+                                h4
+                                    img.img-responsive(src='images/bcnc.png', alt='Footer Logo')
+                                p
+                                    | The Business Career and Networking Club was created to bridge the gap between businesses and UC Davis students. We strive to link qualified individuals with innovative companies by working year-round to bring value to our students and their future employers.
+                                ul
+                                    li
+                                        span Email:
+                                        |  contactbcnc@gmail.com
+                                    li
+                                        span Website:
+                                        |  www.bcnclub.com
+                        // .col-md-3
+                        // End Contact Widget
+                    // .row
+                    // Start Copyright
+                    .copyright-section
+                        .row
+                            .col-md-6
+                                p
+                                    | © 2017 BCNC - All Rights Reserved
+                                    a(href='bcnclub.com') BCNC
+                            // .col-md-6
+                            .col-md-6
+                                ul.footer-nav
+                                    li
+                                        a(href='#') Sitemap
+                                    li
+                                        a(href='#') Privacy Policy
+                                    li
+                                        a(href='#') Contact
+                            // .col-md-6
+                        // .row
+                    // End Copyright
+            // End Footer Section
+        // End Full Body Container
+        // Go To Top Link
+        a.back-to-top(href='#')
+            i.fa.fa-angle-up
+        #loader
+            .spinner
+                .dot1
+                .dot2
+        // Style Switcher
+        //
+          <div class="switcher-box">
+          <a class="open-switcher show-switcher"><i class="fa fa-cog fa-2x"></i></a>
+          <h4>Style Switcher</h4>
+          <span>12 Predefined Color Skins</span>
+          <ul class="colors-list">
+          <li>
+          <a onClick="setActiveStyleSheet('blue'); return false;" title="Blue" class="blue"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('sky-blue'); return false;" title="Sky Blue" class="sky-blue"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('cyan'); return false;" title="Cyan" class="cyan"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('jade'); return false;" title="Jade" class="jade"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('green'); return false;" title="Green" class="green"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('purple'); return false;" title="Purple" class="purple"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('pink'); return false;" title="Pink" class="pink"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('red'); return false;" title="Red" class="red"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('orange'); return false;" title="Orange" class="orange"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('yellow'); return false;" title="Yellow" class="yellow"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('peach'); return false;" title="Peach" class="peach"></a>
+          </li>
+          <li>
+          <a onClick="setActiveStyleSheet('beige'); return false;" title="Biege" class="beige"></a>
+          </li>
+          </ul>
+          <span>Top Bar Color</span>
+          <select id="topbar-style" class="topbar-style">
+          <option value="1">Light (Default)</option>
+          <option value="2">Dark</option>
+          <option value="3">Color</option>
+          </select>
+          <span>Layout Style</span>
+          <select id="layout-style" class="layout-style">
+          <option value="1">Wide</option>
+          <option value="2">Boxed</option>
+          </select>
+          <span>Patterns for Boxed Version</span>
+          <ul class="bg-list">
+          <li>
+          <a href="#" class="bg1"></a>
+          </li>
+          <li>
+          <a href="#" class="bg2"></a>
+          </li>
+          <li>
+          <a href="#" class="bg3"></a>
+          </li>
+          <li>
+          <a href="#" class="bg4"></a>
+          </li>
+          <li>
+          <a href="#" class="bg5"></a>
+          </li>
+          <li>
+          <a href="#" class="bg6"></a>
+          </li>
+          <li>
+          <a href="#" class="bg7"></a>
+          </li>
+          <li>
+          <a href="#" class="bg8"></a>
+          </li>
+          <li>
+          <a href="#" class="bg9"></a>
+          </li>
+          <li>
+          <a href="#" class="bg10"></a>
+          </li>
+          <li>
+          <a href="#" class="bg11"></a>
+          </li>
+          <li>
+          <a href="#" class="bg12"></a>
+          </li>
+          <li>
+          <a href="#" class="bg13"></a>
+          </li>
+          <li>
+          <a href="#" class="bg14"></a>
+          </li>
+          </ul>
+          </div>
+        script(type='text/javascript', src='javascripts/script.js')
+

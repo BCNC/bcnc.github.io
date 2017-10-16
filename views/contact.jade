@@ -1,0 +1,423 @@
+doctype html
+//if IE 8
+  html.ie.ie8(lang='en')
+//if (gte IE 9)|!(IE)
+  html.no-js(lang='en')
+html(lang='en')
+    head
+        // Basic
+        title BCNC | Contact
+        // Define Charset
+        meta(charset='utf-8')
+        // Responsive Metatag
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // Page Description and Author
+        meta(name='description', content='Margo - Responsive HTML5 Template')
+        meta(name='author', content='iThemesLab')
+        // Bootstrap CSS
+        link(rel='stylesheet', href='assets/css/bootstrap.min.css', type='text/css', media='screen')
+        // Font Awesome CSS
+        link(rel='stylesheet', href='stylesheets/font-awesome.min.css', type='text/css', media='screen')
+        // Slicknav
+        link(rel='stylesheet', type='text/css', href='stylesheets/slicknav.css', media='screen')
+        // Margo CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/style.css', media='screen')
+        // Responsive CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/responsive.css', media='screen')
+        // Color CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
+        // Margo JS
+        script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
+        script(type='text/javascript', src='javascripts/jquery.migrate.js')
+        script(type='text/javascript', src='javascripts/modernizrr.js')
+        script(type='text/javascript', src='assets/js/bootstrap.min.js')
+        script(type='text/javascript', src='jjavascriptss/jquery.fitvids.js')
+        script(type='text/javascript', src='jjavascriptss/owl.carousel.min.js')
+        script(type='text/javascript', src='javascripts/nivo-lightbox.min.js')
+        script(type='text/javascript', src='javascripts/jquery.isotope.min.js')
+        script(type='text/javascript', src='javascripts/jquery.appear.js')
+        script(type='text/javascript', src='javascripts/count-to.js')
+        script(type='text/javascript', src='javascripts/jquery.textillate.js')
+        script(type='text/javascript', src='javascripts/jquery.lettering.js')
+        script(type='text/javascript', src='javascripts/jquery.easypiechart.min.js')
+        script(type='text/javascript', src='javascripts/jquery.nicescroll.min.js')
+        script(type='text/javascript', src='javascripts/jquery.parallax.js')
+        script(defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBMcQ2UaK_9mopqa5gXNtg2KXuTwmbglnk&callback=initMap', type='text/javascript')
+        script(type='text/javascript', src='javascripts/jquery.slicknav.js')
+        //if IE 8
+          script(src='https://html5shiv.googlecode.com/svn/trunk/html5.js')
+        //if lt IE 9
+          script(src='https://html5shiv.googlecode.com/svn/trunk/html5.js')
+    body
+        #fb-root
+        script.
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js')
+        script(type='text/javascript').
+            var feed = new Instafeed({
+                get: 'user',
+                userId: '2996892988',
+                accessToken: '2996892988.1677ed0.d9ba50f469fb43cf9a1d1c91f17c6714',
+                template: 'li a.lightbox(href = \'{{link}}\') img(alt = \'\', src = \'{{image}}\')'
+            });
+            feed.run();
+        // Container
+        #container
+            // Start Header
+            .hidden-header
+            header.clearfix
+                // Start Top Bar
+                .top-bar
+                    .container
+                        .row
+                            .col-md-6
+                                // Start Contact Info
+                                ul.contact-details
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-map-marker
+                                            |  Davis, CA
+                                    li
+                                        a(href='mailto:contactbcnc@gmail.com')
+                                            i.fa.fa-envelope-o
+                                            |  contactbcnc@gmail.com
+                                // End Contact Info
+                            .col-md-6
+                                // Start Social Links
+                                ul.social-list
+                                    li
+                                        a.facebook.itl-tooltip(data-placement='bottom', title='Facebook', target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin.itl-tooltip(data-placement='bottom', title='Linkedin', target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram.itl-tooltip(data-placement='bottom', title='Instagram', target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                                // End Social Links
+                // End Top Bar
+                // Start Header ( Logo & Naviagtion )
+                .navbar.navbar-default.navbar-top
+                    .container
+                        .navbar-header
+                            // Stat Toggle Nav Link For Mobiles
+                            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                i.fa.fa-bars
+                            // End Toggle Nav Link For Mobiles
+                            a.navbar-brand(href='/')
+                                img(alt='', src='images/bcnc.png')
+                        .navbar-collapse.collapse
+                            // Start Navigation List
+                            ul.nav.navbar-nav.navbar-right
+                                li
+                                    a(href='/') Home
+                                li
+                                    a(href='about') About
+                                li
+                                    a(href='our-team') Our Team
+                                li
+                                    a(href='partners') Partners
+                                li
+                                    a(href='faq') FAQs
+                                    ul.dropdown
+                                        li
+                                            a(href='faq') Students
+                                        li
+                                            a(href='faq#organizations-spacing') Organizations
+                                        li
+                                            a(href='faq#professionals-spacing') Professionals
+                                li
+                                    a.active(href='contact') Contact
+                                li
+                                    a(href='form') Apply
+                            // End Navigation List
+                    // Mobile Menu Start
+                    ul.wpb-mobile-menu
+                        li
+                            a(href='/') Home
+                        li
+                            a(href='about') About
+                        li
+                            a(href='our-team') Our Team
+                        li
+                            a(href='partners') Partners
+                        li
+                            a(href='faq') FAQs
+                        li
+                            a.active(href='contact') Contact
+                        li
+                            a(href='form') Apply
+                    // Mobile Menu End
+                // End Header ( Logo & Naviagtion )
+            // End Header
+            // Start Map
+            #map(data-position-latitude='38.5382', data-position-longitude='-121.7617')
+            script.
+                (function($) {
+                    $.fn.CustomMap = function(options) {
+                        var posLatitude = $('#map').data('position-latitude'),
+                            posLongitude = $('#map').data('position-longitude');
+                        var settings = $.extend({
+                            home: {
+                                latitude: posLatitude,
+                                longitude: posLongitude
+                            },
+                            text: '<div class="map-popup"><h4>BCNC</h4></div>',
+                            icon_url: $('#map').data('marker-img'),
+                            zoom: 15
+                        }, options);
+                        var coords = new google.maps.LatLng(settings.home.latitude, settings.home.longitude);
+                        return this.each(function() {
+                            var element = $(this);
+                            var options = {
+                                zoom: settings.zoom,
+                                center: coords,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                mapTypeControl: false,
+                                scaleControl: false,
+                                streetViewControl: false,
+                                panControl: true,
+                                disableDefaultUI: true,
+                                zoomControlOptions: {
+                                    style: google.maps.ZoomControlStyle.DEFAULT
+                                },
+                                overviewMapControl: true,
+                            };
+                            var map = new google.maps.Map(element[0], options);
+                            var icon = {
+                                url: settings.icon_url,
+                                origin: new google.maps.Point(0, 0)
+                            };
+                            var marker = new google.maps.Marker({
+                                position: coords,
+                                map: map,
+                                icon: icon,
+                                draggable: false
+                            });
+                            var info = new google.maps.InfoWindow({
+                                content: settings.text
+                            });
+                            google.maps.event.addListener(marker, 'click', function() {
+                                info.open(map, marker);
+                            });
+                            var styles = [{
+                                "featureType": "landscape",
+                                "stylers": [{
+                                    "saturation": -100
+                                }, {
+                                    "lightness": 65
+                                }, {
+                                    "visibility": "on"
+                                }]
+                            }, {
+                                "featureType": "poi",
+                                "stylers": [{
+                                    "saturation": -100
+                                }, {
+                                    "lightness": 51
+                                }, {
+                                    "visibility": "simplified"
+                                }]
+                            }, {
+                                "featureType": "road.highway",
+                                "stylers": [{
+                                    "saturation": -100
+                                }, {
+                                    "visibility": "simplified"
+                                }]
+                            }, {
+                                "featureType": "road.arterial",
+                                "stylers": [{
+                                    "saturation": -100
+                                }, {
+                                    "lightness": 30
+                                }, {
+                                    "visibility": "on"
+                                }]
+                            }, {
+                                "featureType": "road.local",
+                                "stylers": [{
+                                    "saturation": -100
+                                }, {
+                                    "lightness": 40
+                                }, {
+                                    "visibility": "on"
+                                }]
+                            }, {
+                                "featureType": "transit",
+                                "stylers": [{
+                                    "saturation": -100
+                                }, {
+                                    "visibility": "simplified"
+                                }]
+                            }, {
+                                "featureType": "administrative.province",
+                                "stylers": [{
+                                    "visibility": "on"
+                                }]
+                            }, {
+                                "featureType": "water",
+                                "elementType": "labels",
+                                "stylers": [{
+                                    "visibility": "on"
+                                }, {
+                                    "lightness": -25
+                                }, {
+                                    "saturation": -100
+                                }]
+                            }, {
+                                "featureType": "water",
+                                "elementType": "geometry",
+                                "stylers": [{
+                                    "hue": "#ffff00"
+                                }, {
+                                    "lightness": -25
+                                }, {
+                                    "saturation": -97
+                                }]
+                            }];
+                            map.setOptions({
+                                styles: styles
+                            });
+                        });
+                    };
+                }(jQuery));
+                jQuery(document).ready(function() {
+                    jQuery('#map').CustomMap();
+                });
+            // End Map
+            // Start Content
+            #content
+                .container
+                    .row
+                        .col-md-8
+                            // Classic Heading
+                            h4.classic-title
+                                span Contact Us
+                            // Start Contact Form
+                            form#contact-form.contact-form(role='form', method='post', ,='', action='https://formspree.io/contactbcnc@gmail.com')
+                                .form-group
+                                    .controls
+                                        input(type='text', placeholder='Name', name='name')
+                                .form-group
+                                    .controls
+                                        input.email(type='email', placeholder='Email', name='email')
+                                .form-group
+                                    .controls
+                                        input.requiredField(type='text', placeholder='Subject', name='subject')
+                                .form-group
+                                    .controls
+                                        textarea(rows='7', placeholder='Message', name='message')
+                                button.btn-system.btn-large(type='submit', value='Send') Send
+                                // <button type="submit" id="submit" class="btn-system btn-large">Send</button>
+                                #success(style='color:#34495e;')
+                            // End Contact Form
+                        .col-md-4
+                            // Classic Heading
+                            h4.classic-title
+                                span Information
+                            // Some Info
+                            p Feel free to contact us!
+                            // Divider
+                            .hr1(style='margin-bottom:10px;')
+                            // Info - Icons List
+                            ul.icons-list
+                                li
+                                    i.fa.fa-envelope-o
+                                    strong Email:
+                                    |  contactbcnc@gmail.com
+                            // Divider
+                            .hr1(style='margin-bottom:15px;')
+                            // Classic Heading
+                            // <h4 class="classic-title"><span>Working Hours</span></h4>
+                            // Info - List
+                            //
+                              <ul class="list-unstyled">
+                              <li><strong>Monday - Friday</strong> - 9am to 5pm</li>
+                              <li><strong>Saturday</strong> - 9am to 2pm</li>
+                              <li><strong>Sunday</strong> - Closed</li>
+                              </ul>
+            // End content
+            // Start Footer
+            footer
+                .container
+                    .row.footer-widgets
+                        // Start Subscribe & Social Links Widget
+                        .col-md-3
+                            .footer-widget.mail-subscribe-widget
+                                h4
+                                    | Subscribe to our newsletter
+                                    span.head-line
+                                p Join our mailing list to stay up to date and get notices about our new releases!
+                                form.subscribe
+                                    input(type='text', placeholder='mail@example.com')
+                                    input.btn-system(type='submit', value='Send')
+                            .footer-widget.social-widget
+                                h4
+                                    | Follow Us
+                                    span.head-line
+                                ul.social-icons
+                                    li
+                                        a.facebook(target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin(target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram(target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                        // .col-md-3
+                        // End Subscribe & Social Links Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget
+                                .fb-page(data-tabs='timeline', data-href='https://www.facebook.com/davisbcnc', data-width='380', data-small-header='true', data-height='300', data-hide-cover='false')
+                        // Start InstaFeed Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.flickr-widget
+                                h4
+                                    | Insta Feed
+                                    span.head-line
+                                ul.flickr-list
+                                    #instafeed
+                        // .col-md-3
+                        // End InstaFeed Widget
+                        // Start Contact Widget
+                        .col-md-3
+                            .footer-widget.contact-widget
+                                h4
+                                    img.img-responsive(src='images/bcnc.png', alt='Footer Logo')
+                                p
+                                    | The Business Career and Networking Club was created to bridge the gap between businesses and UC Davis students. We strive to link qualified individuals with innovative companies by working year-round to bring value to our students and their future employers.
+                                ul
+                                    li
+                                        span Email:
+                                        |  contactbcnc@gmail.com
+                                    li
+                                        span Website:
+                                        |  www.bcnclub.com
+                        // .col-md-3
+                        // End Contact Widget
+                    // .row
+                    // Start Copyright
+                    .copyright-section
+                        .row
+                            .col-md-6
+                                p © 2017 BCNC - All Rights Reserved
+                            .col-md-6
+                                ul.footer-nav
+                                    li
+                                        a(href='contact') Contact
+                    // End Copyright
+            // End Footer
+        // End Container
+        // Go To Top Link
+        a.back-to-top(href='#')
+            i.fa.fa-angle-up
+        script(type='text/javascript', src='javascripts/script.js')
+
