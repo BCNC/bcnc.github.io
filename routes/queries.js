@@ -116,7 +116,7 @@ var updateDocument = function(info, vote, key, db, callback) {
             callback(result);
         });*/
 
-    if(vote != "") {
+    if(typeof vote !== "string") {
         collection.updateOne(
             {_id: key, 'votes.voter': {$ne: vote['voter']}},
             {$push: {votes: vote}},

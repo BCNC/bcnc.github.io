@@ -165,7 +165,7 @@ router.post('/deliberate', function(req, res, next) {
 
                 queries.update(info, "", req.body['id']);
 
-                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 1;
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) + 2;
                 res.end(net.toString());
 
                 // if we are going from accept to deny
@@ -181,7 +181,7 @@ router.post('/deliberate', function(req, res, next) {
                     'votes': currentVotes
                 };
                 queries.update(info, "", req.body['id']);
-                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) - 1;
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) - 2;
                 res.end(net.toString());
 
             } else { // officer has voted for the same thing, do nothing!
