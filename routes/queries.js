@@ -253,6 +253,7 @@ var getVoter = function(condition, email, db, callback) {
 
     // Get the documents collection
     var collection = db.collection('documents');
+    console.log("Checking to see if " + email + "");
 
     var voteAccept = {
         'voter': email,
@@ -267,7 +268,7 @@ var getVoter = function(condition, email, db, callback) {
     // Find some documents
     collection.find({$or: [{votes: voteAccept}, {votes: voteReject}]}).toArray(function(err, docs) {
         assert.equal(err, null);
-        console.log("Found records with condition " + condition + " and voter " + email);
+        console.log("Found records with condition " + JSON.stringify(condition) + " and voter " + email);
         console.log(docs);
         callback(docs);
     });
