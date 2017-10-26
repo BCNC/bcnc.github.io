@@ -242,6 +242,7 @@ var insert = function(first, last, phone, email) {
         });
     });
 };
+
 var all = function(callback) {
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);

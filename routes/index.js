@@ -150,13 +150,11 @@ router.post('/deliberate', function(req, res, next) {
                 }
             }
 
-
-            console.log("Updating voters index: " + i);
-
-            console.log("Updating vote for: " + currentVotes[i]['voter'] + " who voted " + currentVotes[i]['decision']);
+            console.log("Current state: " + email + " voted " + currentVotes[i]['decision']);
+            console.log("New state " + email + " votes " + req.body['accept']);
 
             // if we are going from deny to accept
-            if(currentVotes[i]['decision'] === 2 && req.body['accept'] == 1) {
+            if(currentVotes[i]['decision'] == 2 && req.body['accept'] == 1) {
 
                 console.log("Switching vote from reject to approve");
                 var currentReject = callback[0]['reject'];
@@ -174,7 +172,7 @@ router.post('/deliberate', function(req, res, next) {
                 res.end(net.toString());
 
                 // if we are going from accept to deny
-            } else if (currentVotes[i]['decision'] === 1 && req.body['accept'] == 2) {
+            } else if (currentVotes[i]['decision'] == 1 && req.body['accept'] == 2) {
 
                 console.log("Switching vote from accept to reject");
                 var currentReject = callback[0]['reject'];
@@ -190,13 +188,11 @@ router.post('/deliberate', function(req, res, next) {
                 res.end(net.toString());
 
             } else { // officer has voted for the same thing, do nothing!
-                queries.update(info, "", req.body['id']);
                 console.log("Looks like you're voting for the same thing!");
-                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']);
+                var net = parseInt(callback[0]['accept']) - parseInt(callback[0]['reject']) - 1;
                 res.end(net.toString());
+
             }
-
-
         }
     });
 

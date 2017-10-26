@@ -17,6 +17,7 @@ html
                     th(data-field='first', data-sortable='true') First
                     th(data-field='last', data-sortable='true') Last
                     th(data-field='email', data-sortable='true') Email
+                    th(data-field='year', data-sortable='true') Year
                     th(data-field='position', data-sortable='true') Position
                     th(data-field='q1', data-sortable='false') Question 1
                     th(data-field='q2', data-sortable='false') Question 2
@@ -33,6 +34,8 @@ html
                     - var positions = JSON.stringify(name['position'])
                     - var q1 = name['q1'];
                     - var q2 = name['q2'];
+                    - var mail = name['email']
+                    - var year = name['year']
 
                     // to indicate if new entry
                     - var status = name['status']
@@ -51,6 +54,7 @@ html
                             td=name['first']
                             td=name['last']
                             td=name['email']
+                            td=name['year']
                             td=positions
                             td=q1
                             td=q1
@@ -69,6 +73,7 @@ html
                             td=name['first']
                             td=name['last']
                             td=name['email']
+                            td=name['year']
                             td=positions
                             td=q1
                             td=q2
@@ -85,6 +90,7 @@ html
                             td=name['first']
                             td=name['last']
                             td=name['email']
+                            td=name['year']
                             td=positions
                             td=q1
                             td=q2
