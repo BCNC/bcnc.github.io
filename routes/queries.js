@@ -71,21 +71,32 @@ var filterDocuments = function(condition, db, callback) {
 
 
 /* Select specific officer */
-var filterOfficers = function(condition, db, callback) {
+var filterOfficer = function(condition, db, callback) {
 
-    // Get the officers collection
-    var collection = db.collection('officers');
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        getOfficer(condition, db, function(result) {
+            db.close();
+            if(callback) {
+                callback(result);
+            }
+        })
 
-    // find some officers
-    collection.find(condition).toArray(function(err, officers) {
-        assert.equal(err, null);
-        console.log("Found specific officer(s) with condition" + condition);
-        console.log(officers);
-        callback(officers);
     });
 };
 
+/* Get specific officer */
+var getOfficer = function(condition, db, callback) {
 
+    var collection = db.collection('officers');
+
+    collection.find(condition).toArray(function(err, officer) {
+        assert.equal(err, null);
+        console.log("Found officer with condition " + condition);
+        callback(officer)
+    })
+
+};
 
 /* Update a row with some new data */
 var updateDocument = function(info, vote, key, db, callback) {
@@ -193,7 +204,6 @@ var update = function(info, vote, key) {
         });
     });
 } 
-
 
 /* Removes a single document */
 var removeOne = function(filename, callback) {
@@ -346,4 +356,5 @@ exports.update = update;
 exports.removeOne = removeOne;
 exports.sendFile = sendFile;
 exports.filterVoter = filterVoter;
+exports.filterOfficer = filterOfficer;
 

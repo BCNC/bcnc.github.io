@@ -80,29 +80,42 @@ var reject = function(id) {
 
 $(document).ready(function() {
 
+    var user = {};
+    user = JSON.parse(sessionStorage.getItem('userEntity'));
+    var currentUser;
 
-    // redirects the user to log in if needed
     if(sessionStorage.getItem('userEntity') === null) {
-        window.location.href = 'login';
+        currentUser = "";
     } else {
-
-        var user = {};
-        user = JSON.parse(sessionStorage.getItem('userEntity'));
-
-        console.log(user.Name + " is logged in!");
+        currentUser = user.email;
     }
 
-    // load up the table
-    $('#table').removeClass('table-hover');
+    // find specific officer and determine wether or not to move on to the webpage
+    $.ajax({
+        url: '/findOfficer',
+        type: 'POST',
+        data: {
+            'email': currentUser
+        },
+        success: function(results) {
+            if(results == currentUser) {
+                console.log(user.Name + " is logged in!");
+                // load up the table
+                $('#table').removeClass('table-hover');
 
-    $(".fancybox").fancybox({
-        openEffect  : 'fade',
-        closeEffect : 'elastic',
-        iframe : {
-            preload: false
+                $(".fancybox").fancybox({
+                    openEffect  : 'fade',
+                    closeEffect : 'elastic',
+                    iframe : {
+                        preload: false
+                    }
+                });
+            } else {
+                window.location.href = 'login';
+                window.alert("You must be an officer to access this page.");
+            }
         }
+
     });
-
-
 });
 

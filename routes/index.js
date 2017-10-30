@@ -65,6 +65,23 @@ router.get('/resume', function(req, res, next) {
     //res.end(pdfData);
 });
 
+router.post('/findOfficer', function(req, res, next) {
+
+    console.log("Checking to see if " + req.body['email'] + " is an officer");
+    var condition = {email: req.body['email']};
+
+    // finds a specific officer
+    queries.filterOfficer(condition, req.body['email'], function(callback) {
+        if(callback.length > 0) {
+            console.log("Officer " + req.body['email'] + " is an officer logged in")
+            res.end(req.body['email'])
+        } else {
+            console.log("Current logged in user " + req.body['email'] + " is not an officer!")
+            res.end("no")
+        }
+    })
+})
+
 router.post('/deliberate', function(req, res, next) {
 
     console.log("Deliberating...");
