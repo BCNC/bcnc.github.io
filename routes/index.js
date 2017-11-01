@@ -88,18 +88,6 @@ router.post('/deliberate', function(req, res, next) {
     var condition = {_id: req.body['id']};
     var email = req.body['userEmail'];
 
-
-    /* if the user already voted
-    queries.filterVoter(condition, email, function(results) {
-        console.log("Checking if user already voted...");
-       if(results.length > 0) {
-           console.log("user already voted!");
-           var net = parseInt(results[0]['accept']) - parseInt(results[0]['reject']) + 1;
-           res.end(net.toString());
-       }
-    });*/
-
-
     queries.filterVoter(condition, email, function(callback) {
 
         console.log("Found " + callback.length + " documents with condition: " + JSON.stringify(condition));
@@ -242,6 +230,19 @@ router.get('/event', function(req, res, next){
 
 /* Render table; pass mongodb results */
 router.get('/table', function(req, res, next) {
+
+    var user = {};
+    user = JSON.parse(sessionStorage.getItem('userEntity'));
+    var currentUser;
+
+
+
+    if(sessionStorage.getItem('userEntity') === null) {
+        currentUser = "";
+    } else {
+        currentUser = user.email;
+    }
+
     var condition = {first: { $exists: true }};
     queries.filter(condition, function(results){
 	    res.render('table', {
@@ -249,6 +250,43 @@ router.get('/table', function(req, res, next) {
             people: results
         });
     });
+
+
+
+/*
+     // find specific officer and determine wether or not to move on to the webpage
+     $.ajax({
+     url: '/findOfficer',
+     type: 'POST',
+     data: {
+     'email': currentUser
+     },
+     success: function(results) {
+     if(results == currentUser) {
+     console.log(user.Name + " is logged in!");
+     // load up the table
+     var condition = {first: { $exists: true }};
+     queries.filter(condition, function(results){
+     res.render('table', {
+     title: 'bok bok bekah',
+     people: results
+     });
+     });
+     } else {
+     res.render('login', {
+     title: 'Login'
+     });
+     }
+     }
+
+     });
+
+
+     */
+
+
+
+
 });
 
 // use multer for multipart uploads - save to file

@@ -1,1 +1,361 @@
-p This is the event manager page!
+doctype html
+html
+    head
+        // Basic
+        title BCNC | Event Manager
+        // Define Charset
+        meta(charset='utf-8')
+        // Responsive etatag
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // Page Description and Author
+        meta(name='description', content='Business Career and Networking Club')
+        meta(name='author', content='Bryan Ngo')
+        // font
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        // Bootstrap CSS
+        link(rel='stylesheet', href='assets/css/bootstrap.min.css', type='text/css', media='screen')
+        // Font Awesome CSS
+
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css')
+
+        link(rel='stylesheet', href='stylesheets/font-awesome.min.css', type='text/css', media='screen')
+        // Slicknav
+        link(rel='stylesheet', type='text/css', href='stylesheets/slicknav.css', media='screen')
+        // Margo CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/style.css', media='screen')
+        // Responsive CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/responsive.css', media='screen')
+        // Css3 Transitions Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/animate.css', media='screen')
+        // Color CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
+        link(rel='stylesheet', href='/stylesheets/dropzone.css')
+        // Margo JS
+        script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
+        script(type='text/javascript', src='javascripts/jquery.migrate.js')
+        script(type='text/javascript', src='javascripts/modernizrr.js')
+        script(type='text/javascript', src='assets/js/bootstrap.min.js')
+        script(type='text/javascript', src='javascripts/jquery.fitvids.js')
+        script(type='text/javascript', src='javascripts/owl.carousel.min.js')
+        script(type='text/javascript', src='javascripts/nivo-lightbox.min.js')
+        script(type='text/javascript', src='javascripts/jquery.isotope.min.js')
+        script(type='text/javascript', src='javascripts/jquery.appear.js')
+        script(type='text/javascript', src='javascripts/count-to.js')
+        script(type='text/javascript', src='javascripts/jquery.textillate.js')
+        script(type='text/javascript', src='javascripts/jquery.lettering.js')
+        script(type='text/javascript', src='javascripts/jquery.easypiechart.min.js')
+        script(type='text/javascript', src='javascripts/jquery.nicescroll.min.js')
+        script(type='text/javascript', src='javascripts/jquery.parallax.js')
+        script(type='text/javascript', src='javascripts/mediaelement-and-player.js')
+        script(type='text/javascript', src='javascripts/jquery.slicknav.js')
+        script(type='text/javascript', src='javascripts/script.js')
+        //if IE 8
+          script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+        //if lt IE 9
+          script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+
+        body#radial-center
+            #fb-root
+            script.
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=271855249904420";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js')
+            script(type='text/javascript').
+                var feed = new Instafeed({
+                    get: 'user',
+                    userId: '2996892988',
+                    accessToken: '2996892988.1677ed0.d9ba50f469fb43cf9a1d1c91f17c6714',
+                    template: 'li a.lightbox(href = \'{{link}}\') img(alt = \'\', src = \'{{image}}\')'
+                });
+                feed.run();
+
+        // Container
+        #container
+            // Start Header
+            .hidden-header
+            header.clearfix
+                // Start Top Bar
+                .top-bar
+                    .container
+                        .row
+                            .col-md-6
+                                // Start Contact Info
+                                ul.contact-details
+                                    li
+                                        a(href='#')
+                                            i.fa.fa-map-marker
+                                            |  Davis, CA
+                                    li
+                                        a(href='mailto:contactbcnc@gmail.com')
+                                            i.fa.fa-envelope-o
+                                            |  contactbcnc@gmail.com
+                                // End Contact Info
+                            .col-md-6
+                                // Start Social Links
+                                ul.social-list
+                                    li
+                                        a.facebook.itl-tooltip(data-placement='bottom', title='Facebook', target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin.itl-tooltip(data-placement='bottom', title='Linkedin', target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram.itl-tooltip(data-placement='bottom', title='Instagram', target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                                // End Social Links
+                // End Top Bar
+                // Start Header ( Logo & Naviagtion )
+                .navbar.navbar-default.navbar-top
+                    .container
+                        .navbar-header
+                            // Stat Toggle Nav Link For Mobiles
+                            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                i.fa.fa-bars
+                            // End Toggle Nav Link For Mobiles
+                            a.navbar-brand(href='/')
+                                img(alt='', src='images/bcnc.png')
+                        .navbar-collapse.collapse
+                            // Start Navigation List
+                            ul.nav.navbar-nav.navbar-right
+                                li
+                                    a(href='/') Home
+                                li
+                                    a(href='about') About
+                                li
+                                    a(href='our-team') Our Team
+                                li
+                                    a(href='partners') Partners
+                                li
+                                    a(href='faq') FAQs
+                                    ul.dropdown
+                                        li
+                                            a(href='faq') Students
+                                        li
+                                            a(href='faq#organizations-spacing') Organizations
+                                        li
+                                            a(href='faq#professionals-spacing') Professionals
+                                li
+                                    a(href='contact') Contact
+                                li
+                                    a.active(href='form') Apply
+                            // End Navigation List
+                    // Mobile Menu Start
+                    ul.wpb-mobile-menu
+                        li
+                            a(href='/') Home
+                        li
+                            a(href='about') About
+                        li
+                            a(href='our-team') Our Team
+                        li
+                            a(href='partners') Partners
+                        li
+                            a(href='faq') FAQs
+                        li
+                            a(href='contact') Contact
+                        li
+                            a.active(href='form') Apply
+                    // Mobile Menu End
+                // End Header ( Logo & Naviagtion )
+            // End Header
+            // Start Purchase Section
+            .section.purchase
+                .container
+                    // Start Video Section Content
+                    .section-video-content.text-center
+                        h1.fittext.wite-text.uppercase
+                            strong APPLY NOW
+                        // Start Animations Text
+                        h1.fittext.wite-text.uppercase.tlt
+                            span.texts
+                                span Leadership
+                                span Networking
+                                span Professional Development
+                                span Culture
+                        // End Animations Text
+                    // End Section Content
+                // .container
+            // End Purchase Section
+        br
+        div.container
+            h3.center Event Manager
+        div.row
+            form.col.s12
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix account_circle
+                        input#firstname.validate(type="text")
+                        label(for="firstname") First Name
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix account_circle
+                        input#lastname.validate(type="text")
+                        label(for="lastname") Last Name
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix phone
+                        input#phone.validate(type="text")
+                        label(for="phone") Phone Number
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix email
+                        input#email.validate(type="text")
+                        label(for="email") UC Davis Email
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix info_outline
+                        select#year
+                            option(value="" disabled selected) Select your year
+                            option(value="1") Freshman
+                            option(value="2") Sophomore
+                            option(value="3") Junior
+                            option(value="4") Senior+
+                        label(for="year") Year
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix lightbulb_outline
+                        select#major
+                            option(value="" disabled selected) Select your major
+                            option(value="Managerial Economics / Economics") Managerial Economics / Economics
+                            option(value="Statistics / Applied Mathematics") Statistics / Applied Mathematics
+                            option(value="Computer Science / Engineering") Computer Science / Engineering
+                            option(value="Biology / Pre-med / Pharmaceutical Chemistry") Biology / Pre-med / Pharmaceutical Chemistry
+                            option(value="Communications / Sociology / Political Science") Communications / Sociology / Political Science
+                            option(value="Other") Other
+                        label(for="major") Major
+                    //div.input-field.col.s12.m6
+                        i.material-icons.prefix language
+                        input#school.autocomplete(type="text")
+                        label(for="school") School
+                div.row
+                    div.input-field.col.s12
+                        i.material-icons.prefix business
+                        select#position(multiple)
+                            option(value="" disabled) Select your interest(s)
+                            option(value="Campus Engagement") Campus Engagement
+                            option(value="Event Planning") Event Planning
+                            option(value="Marketing") Marketing
+                            option(value="Professional Relations") Professional Relations
+                            option(value="Technology") Technology (requires coding experience)
+                            option(value="Treasury") Treasury
+                        label(for="position") Please select one or more areas of interest.
+                div.row
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix question_answer
+                        textarea#q1.materialize-textarea(placeholder="Limit answer to 100 - 150 words.")
+                        label(for="q1") Why do you want to be a part of BCNC and what do you believe you can contribute?
+                    div.input-field.col.s12.m6
+                        i.material-icons.prefix question_answer
+                        textarea#q2.materialize-textarea(placeholder="Limit answer to 100 - 150 words.")
+                        label(for="q2") What might your resume not tell us about you? What do you do for fun?
+                div.row
+                    div.input-field.col.s12.m12
+                        i.material-icons.prefix people
+                        input#refer.validate(type="text")
+                        label(for="refer") Board Member Referral (if applicable)
+        //div.row
+            // uses multipart encrypted file submission; name must be 'file'
+            form.dropzone#d1(action="/upload").col.s12.m6.push-m3
+                div.fallback
+                    div.file-field.input-field#d2
+                        div.btn#display
+                            span File
+                            input#upload2(type="file" name="file" accept="image/*,application/pdf")
+                        div.file-path-wrapper
+                            input.file-path.validate(type="text")
+        //br
+        //div.center-align
+            button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="submit()") Submit
+            footer
+                .container
+                    .row.footer-widgets
+                        // Start Subscribe & Social Links Widget
+                        .col-md-3
+                            .footer-widget.mail-subscribe-widget
+                                h4
+                                    | Subscribe to our Newsletter
+                                    span.head-line
+                                p Join our mailing list to stay up to date and get notices about upcoming events!
+                                form.subscribe(action='https://formspree.io/contactbcnc@gmail.com', method='POST')
+                                    input(type='text', placeholder='mail@example.com')
+                                    input.btn-system(type='submit', value='Send')
+                            .footer-widget.social-widget
+                                h4
+                                    | Follow Us
+                                    span.head-line
+                                ul.social-icons
+                                    li
+                                        a.facebook(target='_blank', href='https://www.facebook.com/davisbcnc/?ref=br_rs')
+                                            i.fa.fa-facebook
+                                    li
+                                        a.linkdin(target='_blank', href='https://www.linkedin.com/company/business-career-&-networking-club')
+                                            i.fa.fa-linkedin
+                                    li
+                                        a.instgram(target='_blank', href='https://www.instagram.com/ucd.bcnc/')
+                                            i.fa.fa-instagram
+                        // .col-md-3
+                        // End Subscribe & Social Links Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget
+                                .fb-page(data-tabs='timeline', data-href='https://www.facebook.com/davisbcnc', data-width='380', data-small-header='true', data-height='300', data-hide-cover='false')
+                        // Start InstaFeed Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.flickr-widget
+                                h4
+                                    | Insta Feed
+                                    span.head-line
+                                ul.flickr-list
+                                    #instafeed
+                        // .col-md-3
+                        // End InstaFeed Widget
+                        // Start Contact Widget
+                        .col-md-3.col-xs-12
+                            .footer-widget.contact-widget
+                                h4
+                                    img.img-responsive(src='images/bcnc.png', alt='Footer Logo')
+                                p
+                                    | The Business Career and Networking Club was created to bridge the gap between businesses and UC Davis students. We strive to link qualified individuals with innovative companies by working year-round to bring value to our students and their future employers.
+                                ul
+                                    li
+                                        span Email:
+                                        |  contactbcnc@gmail.com
+                                    li
+                                        span Website:
+                                        |  www.bcnclub.com
+                        // .col-md-3
+                        // End Contact Widget
+                    // .row
+                    // Start Copyright
+                    .copyright-section
+                        .row
+                            .col-md-6
+                                p
+                                    | © 2017 BCNC - All Rights Reserved
+                                    a(href='bcnclub.com') BCNC
+                            // .col-md-6
+                            .col-md-6
+                                ul.footer-nav
+                                    li
+                                        a(href='contact') Contact
+                            // //.col-md-6
+                    // End Copyright
+            // End Footer
+            // End Container
+            // Go To Top Link
+            a.back-to-top(href='#')
+                i.fa.fa-angle-up
+            #loader
+                .spinner
+                    .dot1
+                    .dot2
+            script(type='text/javascript', src='javascripts/script.js')
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js" type="text/javascript")
+        script(src="javascripts/nottypeform.js" type="text/javascript")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js")
+        script(src="javascripts/form.js" type="text/javascript")
+
+
