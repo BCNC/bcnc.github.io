@@ -231,18 +231,6 @@ router.get('/event', function(req, res, next){
 /* Render table; pass mongodb results */
 router.get('/table', function(req, res, next) {
 
-    /*var user = {};
-    user = JSON.parse(sessionStorage.getItem('userEntity'));
-    var currentUser;*/
-
-
-/*
-    if(sessionStorage.getItem('userEntity') === null) {
-        currentUser = "";
-    } else {
-        currentUser = user.email;
-    }
-*/
     var condition = {first: { $exists: true }};
     queries.filter(condition, function(results){
 	    res.render('table', {
@@ -262,7 +250,8 @@ router.get('/table', function(req, res, next) {
      'email': currentUser
      },
      success: function(results) {
-     if(results == currentUser) {
+     if(results == currentU
+     ser) {
      console.log(user.Name + " is logged in!");
      // load up the table
      var condition = {first: { $exists: true }};
