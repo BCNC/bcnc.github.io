@@ -226,23 +226,23 @@ router.get('/nottypeform', function(req, res, next) {
 /* Render event form */
 router.get('/event', function(req, res, next){
     res.render('event', { title: 'Events' });
-})
+});
 
 /* Render table; pass mongodb results */
 router.get('/table', function(req, res, next) {
 
-    var user = {};
+    /*var user = {};
     user = JSON.parse(sessionStorage.getItem('userEntity'));
-    var currentUser;
+    var currentUser;*/
 
 
-
+/*
     if(sessionStorage.getItem('userEntity') === null) {
         currentUser = "";
     } else {
         currentUser = user.email;
     }
-
+*/
     var condition = {first: { $exists: true }};
     queries.filter(condition, function(results){
 	    res.render('table', {
@@ -252,8 +252,8 @@ router.get('/table', function(req, res, next) {
     });
 
 
-
 /*
+
      // find specific officer and determine wether or not to move on to the webpage
      $.ajax({
      url: '/findOfficer',
@@ -279,10 +279,10 @@ router.get('/table', function(req, res, next) {
      }
      }
 
-     });
+     });*/
 
 
-     */
+
 
 
 
@@ -298,6 +298,11 @@ router.get('/table', function(req, res, next) {
         callback(null, file.originalname + '_db_' + Date.now() + '.' + mime.extension(file.mimetype));
     }
 });*/
+
+router.get('/eventmanager', function(req, res, next) {
+    res.render('eventmanager', { title: 'Event Manager'});
+});
+
 var storage = multer.memoryStorage();
 var upload = multer({storage: storage}).single('file');
 

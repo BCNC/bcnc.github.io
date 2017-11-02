@@ -49,6 +49,8 @@ html
         script(type='text/javascript', src='javascripts/mediaelement-and-player.js')
         script(type='text/javascript', src='javascripts/jquery.slicknav.js')
         script(type='text/javascript', src='javascripts/script.js')
+        script(type='text/javascript', src='javascripts/eventmanager.js')
+
         //if IE 8
           script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
         //if lt IE 9
@@ -170,14 +172,14 @@ html
                     // Start Video Section Content
                     .section-video-content.text-center
                         h1.fittext.wite-text.uppercase
-                            strong APPLY NOW
+                            strong Admin Event Manager
                         // Start Animations Text
                         h1.fittext.wite-text.uppercase.tlt
                             span.texts
-                                span Leadership
-                                span Networking
-                                span Professional Development
-                                span Culture
+                                span Add Events
+                                span Delete Events
+                                span Customize Views
+                                span Yay!
                         // End Animations Text
                     // End Section Content
                 // .container
@@ -190,85 +192,36 @@ html
                 div.row
                     div.input-field.col.s12.m6
                         i.material-icons.prefix account_circle
-                        input#firstname.validate(type="text")
-                        label(for="firstname") First Name
+                        input#eventname.validate(type="text")
+                        label(for="eventname") Event Name
                     div.input-field.col.s12.m6
                         i.material-icons.prefix account_circle
-                        input#lastname.validate(type="text")
-                        label(for="lastname") Last Name
-                div.row
-                    div.input-field.col.s12.m6
-                        i.material-icons.prefix phone
-                        input#phone.validate(type="text")
-                        label(for="phone") Phone Number
-                    div.input-field.col.s12.m6
-                        i.material-icons.prefix email
-                        input#email.validate(type="text")
-                        label(for="email") UC Davis Email
+                        input#link.validate(type="text")
+                        label(for="link") Event Link
                 div.row
                     div.input-field.col.s12.m6
                         i.material-icons.prefix info_outline
-                        select#year
-                            option(value="" disabled selected) Select your year
-                            option(value="1") Freshman
-                            option(value="2") Sophomore
-                            option(value="3") Junior
-                            option(value="4") Senior+
-                        label(for="year") Year
+                        input#date.validate.datepicker(type="text")
+                        label(for="date") Date
+                div.row
                     div.input-field.col.s12.m6
-                        i.material-icons.prefix lightbulb_outline
-                        select#major
-                            option(value="" disabled selected) Select your major
-                            option(value="Managerial Economics / Economics") Managerial Economics / Economics
-                            option(value="Statistics / Applied Mathematics") Statistics / Applied Mathematics
-                            option(value="Computer Science / Engineering") Computer Science / Engineering
-                            option(value="Biology / Pre-med / Pharmaceutical Chemistry") Biology / Pre-med / Pharmaceutical Chemistry
-                            option(value="Communications / Sociology / Political Science") Communications / Sociology / Political Science
-                            option(value="Other") Other
-                        label(for="major") Major
-                    //div.input-field.col.s12.m6
+                        i.material-icons.prefix info_outline
+                        input#time.validate.timepicker(type="text")
+                        label(for="time") Time
+                div.row
+                    div.input-field.col.s12.m6
                         i.material-icons.prefix language
                         input#school.autocomplete(type="text")
-                        label(for="school") School
+                        label(for="school") Organization
                 div.row
                     div.input-field.col.s12
-                        i.material-icons.prefix business
-                        select#position(multiple)
-                            option(value="" disabled) Select your interest(s)
-                            option(value="Campus Engagement") Campus Engagement
-                            option(value="Event Planning") Event Planning
-                            option(value="Marketing") Marketing
-                            option(value="Professional Relations") Professional Relations
-                            option(value="Technology") Technology (requires coding experience)
-                            option(value="Treasury") Treasury
-                        label(for="position") Please select one or more areas of interest.
-                div.row
-                    div.input-field.col.s12.m6
                         i.material-icons.prefix question_answer
-                        textarea#q1.materialize-textarea(placeholder="Limit answer to 100 - 150 words.")
-                        label(for="q1") Why do you want to be a part of BCNC and what do you believe you can contribute?
-                    div.input-field.col.s12.m6
-                        i.material-icons.prefix question_answer
-                        textarea#q2.materialize-textarea(placeholder="Limit answer to 100 - 150 words.")
-                        label(for="q2") What might your resume not tell us about you? What do you do for fun?
-                div.row
-                    div.input-field.col.s12.m12
-                        i.material-icons.prefix people
-                        input#refer.validate(type="text")
-                        label(for="refer") Board Member Referral (if applicable)
-        //div.row
-            // uses multipart encrypted file submission; name must be 'file'
-            form.dropzone#d1(action="/upload").col.s12.m6.push-m3
-                div.fallback
-                    div.file-field.input-field#d2
-                        div.btn#display
-                            span File
-                            input#upload2(type="file" name="file" accept="image/*,application/pdf")
-                        div.file-path-wrapper
-                            input.file-path.validate(type="text")
-        //br
-        //div.center-align
-            button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="submit()") Submit
+                        textarea#event_description.materialize-textarea(placeholder="Purpose? Audience? Additional resources?")
+                        label(for="event_description") Enter the event description here.
+
+        br
+        div.center-align
+            button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="eventsubmit()") Submit Event
             footer
                 .container
                     .row.footer-widgets
