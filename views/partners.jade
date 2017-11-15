@@ -28,6 +28,10 @@ html(lang='en')
         link(rel='stylesheet', type='text/css', href='stylesheets/animate.css', media='screen')
         // Color CSS Styles
         link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
+        // Mix it up!
+        link(rel='stylesheet', type='text/css', href='stylesheets/mixitup.css', tile='mixitup', media='screen')
+        //link(rel='stylesheet prefetch', href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/skeleton.2.02.css')
+
         // Margo JS
         script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
         script(type='text/javascript', src='javascripts/jquery.migrate.js')
@@ -46,6 +50,9 @@ html(lang='en')
         script(type='text/javascript', src='javascripts/jquery.parallax.js')
         script(type='text/javascript', src='javascripts/mediaelement-and-player.js')
         script(type='text/javascript', src='javascripts/jquery.slicknav.js')
+
+        // Mix it up!
+        //script(type='text/javascript', src='javascripts/mixitup.js')
         //if IE 8
           script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
         //if lt IE 9
@@ -166,7 +173,7 @@ html(lang='en')
             // Start Portfolio Section
             .section.full-width-portfolio(style='border-top:0; border-bottom:0; background:#fff;')
                 // Start Big Heading
-                .big-title.text-center(data-animation='fadeInDown', data-animation-delay='01')
+                .big-title.text-center(data-animation='', data-animation-delay='01')
                     h1
                         | Meet our
                         strong  Partners
@@ -177,121 +184,104 @@ html(lang='en')
                     | As an umbrella organization for 16 other undergraduate business groups,
                     br
                     | we work year-round to link students with opportunities to explore different career paths and grow as future business  leaders.
-                // Start Recent Projects Carousel
-                ul#portfolio-list(data-animated='fadeIn')
-                    li
-                        img(src='images/asa.png', alt='')
-                        .portfolio-item-content
-                            span.header Actuarial Sciences Association
-                            // <p class="body">web develpment, design</p>
-                        a(href='#')
-                            i.more +
-                    li
-                        img(src='images/akpsi.png', alt='')
-                        .portfolio-item-content
-                            span.header Alpha Kappa Psi
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://davisakpsi.com/')
-                            i.more +
-                    li
-                        img(src='images/ascend.png', alt='')
-                        .portfolio-item-content
-                            span.header Ascend
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://ascenducd.org/', target='_blank')
-                            i.more +
-                    li
-                        img(src='images/cyc.png', alt='')
-                        .portfolio-item-content
-                            span.header Consult Your Community
-                        a(href='http://www.cycdavis.com/')
-                            i.more +
-                    li
-                        img(src='images/das.png', alt='')
-                        .portfolio-item-content
-                            span.header Davis Accounting Society
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://davisaccountingsociety.org/')
-                            i.more +
-                    li
-                        img(src='images/dcg.png', alt='')
-                        .portfolio-item-content
-                            span.header Davis Consulting Group
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://davisconsultinggroup.org/')
-                            i.more +
-                    li
-                        img(src='images/dwib.png', alt='')
-                        .portfolio-item-content
-                            span.header Davis Women in Business
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://www.daviswomeninbusiness.com')
-                            i.more +
-                    li
-                        img(src='images/dsp.png', alt='')
-                        .portfolio-item-content
-                            span.header Delta Sigma Pi
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://dsp-nurho.com/')
-                            i.more +
-                    li
-                        img(src='images/ebsa.png', alt='')
-                        .portfolio-item-content
-                            span.header Economics & Business Student Association
-                            // <p class="body">web develpment, design</p>
-                        a(href='https://ebsaucd.com/', target='_blank')
-                            i.more +
-                    li
-                        img(src='images/econclub.png', alt='')
-                        .portfolio-item-content
-                            span.header Economics Club
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://economicsclubatucd.weebly.com/')
-                            i.more +
-                    //
-                      <li>
-                      <img src="images/portfolio-1/12.png" alt="" />
-                      <div class="portfolio-item-content">
-                      <span class="header">Finance &amp; Investments Club</span>
-                      </div>
-                      <a href="#"><i class="more">+</i></a>
-                      </li>
-                    //
-                      <li>
-                      <img src="images/portfolio-1/12.png" alt="" />
-                      <div class="portfolio-item-content">
-                      <span class="header">Global Monetary Research Society</span>
-                      </div>
-                      <a href="#"><i class="more">+</i></a>
-                      </li>
-                    li
-                        img(src='images/hd.png', alt='')
-                        .portfolio-item-content
-                            span.header HackDavis
-                            // <p class="body">web develpment, design</p>
-                        a(href='https://hackdavis.io/')
-                            i.more +
-                    li
-                        img(src='images/msftp.png', alt='')
-                        .portfolio-item-content
-                            span.header MS Financial Training Program
-                            // <p class="body">web develpment, design</p>
-                        a(href='https://msftp.wordpress.com')
-                            i.more +
-                    li
-                        img(src='images/netimpact.png', alt='')
-                        .portfolio-item-content
-                            span.header Net Impact
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://netimpactdavis.com')
-                            i.more +
-                    li
-                        img(src='images/vita.png', alt='')
-                        .portfolio-item-content
-                            span.header Students in VITA
-                            // <p class="body">web develpment, design</p>
-                        a(href='http://www.sivdavis.org/')
-                            i.more +
+
+
+                div.container
+                    div.row
+                        h4 Filter Organizations
+                    div.row
+                       div.programs(style='text-align: center;')
+                            button.filter-btn(data-filter='all') All
+                            button.filter-btn(data-filter='.consulting') Consulting
+                            button.filter-btn(data-filter='.accountingtax') Accounting / Tax
+
+                    div.container
+                        // Start Recent Projects Carousel
+                        ul#portfolio-list
+                            li.mix-target
+                                img(src='images/asa.png', alt='')
+                                .portfolio-item-content
+                                    span.header Actuarial Sciences Association
+                                a(href='#')
+                                    i.more +
+                            li.mix-target
+                                img(src='images/akpsi.png', alt='')
+                                .portfolio-item-content
+                                    span.header Alpha Kappa Psi
+                                a(href='http://davisakpsi.com/')
+                                    i.more +
+                            li.mix-target
+                                img(src='images/ascend.png', alt='')
+                                .portfolio-item-content
+                                    span.header Ascend
+                                a(href='http://ascenducd.org/', target='_blank')
+                                    i.more +
+                            li.mix-target.accounting
+                                img(src='images/cyc.png', alt='')
+                                .portfolio-item-content
+                                    span.header Consult Your Community
+                                a(href='http://www.cycdavis.com/')
+                                    i.more +
+                            li.mix-target.accountingtax
+                                img(src='images/das.png', alt='')
+                                .portfolio-item-content
+                                    span.header Davis Accounting Society
+                                a(href='http://davisaccountingsociety.org/')
+                                    i.more +
+                            li.mix-target.consulting
+                                img(src='images/dcg.png', alt='')
+                                .portfolio-item-content
+                                    span.header Davis Consulting Group
+                                a(href='http://davisconsultinggroup.org/')
+                                    i.more +
+                            li.mix-target
+                                img(src='images/dwib.png', alt='')
+                                .portfolio-item-content
+                                    span.header Davis Women in Business
+                                a(href='http://www.daviswomeninbusiness.com')
+                                    i.more +
+                            li.mix-target
+                                img(src='images/dsp.png', alt='')
+                                .portfolio-item-content
+                                    span.header Delta Sigma Pi
+                                a(href='http://dsp-nurho.com/')
+                                    i.more +
+                            li.mix-target
+                                img(src='images/ebsa.png', alt='')
+                                .portfolio-item-content
+                                    span.header Economics & Business Student Association
+                                a(href='https://ebsaucd.com/', target='_blank')
+                                    i.more +
+                            li.mix-target
+                                img(src='images/econclub.png', alt='')
+                                .portfolio-item-content
+                                    span.header Economics Club
+                                a(href='http://economicsclubatucd.weebly.com/')
+                                    i.more +
+                            li.mix-target
+                                img(src='images/hd.png', alt='')
+                                .portfolio-item-content
+                                    span.header HackDavis
+                                a(href='https://hackdavis.io/')
+                                    i.more +
+                            li.mix-target
+                                img(src='images/msftp.png', alt='')
+                                .portfolio-item-content
+                                    span.header MS Financial Training Program
+                                a(href='https://msftp.wordpress.com')
+                                    i.more +
+                            li.mix-target.consulting
+                                img(src='images/netimpact.png', alt='')
+                                .portfolio-item-content
+                                    span.header Net Impact
+                                a(href='http://netimpactdavis.com')
+                                    i.more +
+                            li.mix-target.accountingtax
+                                img(src='images/vita.png', alt='')
+                                .portfolio-item-content
+                                    span.header Students in VITA
+                                a(href='http://www.sivdavis.org/')
+                                    i.more +
                 // End Recent Projects Carousel
             // End Portfolio Section
             // Start Footer Section
@@ -484,4 +474,8 @@ html(lang='en')
           </ul>
           </div>
         script(type='text/javascript', src='javascripts/script.js')
+        script(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/mixitup.min.js')
+        script(type='text/javascript', src='javascripts/mixitup.js')
+
+
 

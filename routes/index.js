@@ -287,10 +287,10 @@ router.get('/table', function(req, res, next) {
         callback(null, file.originalname + '_db_' + Date.now() + '.' + mime.extension(file.mimetype));
     }
 });*/
-
+/*
 router.get('/eventmanager', function(req, res, next) {
     res.render('eventmanager', { title: 'Event Manager'});
-});
+});*/
 
 var storage = multer.memoryStorage();
 var upload = multer({storage: storage}).single('file');
