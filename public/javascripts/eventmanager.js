@@ -1,22 +1,8 @@
-/*$(document).ready(function() {
-
-
-    // redirects the user to log in if needed
-    if(sessionStorage.getItem('userEntity') === null) {
-        window.location.href = 'login';
-    } else {
-
-        var user = {};
-        user = JSON.parse(sessionStorage.getItem('userEntity'));
-
-        console.log(user.Name + " is logged in!");
-    }
-});*/
-
+//Using: https://github.com/chingyawhao/materialize-clockpicker/
 $('.timepicker').pickatime({
     default: 'now', // Set default time: 'now', '1:30AM', '16:30'
     fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
-    twelvehour: false, // Use AM/PM or 24-hour format
+    twelvehour: true, // Use AM/PM or 24-hour format
     donetext: 'OK', // text for done-button
     cleartext: 'Clear', // text for clear-button
     canceltext: 'Cancel', // Text for cancel-button
@@ -24,6 +10,7 @@ $('.timepicker').pickatime({
     ampmclickable: true, // make AM PM clickable
     aftershow: function(){} //Function for after opening timepicker
 });
+
 
 $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month

@@ -14,10 +14,11 @@ html
         link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
         // Bootstrap CSS
         link(rel='stylesheet', href='assets/css/bootstrap.min.css', type='text/css', media='screen')
-        // Font Awesome CSS
 
+        // materialize
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css')
 
+        // Font Awesome CSS
         link(rel='stylesheet', href='stylesheets/font-awesome.min.css', type='text/css', media='screen')
         // Slicknav
         link(rel='stylesheet', type='text/css', href='stylesheets/slicknav.css', media='screen')
@@ -29,7 +30,13 @@ html
         link(rel='stylesheet', type='text/css', href='stylesheets/animate.css', media='screen')
         // Color CSS Styles
         link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
+
+
+        // For the clock picker
+        link(rel='stylesheet', href='https://cdn.rawgit.com/chingyawhao/materialize-clockpicker/master/dist/css/materialize.clockpicker.css')
+
         link(rel='stylesheet', href='/stylesheets/dropzone.css')
+
         // Margo JS
         script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
         script(type='text/javascript', src='javascripts/jquery.migrate.js')
@@ -50,7 +57,6 @@ html
         script(type='text/javascript', src='javascripts/jquery.slicknav.js')
         script(type='text/javascript', src='javascripts/script.js')
         script(type='text/javascript', src='javascripts/eventmanager.js')
-
         //if IE 8
           script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
         //if lt IE 9
@@ -191,28 +197,40 @@ html
             form.col.s12
                 div.row
                     div.input-field.col.s12.m6
-                        i.material-icons.prefix account_circle
+                        i.material-icons.prefix spellcheck
                         input#eventname.validate(type="text")
                         label(for="eventname") Event Name
                     div.input-field.col.s12.m6
-                        i.material-icons.prefix account_circle
+                        i.material-icons.prefix attachment
                         input#link.validate(type="text")
                         label(for="link") Event Link
                 div.row
                     div.input-field.col.s12.m6
-                        i.material-icons.prefix info_outline
+                        i.material-icons.prefix today
                         input#date.validate.datepicker(type="text")
                         label(for="date") Date
-                div.row
                     div.input-field.col.s12.m6
-                        i.material-icons.prefix info_outline
-                        input#time.validate.timepicker(type="text")
+                        i.material-icons.prefix alarm
+                        input#time.validate.timepicker(type="time")
                         label(for="time") Time
                 div.row
-                    div.input-field.col.s12.m6
+                    div.input-field.col.s12
                         i.material-icons.prefix language
-                        input#school.autocomplete(type="text")
-                        label(for="school") Organization
+                        select#org
+                            option(value="" disabled selected) Select the Organization
+                            option(value="Actuarial Science Association") Actuarial Science Association
+                            option(value="Alpha Kappa Psi") Alpha Kappa Psi
+                            option(value="Ascend") Ascend
+                            option(value="Consult Your Community") Consult Your Community
+                            option(value="Davis Accounting Society") Davis Accounting Society
+                            option(value="Davis Consulting Group") Davis Consulting Group
+                            option(value="Davis Women In Business") Daivs Women In Business
+                            option(value="Delta Sigma Pi") Delta Sigma Pi
+                            option(value="Economics & Business Association") Economics & Business Association
+                            option(value="Finance and Investment Club") Finance and Investment Club
+                            option(value="Net Impact") Net Impact
+                            option(value="Vita") Vita
+                        label(for="org") Organization
                 div.row
                     div.input-field.col.s12
                         i.material-icons.prefix question_answer
@@ -222,7 +240,7 @@ html
         br
         div.center-align
             button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="eventsubmit()") Submit Event
-            footer
+            footer(style='margin-top: 5%')
                 .container
                     .row.footer-widgets
                         // Start Subscribe & Social Links Widget
@@ -306,9 +324,14 @@ html
                     .dot2
             script(type='text/javascript', src='javascripts/script.js')
 
+        //script(type='text/javascript', src='javascripts/jquery-2.1.4.min.js')
         script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js" type="text/javascript")
+
         script(src="javascripts/nottypeform.js" type="text/javascript")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js")
         script(src="javascripts/form.js" type="text/javascript")
+
+        script(src="https://cdn.rawgit.com/chingyawhao/materialize-clockpicker/master/dist/js/materialize.clockpicker.js" type="text/javascript")
+        script(src='javascripts/eventmanager.js' type='text/javascript')
 
 
