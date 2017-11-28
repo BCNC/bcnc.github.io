@@ -74,6 +74,7 @@ function submit() {
 $(document).ready(function() {
     filecount = 0;
     $('select').material_select();
+
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15 // Creates a dropdown of 15 years to control year
@@ -122,6 +123,7 @@ $(document).ready(function() {
             }
         });
     });
+
     $('input#school').autocomplete({
         data: {
             "University of California, Davis (UCD)": 'http://logos.statbroadcast.com/ucd.png',
@@ -208,17 +210,17 @@ $(document).ready(function() {
                                addRemoveLinks: true
                                };
 
-        /* Disable button until all fields are filled out */
-        $('form').keyup(function() {
-            var first = $('#firstname').val().trim();
-            var last = $('#lastname').val().trim();
-            var phone = $('#phone').val().trim();
-            var email = $('#email').val().trim();
-            if (first != '' && last != '' && phone != '' && email != '' && filecount != 0) {
-                $('#submit').removeClass('disabled');
-            }
-            else {
-                $('#submit').addClass('disabled')
-            }
-        });
+    /* Disable button until all fields are filled out */
+    $('form').keyup(function() {
+        var first = $('#firstname').val().trim();
+        var last = $('#lastname').val().trim();
+        var phone = $('#phone').val().trim();
+        var email = $('#email').val().trim();
+        if (first != '' && last != '' && phone != '' && email != '' && filecount != 0) {
+            $('#submit').removeClass('disabled');
+        }
+        else {
+            $('#submit').addClass('disabled')
+        }
+    });
 });

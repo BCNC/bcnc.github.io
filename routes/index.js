@@ -6,7 +6,7 @@ var mime = require('mime');
 
 // import queries.js file
 var queries = require('./queries');
-
+var eventqueries = require('./eventqueries');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -32,6 +32,12 @@ router.get('/contact', function(req, res, next) {
 router.get('/404', function(req, res, next) {
    res.render('404', {title: '404 Error'});
 });
+
+/* GET BCNC eventsuccess page */
+router.get('/eventsuccess', function(req, res, next) {
+    res.render('eventsuccess', {title: 'Event Success'});
+});
+
 
 /* GET BCNC FAQ page */
 router.get('/faq', function(req, res, next) {
@@ -239,7 +245,6 @@ router.get('/table', function(req, res, next) {
         });
     });
 
-
 /*
 
      // find specific officer and determine wether or not to move on to the webpage
@@ -269,12 +274,6 @@ router.get('/table', function(req, res, next) {
      }
 
      });*/
-
-
-
-
-
-
 
 });
 
@@ -371,20 +370,21 @@ router.post('/submit', function(req, res) {
     res.end("Submit data has been entered in database");
 });
 
-
 /* For saving form data */
 router.post('/eventsubmit', function(req, res) {
+
     console.log("Server has received event data");
     var info = {
-        'first': req.body.title,
-        'last': req.body.org,
-        'phone': req.body.date,
-        'email': req.body.link
+        'eventname': req.body.eventname,
+        'link': req.body.link,
+        'date': req.body.date,
+        'time': req.body.time,
+        'org': req.body.org,
+        'eventdescription': req.body.eventdescription
     };
 
-    queries.update(info, req.body.filename);
-    console.log('Insert file with filename: ' + req.body.filename + ' into mongodb from /uploads');
-    queries.all();
+    eventqueries.insert(info);
+    eventqueries.all();
     res.end("Submit data has been entered in database");
 });
 

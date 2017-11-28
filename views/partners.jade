@@ -192,19 +192,26 @@ html(lang='en')
                     div.row
                        div.programs(style='text-align: center;')
                             button.filter-btn(data-filter='all') All
+                            button.filter-btn(data-filter='.accounting') Accounting
+                            button.filter-btn(data-filter='.actuarial_science') Actuarial Science
+                            button.filter-btn(data-filter='.community_service') Community Service
                             button.filter-btn(data-filter='.consulting') Consulting
-                            button.filter-btn(data-filter='.accountingtax') Accounting / Tax
-
+                            button.filter-btn(data-filter='.entrepreneurship') Entrepreneurship
+                            button.filter-btn(data-filter='.finance') Finance
+                            button.filter-btn(data-filter='.investment_banking') Investment Banking
+                            button.filter-btn(data-filter='.professional_fraternity') Professional Fraternity
+                            button.filter-btn(data-filter='.supply_chain_management') Supply Chain Management
+                            button.filter-btn(data-filter='.technology') Technology
                     div.container
                         // Start Recent Projects Carousel
                         ul#portfolio-list
-                            li.mix-target
+                            li.mix-target.actuarial_science
                                 img(src='images/asa.png', alt='')
                                 .portfolio-item-content
                                     span.header Actuarial Sciences Association
                                 a(href='#')
                                     i.more +
-                            li.mix-target
+                            li.mix-target.professional_fraternity
                                 img(src='images/akpsi.png', alt='')
                                 .portfolio-item-content
                                     span.header Alpha Kappa Psi
@@ -222,7 +229,7 @@ html(lang='en')
                                     span.header Consult Your Community
                                 a(href='http://www.cycdavis.com/')
                                     i.more +
-                            li.mix-target.accountingtax
+                            li.mix-target.accounting
                                 img(src='images/das.png', alt='')
                                 .portfolio-item-content
                                     span.header Davis Accounting Society
@@ -240,43 +247,43 @@ html(lang='en')
                                     span.header Davis Women in Business
                                 a(href='http://www.daviswomeninbusiness.com')
                                     i.more +
-                            li.mix-target
+                            li.mix-target.professional_fraternity
                                 img(src='images/dsp.png', alt='')
                                 .portfolio-item-content
                                     span.header Delta Sigma Pi
                                 a(href='http://dsp-nurho.com/')
                                     i.more +
-                            li.mix-target
+                            li.mix-target.entrepreneurship
                                 img(src='images/ebsa.png', alt='')
                                 .portfolio-item-content
                                     span.header Economics & Business Student Association
                                 a(href='https://ebsaucd.com/', target='_blank')
                                     i.more +
-                            li.mix-target
+                            //li.mix-target
                                 img(src='images/econclub.png', alt='')
                                 .portfolio-item-content
                                     span.header Economics Club
                                 a(href='http://economicsclubatucd.weebly.com/')
                                     i.more +
-                            li.mix-target
+                            li.mix-target.technology
                                 img(src='images/hd.png', alt='')
                                 .portfolio-item-content
                                     span.header HackDavis
                                 a(href='https://hackdavis.io/')
                                     i.more +
-                            li.mix-target
+                            li.mix-target.investment_banking
                                 img(src='images/msftp.png', alt='')
                                 .portfolio-item-content
                                     span.header MS Financial Training Program
                                 a(href='https://msftp.wordpress.com')
                                     i.more +
-                            li.mix-target.consulting
+                            li.mix-target.consulting.community_service
                                 img(src='images/netimpact.png', alt='')
                                 .portfolio-item-content
                                     span.header Net Impact
                                 a(href='http://netimpactdavis.com')
                                     i.more +
-                            li.mix-target.accountingtax
+                            li.mix-target.accounting.community_service
                                 img(src='images/vita.png', alt='')
                                 .portfolio-item-content
                                     span.header Students in VITA
