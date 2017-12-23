@@ -172,9 +172,9 @@ var filter = function(condition, callback) {
 };
 
 
-exports.all = all;
-exports.insert = insert;
+exports.allEvents = all;
+exports.insertEvent = insert;
 exports.filter = filter;
-exports.update = update;
-exports.removeOne = removeOne;
+exports.updateEvent = update;
+exports.removeOneEvent = removeOne;
 

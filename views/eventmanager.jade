@@ -193,7 +193,8 @@ html
             // End Purchase Section
         br
         div.container
-            h3.center Event Manager
+            h3.center Add Events
+            hr
         div.row
             form.col.s12
                 div.row
@@ -241,6 +242,35 @@ html
         br
         div.center-align
             button#submit.btn.waves-effect.waves-lighten.blue.darken-1.disabled(onclick="eventsubmit()") Submit Event
+
+            table(data-toggle='table', id='table', data-classes='table')
+                thead
+                    tr
+                        th(data-field='eventname', data-sortable='true') Event Name
+                        th(data-field='link', data-sortable='true') Event Link
+                        th(data-field='date', data-sortable='true') Date
+                        th(data-field='time', data-sortable='true') Time
+                        th(data-field='org', data-sortable='true') Organization
+                        th(data-field='eventdescription', data-sortable='true') Event Description
+                tbody
+                    - var index = 0;
+                    each event in events
+                        - var eventname = event['eventname'];
+                        - var eventlink = event['link'];
+                        - var eventdate = event['date'];
+                        - var eventtime = event['time'];
+                        - var eventorg = event['org'];
+                        - var eventdescription = event['eventdescription'];
+                        - var eventID = event['_id'];
+
+                        tr(id='#{eventID}')
+                            td=eventname
+                            td=eventlink
+                            td=eventdate
+                            td=eventtime
+                            td=eventorg
+                            td=eventdescription
+
             footer(style='margin-top: 5%')
                 .container
                     .row.footer-widgets
@@ -314,6 +344,7 @@ html
                                         a(href='contact') Contact
                             // //.col-md-6
                     // End Copyright
+
             // End Footer
             // End Container
             // Go To Top Link

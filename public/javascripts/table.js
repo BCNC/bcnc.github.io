@@ -90,7 +90,7 @@ $(document).ready(function() {
         currentUser = user.email;
     }
 
-    // find specific officer and determine wether or not to move on to the webpage
+    // find specific officer and determine whether or not to move on to the webpage
     $.ajax({
         url: '/findOfficer',
         type: 'POST',

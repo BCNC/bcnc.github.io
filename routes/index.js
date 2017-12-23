@@ -4,7 +4,7 @@ var fs = require('fs');
 var multer = require('multer');
 var mime = require('mime');
 
-// import queries.js file
+// import query file(s)
 var queries = require('./queries');
 var eventqueries = require('./eventqueries');
 
@@ -240,40 +240,10 @@ router.get('/table', function(req, res, next) {
     var condition = {first: { $exists: true }};
     queries.filter(condition, function(results){
 	    res.render('table', {
-            title: 'bok bok bekah',
+            title: 'Applicants',
             people: results
         });
     });
-
-/*
-
-     // find specific officer and determine wether or not to move on to the webpage
-     $.ajax({
-     url: '/findOfficer',
-     type: 'POST',
-     data: {
-     'email': currentUser
-     },
-     success: function(results) {
-     if(results == currentU
-     ser) {
-     console.log(user.Name + " is logged in!");
-     // load up the table
-     var condition = {first: { $exists: true }};
-     queries.filter(condition, function(results){
-     res.render('table', {
-     title: 'bok bok bekah',
-     people: results
-     });
-     });
-     } else {
-     res.render('login', {
-     title: 'Login'
-     });
-     }
-     }
-
-     });*/
 
 });
 
@@ -288,7 +258,15 @@ router.get('/table', function(req, res, next) {
 });*/
 
 router.get('/eventmanager', function(req, res, next) {
-    res.render('eventmanager', { title: 'Event Manager'});
+
+    eventqueries.allEvents(function(results){
+
+        // render the page with the events database
+        res.render('eventmanager', {
+            title: 'Event Manager',
+            events: results
+        });
+    });
 });
 
 var storage = multer.memoryStorage();
@@ -374,6 +352,9 @@ router.post('/submit', function(req, res) {
 router.post('/eventsubmit', function(req, res) {
 
     console.log("Server has received event data");
+
+    console.log("Event time format: " + req.body.date);
+
     var info = {
         'eventname': req.body.eventname,
         'link': req.body.link,
@@ -383,8 +364,8 @@ router.post('/eventsubmit', function(req, res) {
         'eventdescription': req.body.eventdescription
     };
 
-    eventqueries.insert(info);
-    eventqueries.all();
+    eventqueries.insertEvent(info);
+    eventqueries.allEvents();
     res.end("Submit data has been entered in database");
 });
 
