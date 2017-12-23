@@ -29,8 +29,8 @@ var findEvents = function(db, callback) {
 
     // Get the documents collection
     var collection = db.collection('events');
-    // Find all documents
-    collection.find({}).toArray(function(err, docs) {
+    // Find all events in sorted order based on date
+    collection.find({}).sort({date: 1}).toArray(function(err, docs) {
         assert.equal(err, null);
         console.log("Found the following records");
         console.log(docs);
