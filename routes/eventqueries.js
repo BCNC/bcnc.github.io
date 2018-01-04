@@ -46,7 +46,7 @@ var filterEvents = function(condition, db, callback) {
     var collection = db.collection('events');
 
     // Find some documents
-    collection.find(condition).toArray(function(err, docs) {
+    collection.find(condition).sort({date: 1}).toArray(function(err, docs) {
         assert.equal(err, null);
         console.log("Found specific event(s) with condition " + condition);
         console.log(docs);

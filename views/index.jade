@@ -241,86 +241,86 @@ html(lang='en')
                                 h4.classic-title
                                     span Upcoming Events
                                 .latest-posts-classic.custom-carousel.touch-carousel(data-appeared-items='4')
-                                    // Posts 4
-                                    .post-row.item
-                                        .left-meta-post
-                                            .post-date
-                                                span.day 2
-                                                span.month Nov
-                                            .post-type
-                                                a(target='_blank', href='https://www.facebook.com/events/1987340311593577')
-                                                    i.fa.fa-facebook
-                                        h3.post-title
-                                            a(href='https://www.facebook.com/events/1987340311593577') DAS presents: Becker Networking Workshop
-                                        .post-content
-                                            p
-                                                | Hoping to wow professionals at your next networking event? The Davis Accounting Society will be having Jenae Klinke, an Account Manager from Becker, lead a networking workshop. Becker Professional Education offers great deals and discounts on CPA review and study materials for students preparing to take the CPA exam. As a DAS sponsor, Becker wants to benefit members by sharing secrets to successful networking. Click
-                                                a(href='https://www.facebook.com/events/1987340311593577', target='_blank')  here
-                                                |  to learn more about the event.
-                                    // Posts 4
-                                    .post-row.item
-                                        .left-meta-post
-                                            .post-date
-                                                span.day 8
-                                                span.month Nov
-                                            .post-type
-                                                a(target='_blank', href='https://www.facebook.com/events/357628437993971/')
-                                                    i.fa.fa-facebook
-                                        h3.post-title
-                                            a(href='https://www.facebook.com/events/357628437993971/') EBSA Guest Speaker: Nicole Garcia
-                                        .post-content
-                                            p
-                                                | Nicole Garcia, president of Davis Women in Business (DWIB), and director of Aggie Reuse Store will be here to talk about her experience with digital media and graphic design! Nicole has had previous experience working with clients in taking care of visuals for marketing, infographics, and products. Check out her
-                                                a(href='http://www.nicoleiliana.com', target='_blank')  portfolio
-                                                |  and come hear her speak about graphic design in regards to starting your own business!
-                                    // Posts 1
-                                    .post-row.item
-                                        .left-meta-post
-                                            .post-date
-                                                span.day 17
-                                                span.month Jan
-                                            .post-type
-                                                a(target='_blank', href='https://goo.gl/forms/W2ITWjdCN5Bwrgty1')
-                                                    i.fa.fa-google
-                                        h3.post-title
-                                            a(href='https://goo.gl/forms/W2ITWjdCN5Bwrgty1') Winter Student Networking Fair
-                                        .post-content
-                                            p
-                                                | The BCNC Student Networking Fair is back, this time in the winter! Click
-                                                a(href='https://goo.gl/forms/W2ITWjdCN5Bwrgty1', target='_blank')  here
-                                                |  to RSVP! Deadline to RSVP is November 3rd. More details to come.
-                                    // Posts 3
+
+
+                                    each event in events
+
+                                        - var name = event['eventname'];
+                                        - var link = event['link'];
+                                        - var date = event['date'];
+                                        - var time = event['time'];
+                                        - var org = event['org'];
+                                        - var description = event['eventdescription'];
+
+                                        - var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                        - var month = months[Number(date.substring(5,7)) - 1];
+                                        - var day = Number(date.substring(8,10));
+
+
+                                        .post-row.item
+                                            .left-meta-post
+                                                .post-date
+                                                    span.day #{day}
+                                                    span.month #{month}
+                                                .post-type
+                                                    a(target='_blank', href="#{link}")
+                                                        i.fa.fa-facebook
+                                            h3.post-title
+                                                a(href="#{link}") #{org} presents: #{name}
+                                            .post-content
+                                                p #{description}
+
+                                    //// Posts 4
                                     //.post-row.item
-                                        .left-meta-post
-                                            .post-date
-                                                span.day 25
-                                                span.month May
-                                            .post-type
-                                                a(target='_blank', href='https://www.facebook.com/events/744120375762136/')
-                                                    i.fa.fa-facebook
-                                        h3.post-title
-                                            a(href='https://www.facebook.com/events/744120375762136/') Accounting for Your Future and Beyond
-                                        .post-content
-                                            p
-                                                | The Davis Accounting Society interns will provide you with all the information you need to start your accounting career! This will be a great opportunity to learn more about the accounting profession. The interns will discuss the different fields of accounting, lines of service, recruiting cycles, and more! For more information, click
-                                                a(href='https://www.facebook.com/events/744120375762136/', target='_blank') here
-                                                | !
-                                    // Posts 2
+                                    //    .left-meta-post
+                                    //        .post-date
+                                    //            span.day 2
+                                    //            span.month Nov
+                                    //        .post-type
+                                    //            a(target='_blank', href='https://www.facebook.com/events/1987340311593577')
+                                    //                i.fa.fa-facebook
+                                    //    h3.post-title
+                                    //        a(href='https://www.facebook.com/events/1987340311593577') DAS presents: Becker Networking Workshop
+                                    //    .post-content
+                                    //        p
+                                    //            | Hoping to wow professionals at your next networking event? The Davis Accounting Society will be having Jenae Klinke, an Account Manager from Becker, lead a networking workshop. Becker Professional Education offers great deals and discounts on CPA review and study materials for students preparing to take the CPA exam. As a DAS sponsor, Becker wants to benefit members by sharing secrets to successful networking. Click
+                                    //            a(href='https://www.facebook.com/events/1987340311593577', target='_blank')  here
+                                    //            |  to learn more about the event.
+                                    //// Posts 4
                                     //.post-row.item
-                                        .left-meta-post
-                                            .post-date
-                                                span.day 23
-                                                span.month May
-                                            .post-type
-                                                a(target='_blank', href='https://www.facebook.com/EconclubatUCD/')
-                                                    i.fa.fa-facebook
-                                        h3.post-title
-                                            a(href='https://www.facebook.com/EconclubatUCD/') Economics Club Applications
-                                        .post-content
-                                            p
-                                                | The Economics Club brings in professional and professor speakers to give insight into economic related career paths. They also host professional workshops to build professional skills and socials to build community for their members. Interested in joining? Click
-                                                a(href='https://docs.google.com/a/ucdavis.edu/forms/d/e/1FAIpQLScDRBKQYAVB09psqt-KNztY8msJSeNBZTDeUcQQ-K2wafgq7A/viewform', target='_blank') here
-                                                |  to apply!
+                                    //    .left-meta-post
+                                    //        .post-date
+                                    //            span.day 8
+                                    //            span.month Nov
+                                    //        .post-type
+                                    //            a(target='_blank', href='https://www.facebook.com/events/357628437993971/')
+                                    //                i.fa.fa-facebook
+                                    //    h3.post-title
+                                    //        a(href='https://www.facebook.com/events/357628437993971/') EBSA Guest Speaker: Nicole Garcia
+                                    //    .post-content
+                                    //        p
+                                    //            | Nicole Garcia, president of Davis Women in Business (DWIB), and director of Aggie Reuse Store will be here to talk about her experience with digital media and graphic design! Nicole has had previous experience working with clients in taking care of visuals for marketing, infographics, and products. Check out her
+                                    //            a(href='http://www.nicoleiliana.com', target='_blank')  portfolio
+                                    //            |  and come hear her speak about graphic design in regards to starting your own business!
+                                    //// Posts 1
+                                    //.post-row.item
+                                    //    .left-meta-post
+                                    //        .post-date
+                                    //            span.day 17
+                                    //            span.month Jan
+                                    //        .post-type
+                                    //            a(target='_blank', href='https://goo.gl/forms/W2ITWjdCN5Bwrgty1')
+                                    //                i.fa.fa-google
+                                    //    h3.post-title
+                                    //        a(href='https://goo.gl/forms/W2ITWjdCN5Bwrgty1') Winter Student Networking Fair
+                                    //    .post-content
+                                    //        p
+                                    //            | The BCNC Student Networking Fair is back, this time in the winter! Click
+                                    //            a(href='https://goo.gl/forms/W2ITWjdCN5Bwrgty1', target='_blank')  here
+                                    //            |  to RSVP! Deadline to RSVP is November 3rd. More details to come.
+
+
+
                             // End Recent Posts Carousel
             // End Testimonials Section
             // Start Services Section

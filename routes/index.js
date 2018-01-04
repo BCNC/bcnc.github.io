@@ -10,12 +10,37 @@ var eventqueries = require('./eventqueries');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Black Hawk' });
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    today = yyyy + '/' + mm + '/' + dd;
+    console.log("TODAY IS: " + today);
+
+    // only display the upcoming events
+    var condition = {date: { $gte: today }};
+
+    eventqueries.filter(condition, function(results){
+        res.render('index', {
+            title: 'Home',
+            events: results
+        });
+    });
+
 });
 
 /* Render thank you page */
 router.get('/thankyou', function(req, res, next) {
-  res.render('thankyou', { title: 'Thank you!' });
+  res.render('thankyou', { title: 'Thank you!' })
 });
 
 /* GET BCNC about page */
