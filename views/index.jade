@@ -242,7 +242,7 @@ html(lang='en')
                                     span Upcoming Events
                                 .latest-posts-classic.custom-carousel.touch-carousel(data-appeared-items='4')
 
-
+                                    - var count = 0
                                     each event in events
 
                                         - var name = event['eventname'];
@@ -255,7 +255,7 @@ html(lang='en')
                                         - var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                         - var month = months[Number(date.substring(5,7)) - 1];
                                         - var day = Number(date.substring(8,10));
-
+                                        - count++
 
                                         .post-row.item
                                             .left-meta-post
@@ -269,6 +269,8 @@ html(lang='en')
                                                 a(href="#{link}") #{org} presents: #{name}
                                             .post-content
                                                 p #{description}
+                                    - if(count == 0)
+                                        h1 Whoops, looks like there aren't any upcoming events! Check back later!
 
                                     //// Posts 4
                                     //.post-row.item

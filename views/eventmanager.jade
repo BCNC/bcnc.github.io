@@ -262,6 +262,7 @@ html
                         - var eventorg = event['org'];
                         - var eventdescription = event['eventdescription'];
                         - var eventID = event['_id'];
+                        - index++;
 
                         tr(id='#{eventID}')
                             td=eventname
@@ -270,6 +271,8 @@ html
                             td=eventtime
                             td=eventorg
                             td=eventdescription
+                            td
+                                button.btn.waves-effect.waves-lighten.btn-danger(onclick="remove('#{eventID}');") Delete
 
             footer(style='margin-top: 5%')
                 .container

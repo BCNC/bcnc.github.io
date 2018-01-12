@@ -23,6 +23,21 @@ $('.datepicker').pickadate({
     closeOnSelect: false // Close upon selecting a date,
 });
 
+// called when user removes an event
+var remove = function(id) {
+
+    // remove an event
+    $.ajax({
+        url: '/removeEvent',
+        type: 'POST',
+        data: {'id': id },
+        success: function(result) {
+            console.log("Event successfully removed");
+        }
+    });
+
+};
+
 // called from button on event manager page
 function eventsubmit() {
 

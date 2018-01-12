@@ -111,7 +111,18 @@ router.post('/findOfficer', function(req, res, next) {
             res.end("no")
         }
     })
-})
+});
+
+router.post('/removeEvent', function(req, res, next) {
+
+    console.log("Removing event...");
+
+    // delete a specific event
+    eventqueries.removeOneEvent(req.body['id'], function(callback) {
+        res.end(callback)
+    });
+
+});
 
 router.post('/deliberate', function(req, res, next) {
 

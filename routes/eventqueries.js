@@ -76,15 +76,17 @@ var updateEvent = function(info, key, db, callback) {
 };
 
 /* Delete one event based on ID */
-var removeDocument = function(item, db, callback) {
+var removeDocument = function(id, db, callback) {
     // Get the documents collection
     var collection = db.collection('events');
+    var ObjectId = require('mongodb').ObjectId;
+
     // Delete some documents
-    collection.deleteOne(
-        { _id : item  }, function(err, result) {
+    collection.remove(
+        { _id : new ObjectId(id)  }, function(err, result) {
             assert.equal(err, null);
             assert.equal(1, result.result.n);
-            console.log("Removed the event with the field _id equal to " + item);
+            console.log("Removed the event with the field _id equal to " + id);
             callback(result);
         });
 };
@@ -132,13 +134,13 @@ var update = function(info, key) {
     });
 };
 
-/* Wrapper function to remove a single document */
-var removeOne = function(filename, callback) {
+/* Wrapper function to remove a single event */
+var removeOne = function(eventID, callback) {
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
-        removeDocument(filename, db, function(result) {
+        removeDocument(eventID, db, function(result) {
             if(callback) {
-                callback('The document has been removed.');
+                callback('The event has been removed.');
             }
             db.close();
         });
