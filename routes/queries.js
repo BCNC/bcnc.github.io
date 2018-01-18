@@ -11,7 +11,7 @@ var url = 'mongodb://localhost:27017/BlackHawk';
 // Inserts many documents
 var insertDocuments = function(info, db, callback) {
     // Get documents collection
-    var collection = db.collection('documents');
+    var collection = db.collection('W18APPS');
     // Insert some documents
     collection.insertMany([
             //{a: 1}, {a: 2}, {a: 3}
@@ -20,7 +20,7 @@ var insertDocuments = function(info, db, callback) {
         assert.equal(err, null);
         assert.equal(1, result.result.n);
         assert.equal(1, result.ops.length);
-        console.log("Inserted 1 documents into the collection");
+        console.log("Inserted 1 app into the collection");
         callback(result);
     });
 }
@@ -29,7 +29,7 @@ var insertDocuments = function(info, db, callback) {
 var findDocuments = function(db, callback) {
 
     // Get the documents collection
-    var collection = db.collection('documents');
+    var collection = db.collection('W18APPS');
     // Find all documents
     collection.find({}).toArray(function(err, docs) {
         assert.equal(err, null);
@@ -58,7 +58,7 @@ var findOfficers = function(db, callback) {
 var filterDocuments = function(condition, db, callback) {
 
     // Get the documents collection
-    var collection = db.collection('documents');
+    var collection = db.collection('W18APPS');
 
     // Find some documents
     collection.find(condition).toArray(function(err, docs) {
@@ -101,7 +101,7 @@ var getOfficer = function(condition, db, callback) {
 /* Update a row with some new data */
 var updateDocument = function(info, vote, key, db, callback) {
     // Get the documents collection
-    var collection = db.collection('documents');
+    var collection = db.collection('W18APPS');
 
     console.log("Updating a single document...");
 
@@ -146,7 +146,7 @@ var updateDocument = function(info, vote, key, db, callback) {
 /* Delete one thing */
 var removeDocument = function(item, db, callback) {
     // Get the documents collection
-    var collection = db.collection('documents');
+    var collection = db.collection('W18APPS');
     // Delete some documents
     collection.deleteOne(
         { _id : item  }, function(err, result) {
@@ -160,7 +160,7 @@ var removeDocument = function(item, db, callback) {
 /* Delete everything */
 var clearDocument = function(db, callback) {
     // Get the documents collection
-    var collection = db.collection('documents');
+    var collection = db.collection('W18APPS');
     // Delete some documents
     collection.remove({}, function(err, result) {
         assert.equal(err, null);
@@ -170,7 +170,7 @@ var clearDocument = function(db, callback) {
 
 /* Indexing - currently unused; implement when scaling is needed */
 var indexCollection = function(db, callback) {
-    db.collection('documents').createIndex(
+    db.collection('W18APPS').createIndex(
             { "a": 1 },
             null,
             function(err, results) {
@@ -262,7 +262,7 @@ var filterVoter = function(condition, email, callback) {
 var getVoter = function(condition, email, db, callback) {
 
     // Get the documents collection
-    var collection = db.collection('documents');
+    var collection = db.collection('W18APPS');
     console.log("Checking to see if " + email + "");
 
     var voteAccept = {
@@ -288,7 +288,7 @@ var getVoter = function(condition, email, db, callback) {
 var getVoteCount = function(condition, decision, db, callback) {
 
     // get the documents collection
-    var collection = db.collection('documents');
+    var collection = db.collection('W18APPS');
 
     // find the number of `decision` occurrences
     collection.find({})
@@ -306,10 +306,10 @@ var insertBinary = function(buffer, filename, callback) {
         if (err) {
             console.log(err);
         }
-        db.collection('documents').insert(invoice, function(err, doc) {
+        db.collection('W18APPS').insert(invoice, function(err, doc) {
             console.log("Inserting image/pdf file to mongodb");
 
-            db.collection('documents').findOne({_id : filename}, function(err, doc) {
+            db.collection('W18APPS').findOne({_id : filename}, function(err, doc) {
                 if (err) {
                     console.error(err);
                 }
@@ -335,7 +335,7 @@ var sendFile = function(filename, callback) {
         if (err) {
             console.log(err);
         }
-        db.collection('documents').findOne({_id : filename}, function(err, doc) {
+        db.collection('W18APPS').findOne({_id : filename}, function(err, doc) {
             if (err) {
                 console.log(err);
             }
