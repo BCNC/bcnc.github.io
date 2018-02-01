@@ -37,7 +37,7 @@ html
                     - var mail = name['email']
                     - var year = name['year']
                     - var refer = name['refer']
-                    - if(refer != "")
+                    - if(refer != "" || refer == "NA" || refer == "na" || refer == "N/A" || refer == "n/a")
                         - refer = " (referred by " + refer + ")";
 
                     // to indicate if new entry
