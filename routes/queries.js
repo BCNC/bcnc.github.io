@@ -276,7 +276,8 @@ var getVoter = function(condition, email, db, callback) {
     };
 
 
-    console.log("Looking for doc with condition: " + collection);
+    console.log("Looking for doc with condition: " + JSON.stringify(condition));
+
 
     // Find if a user already voted for a applicant
     collection.find({

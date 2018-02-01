@@ -127,11 +127,12 @@ router.post('/removeEvent', function(req, res, next) {
 router.post('/deliberate', function(req, res, next) {
 
     console.log("Deliberating...");
-    var condition = req.body['id'];
+    var condition = {_id: req.body['id']};
+    var applicant_id = req.body['id'];
     var email = req.body['userEmail'];
 
     //
-    queries.filterVoter(condition, email, function(callback) {
+    queries.filterVoter(applicant_id, email, function(callback) {
 
         console.log("Found " + callback.length + " documents with condition: " + JSON.stringify(condition));
 
