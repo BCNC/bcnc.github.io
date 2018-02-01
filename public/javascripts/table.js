@@ -41,7 +41,7 @@ var accept = function(id) {
                     document.getElementById(id).setAttribute('class', 'accept');
                 }
                 else {
-                    document.getElementById(id).setAttribute('class', 'reject');
+                    document.getElementById(id).setAttribute('class', 'new');
                 }
             }
     });
@@ -71,7 +71,7 @@ var reject = function(id) {
                 document.getElementById(id).setAttribute('class', 'accept');
             }
             else {
-                document.getElementById(id).setAttribute('class', 'reject');
+                document.getElementById(id).setAttribute('class', 'new');
             }
         }
     });

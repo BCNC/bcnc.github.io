@@ -36,6 +36,9 @@ html
                     - var q2 = name['q2'];
                     - var mail = name['email']
                     - var year = name['year']
+                    - var refer = name['refer']
+                    - if(refer != "")
+                        - refer = " (referred by " + refer + ")";
 
                     // to indicate if new entry
                     - var status = name['status']
@@ -49,9 +52,9 @@ html
                     - console.log('net is ' + net);
                     - console.log('temp is ' + temp);
 
-                    if status == 1 && net >= 5
+                    if net >= 5
                         tr(id='#{temp}' class='accept')
-                            td=name['first']
+                            td=name['first'] + refer
                             td=name['last']
                             td=name['email']
                             td=name['year']
@@ -66,28 +69,9 @@ html
                                 p
                                     a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
                                 iframe#ifram1(src='#{link}' style="width: 100%;")
-
-                        // if we
-                    else if status == 1
-                        tr(id='#{temp}' class='reject')
-                            td=name['first']
-                            td=name['last']
-                            td=name['email']
-                            td=name['year']
-                            td=positions
-                            td=q1
-                            td=q2
-                            td
-                                button.btn.waves-effect.waves-lighten.btn-primary(id="resume-id-#{index}" onclick="accept('#{temp}');") Accept: #{ac}
-                                <br><br>
-                                button.btn.waves-effect.waves-lighten.btn-danger(id="resume-id-#{index}" onclick="reject('#{temp}');") Reject: #{re}
-                            td
-                                p
-                                    a.fancybox.pdf(href="#{link}" data-fancybox-type="iframe") Full
-                                iframe#ifram1(src='#{link}' style="width: 100%;")
-                    else if status == 0
+                    else if net < 5
                         tr(id='#{temp}' class='new')
-                            td=name['first']
+                            td=name['first'] + refer
                             td=name['last']
                             td=name['email']
                             td=name['year']
