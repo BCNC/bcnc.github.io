@@ -99,6 +99,7 @@ $(document).ready(function() {
         },
         success: function(results) {
             if(results == currentUser) {
+             // if(true) {
                 console.log(user.Name + " is logged in!");
                 // load up the table
                 $('#table').removeClass('table-hover');

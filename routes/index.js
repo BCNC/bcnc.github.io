@@ -127,9 +127,10 @@ router.post('/removeEvent', function(req, res, next) {
 router.post('/deliberate', function(req, res, next) {
 
     console.log("Deliberating...");
-    var condition = {_id: req.body['id']};
+    var condition = req.body['id'];
     var email = req.body['userEmail'];
 
+    //
     queries.filterVoter(condition, email, function(callback) {
 
         console.log("Found " + callback.length + " documents with condition: " + JSON.stringify(condition));
@@ -138,6 +139,7 @@ router.post('/deliberate', function(req, res, next) {
         if(!(callback.length > 0)) {
             console.log("Adding voter's decision...");
 
+            // if the user voted "Accept"
             if (req.body['accept'] == 1) {
 
                 queries.filter(condition, function (results) {
@@ -159,6 +161,8 @@ router.post('/deliberate', function(req, res, next) {
                     res.end(net.toString());
                 });
             }
+
+            // if the user voeted "Reject"
             else if (req.body['accept'] == 2) {
                 queries.filter(condition, function (results) {
                     var currentReject = results[0]['reject'];
@@ -185,8 +189,11 @@ router.post('/deliberate', function(req, res, next) {
                 queries.update(info, "", req.body['id']);
                 res.end('Reset');
             }
-        } else { // else this person already voted, so update their vote
+        }
 
+        // else the current officer already voted, so update their vote
+        else {
+            console.log("Looks like you voted for this person already...");
             var currentVotes = callback[0]['votes'];
 
             // find the index for the voter we need to update

@@ -275,13 +275,22 @@ var getVoter = function(condition, email, db, callback) {
         'decision': 2
     };
 
-    // Find some documents
-    collection.find({$or: [{votes: voteAccept}, {votes: voteReject}]}).toArray(function(err, docs) {
+
+    console.log("Looking for doc with condition: " + collection);
+
+    // Find if a user already voted for a applicant
+    collection.find({
+        $and : [
+            { $or: [{votes: voteAccept}, {votes: voteReject}]},
+            {_id: condition}
+            ]
+    }).toArray(function(err, docs) {
         assert.equal(err, null);
         console.log("Found records with condition " + JSON.stringify(condition) + " and voter " + email);
         console.log(docs);
         callback(docs);
     });
+
 };
 
 /* Returns the number of voters who voted `decision` */
