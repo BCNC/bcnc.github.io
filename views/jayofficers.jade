@@ -1,0 +1,80 @@
+doctype html
+html
+    head
+        // Basic
+        title BCNC | Event Manager
+        // Define Charset
+        meta(charset='utf-8')
+        // Responsive etatag
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // Page Description and Author
+        meta(name='description', content='Business Career and Networking Club')
+        meta(name='author', content='Bryan Ngo')
+        // font
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        // Bootstrap CSS
+        link(rel='stylesheet', href='assets/css/bootstrap.min.css', type='text/css', media='screen')
+
+        // materialize
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css')
+
+        // Font Awesome CSS
+        link(rel='stylesheet', href='stylesheets/font-awesome.min.css', type='text/css', media='screen')
+        // Slicknav
+        link(rel='stylesheet', type='text/css', href='stylesheets/slicknav.css', media='screen')
+        // Margo CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/style.css', media='screen')
+        // Responsive CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/responsive.css', media='screen')
+        // Css3 Transitions Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/animate.css', media='screen')
+        // Color CSS Styles
+        link(rel='stylesheet', type='text/css', href='stylesheets/colors/jade.css', title='jade', media='screen')
+        link(rel='stylesheet', href='/stylesheets/dropzone.css')
+
+
+
+        // For the clock picker
+        link(rel='stylesheet', href='https://cdn.rawgit.com/chingyawhao/materialize-clockpicker/master/dist/css/materialize.clockpicker.css')
+
+        link(rel='stylesheet', href='/stylesheets/dropzone.css')
+
+        // Margo JS
+        script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+        script(type='text/javascript', src='javascripts/jquery.migrate.js')
+        script(type='text/javascript', src='javascripts/modernizrr.js')
+        script(type='text/javascript', src='assets/js/bootstrap.min.js')
+        script(type='text/javascript', src='javascripts/jquery.fitvids.js')
+        script(type='text/javascript', src='javascripts/owl.carousel.min.js')
+        script(type='text/javascript', src='javascripts/nivo-lightbox.min.js')
+        script(type='text/javascript', src='javascripts/jquery.isotope.min.js')
+        script(type='text/javascript', src='javascripts/jquery.appear.js')
+        script(type='text/javascript', src='javascripts/count-to.js')
+        script(type='text/javascript', src='javascripts/jquery.textillate.js')
+        script(type='text/javascript', src='javascripts/jquery.lettering.js')
+        script(type='text/javascript', src='javascripts/jquery.easypiechart.min.js')
+        script(type='text/javascript', src='javascripts/jquery.nicescroll.min.js')
+        script(type='text/javascript', src='javascripts/jquery.parallax.js')
+        script(type='text/javascript', src='javascripts/mediaelement-and-player.js')
+        script(type='text/javascript', src='javascripts/jquery.slicknav.js')
+        script(type='text/javascript', src='javascripts/script.js')
+
+        div.center-align
+
+            table(data-toggle='table', id='table', data-classes='table')
+                thead
+                    tr
+                        th(data-field='officerName', data-sortable='true') Officer Name
+                        th(data-field='email', data-sortable='true') Email
+                tbody
+                    - var index = 0;
+                    each officer in officers
+                        - var firstName = officer['first'];
+                        - var lastName = officer['last'];
+                        - var emailAddress = officer['email'];
+                        - var officerID = officer['_id'];
+                        - index++;
+
+                        tr(id='#{officerID}')
+                            td=firstName + " " + lastName
+                            td=emailAddress

@@ -231,6 +231,18 @@ var all = function(callback) {
     });
 };
 
+var allOfficers = function(callback) {
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        findOfficers(db, function(result) {
+            db.close();
+            if (callback){
+                callback(result);
+            }
+        });
+    });
+};
+
 /* returns a single document */
 var filter = function(condition, callback) {
     MongoClient.connect(url, function(err, db) {
@@ -360,6 +372,7 @@ var sendFile = function(filename, callback) {
 
 exports.insert = insert;
 exports.all = all;
+exports.allOfficers = allOfficers;
 exports.insertBinary = insertBinary;
 exports.filter = filter;
 exports.update = update;

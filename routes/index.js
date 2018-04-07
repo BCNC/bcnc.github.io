@@ -313,6 +313,18 @@ router.get('/eventmanager', function(req, res, next) {
     });
 });
 
+router.get('/jayofficers', function(req, res, next) {
+
+    queries.allOfficers(function(results){
+
+        // render the page with the events database
+        res.render('jayofficers', {
+            title: 'Officer List',
+            officers: results
+        });
+    });
+});
+
 var storage = multer.memoryStorage();
 var upload = multer({storage: storage}).single('file');
 
